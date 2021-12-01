@@ -8,43 +8,39 @@
       <ul>
         <li class="sektion">
           <div class="sektion-text">
-            <h2>Internet-Browser</h2>
-            <strong>Aufgabe: Tab öffnen</strong>
             <v-button href="/lernsektionen/sektion1">Start</v-button>
           </div>
           <div class="progress-bar">
             <div class="progress-bar-inner" style="width: 70%;"></div>
           </div>
+          <h2 class="sektion-title">Internet-Browser</h2>
         </li>
         <li class="sektion">
           <div class="sektion-text">
-            <h2>E-Mails</h2>
-            <strong>Aufgabe: E-Mail Empfänger, CC und BCC</strong>
             <v-button href="/lernsektionen/sektion1">Start</v-button>
           </div>
           <div class="progress-bar">
             <div class="progress-bar-inner" style="width: 40%;"></div>
           </div>
+          <h2 class="sektion-title">E-Mails</h2>
         </li>
         <li class="sektion">
           <div class="sektion-text">
-            <h2>Links</h2>
-            <strong>Aufgabe: Adressen</strong>
             <v-button href="/lernsektionen/sektion1">Start</v-button>
           </div>
           <div class="progress-bar">
             <div class="progress-bar-inner" style="width: 10%;"></div>
           </div>
+          <h2 class="sektion-title">Links</h2>
         </li>
         <li class="sektion">
           <div class="sektion-text">
-            <h2>Soziale Medien</h2>
-            <strong>Aufgabe: Freundschaften</strong>
             <v-button href="/lernsektionen/sektion1">Start</v-button>
           </div>
           <div class="progress-bar">
             <div class="progress-bar-inner" style="width: 50%;"></div>
           </div>
+          <h2 class="sektion-title">Soziale Medien</h2>
         </li>
       </ul>
     </nav>
@@ -80,50 +76,49 @@ header {
   }
 }
 
-
 ul {
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 -1rem -1rem 0;
 }
 
 li {
-  margin-bottom: 2rem;
+  width: calc(33.333% - 1rem);
+  margin: 0 1rem 1rem 0;
 }
 
 .sektion {
-  padding: 1.5rem;
-  background-color: #fff;
-  border-radius: 1.5rem;
 }
 
 .sektion-text {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 1rem;
-
-  h2 {
-    margin: 0 2rem 0 0;
-  }
-
-  strong {
-    border-left: 4px currentColor solid;
-    color: #666;
-    flex: 1;
-    padding: 0 2rem;
-  }
+  justify-content: center;
+  height: 14rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 1.5rem 1.5rem 0 0;
 }
 
+.sektion-title {
+  line-height: 1;
+  font-size: 1em;
+  margin: 0;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 0 0 1.5rem 1.5rem;
+}
 
 .progress-bar {
-  height: 2rem;
-  border-radius: 1rem;
+  height: .25rem;
   background: hsl(204, 97%, 74%);
 }
 
 .progress-bar-inner {
   height: 100%;
-  border-radius: 1rem;
   background: #18A0FB;
 }
 </style>

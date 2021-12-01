@@ -1,9 +1,22 @@
 <template>
   <main-layout>
     <Carousal class="carousal" v-slot="{currentSlide}">
-      <Slide v-for="(slide, index) in carousalSlides" :key="index">
-        <div v-show="currentSlide === index + 1" class="slide-info">
-          <img :src="require(`../assets/img/${slide}.png`)">
+      <Slide>
+        <div v-show="currentSlide === 1" class="slide-info">
+          <img :src="require(`../assets/img/img.png`)">
+          <p>slider 1</p>
+        </div>
+      </Slide>
+      <Slide>
+        <div v-show="currentSlide === 2" class="slide-info">
+          <img :src="require(`../assets/img/video.png`)">
+          <p>slider 2</p>
+        </div>
+      </Slide>
+      <Slide>
+        <div v-show="currentSlide === 3" class="slide-info">
+          <img :src="require(`../assets/img/Gif.png`)">
+          <p>slider 3</p>
         </div>
       </Slide>
     </Carousal>
@@ -35,7 +48,7 @@
   .carousal{
     position: relative;
     max-height: 100%;
-    height: 100%;
+    height: 90%;
     .slide-info{
       position: absolute;
       top: 0;
@@ -43,16 +56,18 @@
       width: 100%;
       max-height: 100%;
       height: 100%;
+      background-color: #fff;
 
       img{
         display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
+        margin-left: auto;
+        margin-right: auto;
         width: 70%;
+        margin-top: 50px;
+      }
+
+      p{
+        text-align: center;
       }
     }
   }

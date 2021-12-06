@@ -3,7 +3,7 @@
     <Carousal class="carousal" v-slot="{currentSlide}">
       <Slide v-for="(slide, index) in carousalSlides" :key="index">
         <div v-show="currentSlide === index + 1" class="slide-info">
-          <img :src="require(`../assets/img/${slide}.png`)">
+          <img alt="Slide" :src="require(`../assets/img/${slide}.png`)">
         </div>
       </Slide>
     </Carousal>

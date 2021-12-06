@@ -20,9 +20,10 @@ export default {
 <style scoped>
 .page-wrapper {
   height: 100%;
+  border-bottom: 1.5rem solid #408802;
+  padding: 1rem;
 }
 .main {
-  padding: 1rem;
   height: 100%;
 }
 </style>

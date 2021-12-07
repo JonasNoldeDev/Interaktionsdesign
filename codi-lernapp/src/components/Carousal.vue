@@ -4,7 +4,7 @@
 
       <!-- Navigation -->
       <div class="navigation">
-          <div class="toggle-page left">
+          <div v-show="currentSlide>1" class="toggle-page left">
               <span @click="prevSlide">zurück</span>
           </div>
           <div class="toggle-page right">

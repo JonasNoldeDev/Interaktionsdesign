@@ -48,7 +48,7 @@
       const carousalSlides = ['img', 'Gif', 'video']
 
       return{ carousalSlides };
-    }
+    },
   }
 </script>
 

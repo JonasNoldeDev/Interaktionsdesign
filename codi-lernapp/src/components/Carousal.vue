@@ -5,15 +5,15 @@
       <!-- Navigation -->
       <div class="navigation">
           <div class="toggle-page left">
-              <i @click="prevSlide" class="fas fa-chevron-left"></i>
+              <span @click="prevSlide">zurück</span>
           </div>
           <div class="toggle-page right">
-              <i @click="nextSlide" class="fas fa-chevron-right"></i>
+              <span @click="nextSlide">weiter</span>
           </div>
       </div>
 
       <!-- Pagination -->
-      <div class="pagination">
+      <!--<div class="pagination">
           <span 
             @click="GotoSlide(index)"
             v-for="(slide, index) in getSlideCount" 
@@ -22,7 +22,7 @@
           >
 
           </span>
-      </div>
+      </div>-->
   </div>
 </template>
 
@@ -87,14 +87,14 @@ export default {
             justify-content: flex-end;
         }
 
-        i{
+        span{
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px; 
+            border-radius: 1.5rem;
+            width: 110px;
+            height: 50px; 
             background-color: #FFAA00;
             color: #fff;
         }

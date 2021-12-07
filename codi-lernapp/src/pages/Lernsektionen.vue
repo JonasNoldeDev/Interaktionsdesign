@@ -8,6 +8,7 @@
       <ul>
         <li class="sektion">
           <div class="sektion-text">
+            <img src="./../assets/img/sections/SektionSuchmaschinen.jpg" alt="">
             <v-button href="/lernsektionen/sektion1">Start</v-button>
           </div>
           <div class="progress-bar">
@@ -89,10 +90,8 @@ li {
   margin: 0 1rem 1rem 0;
 }
 
-.sektion {
-}
-
 .sektion-text {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,6 +100,21 @@ li {
   padding: 1rem;
   background-color: #fff;
   border-radius: 1.5rem 1.5rem 0 0;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+  }
+
+  a {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .sektion-title {

@@ -35,14 +35,14 @@ a {
   display: inline-block;
   text-decoration: none;
   padding: 1em 1.5em;
-  border-radius: 1.5rem;
+  border-radius: var(--border-radius);
 }
 
 .orange {
-  background-color: #FF9900;
+  background-color: var(--color-orange);
 }
 
 .blue {
-  background-color: #18A0FB;
+  background-color: var(--color-blue);
 }
 </style>

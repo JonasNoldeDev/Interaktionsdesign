@@ -1,8 +1,19 @@
 <template>
     <main-layout style="border: none; padding: 0;">
+        <header>
+            <v-button href="/lernsektionen">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-left"
+                     class="svg-inline--fa fa-angle-left fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 256 512">
+                    <path fill="currentColor"
+                          d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path>
+                </svg>
+            </v-button>
+        </header>
         <img class="bella" src="./../assets/img/characters/Bella.png" alt="Bella">
-            <img class="codi" v-if="showCodi" alt="Codi" src="./../assets/img/characters/codi/999.png">
-            <img class="bubble" v-if="showBubble" alt="Super" src="./../assets/img/characters/codi/Codi_richtig_Sprechblase.png">
+        <img class="codi" v-if="showCodi" alt="Codi" src="./../assets/img/characters/codi/999.png">
+        <img class="bubble" v-if="showBubble" alt="Super"
+             src="./../assets/img/characters/codi/Codi_richtig_Sprechblase.png">
         <div class="side">
             <div class="all">
                 <div class="wood_up_short">
@@ -69,7 +80,7 @@
                         </div>
                         <div id="7" class="position4">
                             <input id="d5" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                                  @input="submit">
+                                   @input="submit">
                         </div>
                         <div id="8" class="position4">
                             <input id="d6" class="size" alt="Eingabefeld" type="text" maxlength="1"
@@ -78,6 +89,8 @@
                     </div>
                 </div>
             </div>
+            <v-button :size = "'small'" href="/lernsektionen/sektion1" class="btnback">Zurück</v-button>
+            <v-button :size = "'small'" href="/lernsektionen" class="btnready">Fertig</v-button>
         </div>
     </main-layout>
 </template>
@@ -85,13 +98,15 @@
 <script>
 
     import MainLayout from '../layouts/Main.vue'
+    import VButton from "../components/VButton";
 
     export default {
         name: 'Crossword',
         components: {
             MainLayout,
+            VButton
         },
-        data:() => {
+        data: () => {
             return {
                 showCodi: true,
                 showBubble: false
@@ -104,8 +119,8 @@
                     this.showCodi = false;
                     this.showBubble = true;
                     setTimeout(() => {
-                        this.showBubble = false;
-                        this.showCodi = true;
+                            this.showBubble = false;
+                            this.showCodi = true;
                         },
                         2500);
                 }
@@ -114,7 +129,30 @@
     };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+    header {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        margin: 1rem 0 2rem 1rem;
+
+        svg {
+            display: block;
+            width: 1em;
+            height: 1em;
+        }
+    }
+
+    .btnback {
+        position: absolute;
+        left: 3rem;
+    }
+
+    .btnready {
+        position: absolute;
+        right: 3rem;
+    }
 
     .size {
         height: 3rem;

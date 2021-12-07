@@ -9,12 +9,12 @@
         <li class="sektion">
           <div class="sektion-text">
             <img src="./../assets/img/sections/SektionSuchmaschinen.jpg" alt="">
-            <v-button href="/lernsektionen/crossword">Start</v-button>
+            <v-button href="/lernsektionen/sektion1">Start</v-button>
           </div>
           <div class="progress-bar">
             <div class="progress-bar-inner" style="width: 70%;"></div>
           </div>
-          <h2 class="sektion-title">Internet-Browser</h2>
+          <h2 class="sektion-title">Suchmaschinen</h2>
         </li>
         <li class="sektion">
           <div class="sektion-text">

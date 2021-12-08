@@ -11,16 +11,32 @@
         </div>
       </Slide>
       <Slide>
-        <div v-show="currentSlide === 2" class="slide-info">
-          <img :src="require(`../assets/img/video.png`)">
-          <p>slider 2</p>
+        <div v-show="currentSlide === 2" class="slide-info speech-bubble">
+          <p>Internet Browser sind Computerprogramme, die Webseiten im Internet darstellen können</p>
           <div class="left-point"></div>
         </div>
       </Slide>
       <Slide>
         <div v-show="currentSlide === 3" class="slide-info">
-          <img :src="require(`../assets/img/Gif.png`)">
-          <p>slider 3</p>
+          <img :src="require(`../assets/img/Chrome.png`)">
+          <p>Der meistgenutzte Browser ist "Google Chrome"</p>
+          <div class="left-point"></div>
+        </div>
+      </Slide>
+      <Slide>
+        <div v-show="currentSlide === 4" class="slide-info">
+          <div class="row">
+            <div class="column">
+              <img :src="require(`../assets/img/Safari.png`)">
+            </div>
+            <div class="column">
+              <img :src="require(`../assets/img/Firefox.png`)">
+            </div>
+            <div class="column">
+              <img :src="require(`../assets/img/Edge.png`)">
+            </div>
+          </div>
+          <p>Aber neben Google Chrome gibt es noch andere Browser wie "Safari", "Firefox", "Edge" und viele andere</p>
           <div class="left-point"></div>
         </div>
       </Slide>
@@ -77,17 +93,27 @@
       height: 50%;
       background-color: #fff;
       border-radius: 2rem;
+      padding: 0 30px;
 
       img{
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 70%;
+        width: 25%;
         margin-top: 50px;
       }
 
       p{
         text-align: center;
+      }
+      .row {
+        display: flex;
+      }
+
+      /* Create three equal columns that sits next to each other */
+      .column {
+        flex: 33.33%;
+        padding: 5px;
       }
     }
     .speech-bubble{

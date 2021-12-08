@@ -36,7 +36,7 @@ export default {
         //next Slide
         const nextSlide = () => {
             if (currentSlide.value === getSlideCount.value){
-                currentSlide.value = 3;
+                currentSlide.value = 4;
                 return;
             }
             currentSlide.value += 1;

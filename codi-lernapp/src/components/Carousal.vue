@@ -29,39 +29,40 @@
 <script>
 import { ref, onMounted } from "vue";
 export default {
-  setup() {
-    const currentSlide = ref(1);
-    const getSlideCount = ref(null);
+    setup() {
+        const currentSlide = ref(1);
+        const getSlideCount = ref(null);
 
-    //next Slide
-    const nextSlide = () => {
-      if (currentSlide.value === getSlideCount.value) {
-        currentSlide.value = 3;
-        window.location.href = "/lernsektionen/crossword";
-        return;
-      }
-      currentSlide.value += 1;
-    };
+        //next Slide
+        const nextSlide = () => {
+            if (currentSlide.value === getSlideCount.value){
+                currentSlide.value = 4;
+                window.location.href = "/lernsektionen/crossword";
+                return;
+            }
+            currentSlide.value += 1;
+        };
 
-    //prev Slide
-    const prevSlide = () => {
-      if (currentSlide.value === 1) {
-        currentSlide.value = 1;
-        return;
-      }
-      currentSlide.value -= 1;
-    };
+        //prev Slide
+        const prevSlide = () => {
+            if (currentSlide.value === 1){
+                currentSlide.value = 1;
+                return;
+            }
+            currentSlide.value -= 1;
+        }
 
-    const GotoSlide = (index) => {
-      currentSlide.value = index + 1;
-    };
+        const GotoSlide = (index) => {
+            currentSlide.value = index + 1;
+        }
 
-    onMounted(() => {
-      getSlideCount.value = document.querySelectorAll(".slide").length;
-    });
 
-    return { currentSlide, nextSlide, prevSlide, getSlideCount, GotoSlide };
-  },
+        onMounted(() => {
+            getSlideCount.value = document.querySelectorAll('.slide').length;
+        })
+
+        return { currentSlide, nextSlide, prevSlide, getSlideCount, GotoSlide };
+    },
 };
 </script>
 

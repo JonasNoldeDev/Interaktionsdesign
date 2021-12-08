@@ -146,12 +146,14 @@
 
     .btnback {
         position: absolute;
-        left: 3rem;
+        left: 1rem;
+        bottom: 1rem;
     }
 
     .btnready {
         position: absolute;
-        right: 3rem;
+        right: 1rem;
+        bottom: 1rem;
     }
 
     .size {

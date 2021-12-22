@@ -1,5 +1,15 @@
 <template>
     <main-layout style="border: none; padding: 0;">
+        <div class="bg">
+            <Row></Row>
+            <Column></Column>
+        </div>
+    </main-layout>
+</template>
+
+<!--
+<template>
+    <main-layout style="border: none; padding: 0;">
         <header>
             <v-button href="/lernsektionen">
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-left"
@@ -94,17 +104,22 @@
         </div>
     </main-layout>
 </template>
-
+-->
 <script>
 
     import MainLayout from '../layouts/Main.vue'
-    import VButton from "../components/VButton";
+    //import VButton from "../components/VButton";
+
+    import Column from "../components/Column";
+    import Row from "../components/Row";
 
     export default {
         name: 'Crossword',
         components: {
+            Column,
+            Row,
             MainLayout,
-            VButton
+            //VButton
         },
         data: () => {
             return {
@@ -154,6 +169,12 @@
         position: absolute;
         right: 1rem;
         bottom: 1rem;
+    }
+
+    .bg {
+        background-image: url(../assets/img/Kreuzwortraetsel.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
     }
 
     .size {

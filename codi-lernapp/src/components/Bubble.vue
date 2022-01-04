@@ -1,6 +1,16 @@
 <template>
   <div class="bubble" :class="[ type, size, orientation, { 'is-visible': visible } ]">
     <slot />
+    <nav class="bubble-nav" v-if="prev || next">
+      <button @click="$emit('prev')" v-if="prev">
+        <svg aria-hidden="true" focusable="false" role="img" viewBox="0 0 256 512"><path fill="currentColor" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
+        Zurück
+      </button>
+      <button @click="$emit('next')" v-if="next" style="margin-left: auto;">
+        Weiter
+        <svg aria-hidden="true" focusable="false" role="img" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>
+      </button>
+    </nav>
   </div>
 </template>
 
@@ -23,6 +33,14 @@ export default {
       type: Boolean,
       default: true,
     },
+    prev: {
+      type: Boolean,
+      default: false,
+    },
+    next: {
+      type: Boolean,
+      default: false,
+    }
   },
   methods: {
   },
@@ -32,7 +50,7 @@ export default {
 <style lang="scss" scoped>
 .bubble {
   display: inline-block;
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   margin-bottom: 1rem;
   color: #fff;
   background-color: var(--color-orange);
@@ -55,17 +73,7 @@ export default {
     visibility: unset;
   }
 
-  ::v-slotted(button) {
-    font: inherit;
-    color: inherit;
-    padding: 0;
-    background: 0;
-    border: 0;
-    border-radius: 0;
-  }
-
-  ::v-slotted(p),
-  ::v-slotted(button) {
+  ::v-slotted(p) {
     margin: 0;
 
     &:not(:first-child) {
@@ -90,6 +98,31 @@ export default {
     border-bottom: .5rem solid transparent;
     left: calc(var(--border-radius) + 20%);
     top: 100%;
+  }
+}
+
+.bubble-nav {
+  display: flex;
+  margin-top: 1.5rem;
+
+  button {
+    font: inherit;
+    font-weight: 500;
+    color: inherit;
+    margin: 0;
+    background: 0;
+    border: 0;
+    background-color: var(--color-orange-dark);
+    padding: .25em .75em;
+    border-radius: var(--border-radius);
+  }
+
+  svg {
+    display: inline-block;
+    width: .75em;
+    height: 1em;
+    position: relative;
+    top: .125em;
   }
 }
 </style>

@@ -12,22 +12,22 @@
         </div>
         <div class="row_5">
             <input id="b1" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="submit">
+                   @input="$emit('userinput')">
             <input id="b2" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="submit">
-            <input id="b3/a2" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="submit">
+                   @input="$emit('userinput')">
+            <input id="b3" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                   @input="$emit('userinput')">
             <input id="b4" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="submit">
+                   @input="$emit('userinput')">
             <input id="b5" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="submit">
+                   @input="$emit('userinput')">
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Row"
+        name: "Row",
     }
 </script>
 
@@ -46,6 +46,7 @@
         background-size: 36%;
         padding: 1.5rem 1.5rem 1.5rem 2rem;
     }
+
     .size {
         height: 3rem;
         width: 3rem;

@@ -2,13 +2,13 @@
     <div>
         <div class="row_4">
             <input class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="submit">
+                   @input="$emit('userinput')">
             <input class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="submit">
+                   @input="$emit('userinput')">
             <input class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="submit">
+                   @input="$emit('userinput')">
             <input class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="submit">
+                   @input="$emit('userinput')">
         </div>
         <div class="row_5">
             <input id="b1" class="size" alt="Eingabefeld" type="text" maxlength="1"

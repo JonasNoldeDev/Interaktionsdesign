@@ -3,19 +3,19 @@
         <div style="margin-left: -18rem; padding-top: 1rem">
             <div class="position4" style="margin-top: 1rem">
                 <input class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
+                       @input="$emit('userinput')">
             </div>
             <div class="position4">
                 <input class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
+                       @input="$emit('userinput')">
             </div>
             <div class="position4">
                 <input class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
+                       @input="$emit('userinput')">
             </div>
             <div class="position4">
                 <input class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
+                       @input="$emit('userinput')">
             </div>
         </div>
     </div>
@@ -25,23 +25,23 @@
         <div style="margin-left: -18rem; padding-top: 1rem">
             <div id="5" class="position4" style="margin-top: 1rem">
                 <input id="d3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
+                       @input="$emit('userinput')">
             </div>
             <div id="7" class="position4">
                 <input id="d5" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
+                       @input="$emit('userinput')">
             </div>
             <div id="8" class="position4">
                 <input id="d6" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
+                       @input="$emit('userinput')">
             </div>
             <div class="position4">
                 <input class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
+                       @input="$emit('userinput')">
             </div>
             <div class="position4">
                 <input class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
+                       @input="$emit('userinput')">
             </div>
         </div>
     </div>

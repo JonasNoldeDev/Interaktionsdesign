@@ -195,25 +195,6 @@
         background-size: 100%;
     }
 
-    .size {
-        height: 3rem;
-        width: 3rem;
-        text-align: center;
-        font-size: 25px;
-        border-radius: 5px;
-        margin: 0.5rem;
-    }
-
-    .side {
-        min-height: 100%;
-        height: 100%;
-        border-left: 13rem solid #408802;
-        border-right: 13rem solid #408802;
-    }
-
-    .all {
-        padding-top: 5rem;
-    }
 
     .wood_across {
         background-image: url(../assets/img/wood_across.png);

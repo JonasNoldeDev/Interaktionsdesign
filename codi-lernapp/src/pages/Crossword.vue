@@ -1,5 +1,5 @@
 <template>
-    <main-layout style="border: none; padding: 0;">
+    <main-layout class="bg" style="border: none; padding: 0;">
         <header>
             <v-button href="/lernsektionen">
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-left"
@@ -15,11 +15,73 @@
         <img class="bubble" v-if="showBubble" alt="Super"
              src="./../assets/img/characters/codi/Codi_richtig_Sprechblase.png">
 
-
-        <div class="bg">
-            <Row v-on:userinput="submit"></Row>
-            <Column></Column>
+        <div class="row_7 position2">
+            <input id="a1" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                   @inpu="$emit('userinput')">
+            <input id="a2" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                   @input="$emit('userinput')">
+            <input id="a3" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                   @input="$emit('userinput')">
+            <input id="a4" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                   @input="$emit('userinput')">
+            <input id="a5/b1" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                   @input="$emit('userinput')">
+            <input id="a6" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                   @input="$emit('userinput')">
+            <input id="a7" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                   @input="$emit('userinput')">
         </div>
+
+        <div class="col_12 position3">
+            <div id="5" class="position4" style="margin-top: 1rem">
+                <input id="b2" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       @input="$emit('userinput')">
+            </div>
+            <div id="7" class="position4">
+                <input id="b3" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       @input="$emit('userinput')">
+            </div>
+            <div id="8" class="position4">
+                <input id="b4" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       @input="$emit('userinput')">
+            </div>
+            <div class="position4">
+                <input id="b5" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       @input="$emit('userinput')">
+            </div>
+            <div class="position4">
+                <input id="b6" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       @input="$emit('userinput')">
+            </div>
+            <div class="position4">
+                <input id="b7" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       @input="$emit('userinput')">
+            </div>
+            <div class="position4">
+                <input id="bb84" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       @input="$emit('userinput')">
+            </div>
+            <div class="position4">
+                <input id="b9" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       @input="$emit('userinput')">
+            </div>
+            <div class="position4">
+                <input id="b10" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       @input="$emit('userinput')">
+            </div>
+            <div class="position4">
+                <input id="b11" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       @input="$emit('userinput')">
+            </div>
+            <div class="position4">
+                <input id="b12" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       @input="$emit('userinput')">
+            </div>
+        </div>
+        <!--
+            <Row v-on:userinput="submit"></Row>
+            <Column style="margin-left: 28rem"></Column>
+            -->
     </main-layout>
 </template>
 
@@ -126,14 +188,14 @@
     import MainLayout from '../layouts/Main.vue'
     import VButton from "../components/VButton";
 
-    import Column from "../components/Column";
-    import Row from "../components/Row";
+    //import Column from "../components/Column";
+    //import Row from "../components/Row";
 
     export default {
         name: 'Crossword',
         components: {
-            Column,
-            Row,
+            //Column,
+            //Row,
             MainLayout,
             VButton
         },
@@ -195,6 +257,33 @@
         background-size: 100%;
     }
 
+    .size {
+        height: 3rem;
+        width: 3rem;
+        text-align: center;
+        font-size: 25px;
+        border-radius: 5px;
+        margin: 0.5rem;
+    }
+
+    .row_7 {
+        background-image: url(../assets/img/Holz_mitSchatten_7.png);
+        background-repeat: no-repeat;
+        background-size: 60%;
+        padding: 1.5rem;
+    }
+
+    .col_12 {
+        background-image: url(../assets/img/Holz_mitSchatten_up12.png);
+        background-repeat: no-repeat;
+        background-size: 17%;
+        padding-bottom: 1rem;
+    }
+
+    .position4 {
+        margin-left: 1rem;
+    }
+
 
     .wood_across {
         background-image: url(../assets/img/wood_across.png);
@@ -240,7 +329,7 @@
     }
 
     .position1 {
-        margin-left: 4rem;
+
     }
 
     .position2 {
@@ -248,11 +337,8 @@
     }
 
     .position3 {
-        margin-left: 4.5rem;
-    }
-
-    .position4 {
-        margin-left: 21rem;
+        margin-left: 30rem;
+        margin-top: -2.5rem;
     }
 
 

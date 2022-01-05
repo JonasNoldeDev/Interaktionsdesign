@@ -4,7 +4,13 @@
     <img
       v-show="character === 'codi' && pose === 'normal'"
       class="character codi pose-normal"
-      src="./../assets/img/characters/codi/999.png"
+      src="./../assets/img/characters/codi/Papagai_freude_gross.png"
+      alt="Codi"
+    />
+    <img
+      v-show="character === 'codi' && pose === 'explaining'"
+      class="character codi pose-explaining"
+      src="./../assets/img/characters/codi/Papagai_erklaerend_gross.png"
       alt="Codi"
     />
     <img
@@ -33,40 +39,9 @@ export default {
       type: String,
       default: "left",
     },
-  },
-  data: () => ({
-    pose: "normal",
-  }),
-  methods: {
-    switchPose(pose, switchBackIn = -1) {
-      if (this.pose === pose) return;
-      if (this.character !== "codi") return;
-
-      let oldPose = this.pose;
-
-      switch (pose) {
-        case "normal":
-          this.pose = "normal";
-          break;
-
-        case "wrong":
-          this.pose = "wrong";
-          break;
-  
-        case "right":
-          this.pose = "right";
-          break;
-
-        default:
-          console.log("Unknown character pose.");
-          break;
-      }
-
-      if (switchBackIn > 0) {
-        setTimeout(() => {
-          this.pose = oldPose;
-        }, switchBackIn * 1000);
-      }
+    pose: {
+      type: String,
+      default: "normal",
     },
   },
 };

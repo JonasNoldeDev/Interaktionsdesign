@@ -3,7 +3,7 @@
         <header>
             <v-button href="/lernsektionen">
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-left"
-                     class="svg-inline--fa fa-angle-left fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg"
+                     role="img" xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 256 512">
                     <path fill="currentColor"
                           d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path>
@@ -12,83 +12,84 @@
         </header>
         <img class="bella" src="./../assets/img/characters/Bella.png" alt="Bella">
         <img class="codi" v-if="showCodi" alt="Codi" src="./../assets/img/characters/codi/999.png">
+        <img class="codi" v-if="showFalse" alt="Codi" src="./../assets/img/characters/Bella.png">
         <img class="bubble" v-if="showBubble" alt="Super"
              src="./../assets/img/characters/codi/Codi_richtig_Sprechblase.png">
 
         <div class="row_7 position1">
             <input id="a1" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @inpu="$emit('userinput')">
+                   @input="submit">
             <input id="a2" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="$emit('userinput')">
+                   @input="submit">
             <input id="a3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="$emit('userinput')">
+                   @input="submit">
             <input id="a4" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="$emit('userinput')">
+                   @input="submit">
             <input id="a5/b1" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="$emit('userinput')">
+                   @input="submit">
             <input id="a6" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="$emit('userinput')">
+                   @input="submit">
             <input id="a7" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="$emit('userinput')">
+                   @input="submit">
         </div>
 
         <div class="col_12 position2">
             <div id="5" class="position4" style="margin-top: 1rem">
                 <input id="b2" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="$emit('userinput')">
+                       @input="submit">
             </div>
             <div id="7" class="position4">
                 <input id="b3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="$emit('userinput')">
+                       @input="submit">
             </div>
             <div id="8" class="position4">
                 <input id="b4" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="$emit('userinput')">
+                       @input="submit">
             </div>
 
             <div class="row_3 position3">
 
                 <input id="c1" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="$emit('userinput')">
+                       @input="submit">
                 <input id="b5/c2" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="$emit('userinput')">
+                       @input="submit">
                 <input id="c3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="$emit('userinput')">
+                       @input="submit">
             </div>
 
             <div class="position4">
                 <input id="b6" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="$emit('userinput')">
+                       @input="submit">
             </div>
             <div class="position4">
                 <input id="b7" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="$emit('userinput')">
+                       @input="submit">
             </div>
             <div class="position4">
                 <input id="bb84" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="$emit('userinput')">
+                       @input="submit">
             </div>
             <div class="position4">
                 <input id="b9" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="$emit('userinput')">
+                       @input="submit">
             </div>
             <div class="row_4 position3">
                 <input id="d1" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="$emit('userinput')">
+                       @input="submit">
                 <input id="d2/b10" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="$emit('userinput')">
+                       @input="submit">
                 <input id="d3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="$emit('userinput')">
+                       @input="submit">
                 <input id="d4" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="$emit('userinput')">
+                       @input="submit">
             </div>
             <div class="position4">
                 <input id="b11" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="$emit('userinput')">
+                       @input="submit">
             </div>
             <div class="position4">
                 <input id="b12" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="$emit('userinput')">
+                       @input="submit">
             </div>
         </div>
     </main-layout>
@@ -96,140 +97,73 @@
 
 
 <!--
-<template>
-    <main-layout style="border: none; padding: 0;">
-        <header>
-            <v-button href="/lernsektionen">
-                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-left"
-                     class="svg-inline--fa fa-angle-left fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg"
-                     viewBox="0 0 256 512">
-                    <path fill="currentColor"
-                          d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path>
-                </svg>
-            </v-button>
-        </header>
-        <img class="bella" src="./../assets/img/characters/Bella.png" alt="Bella">
-        <img class="codi" v-if="showCodi" alt="Codi" src="./../assets/img/characters/codi/999.png">
-        <img class="bubble" v-if="showBubble" alt="Super"
-             src="./../assets/img/characters/codi/Codi_richtig_Sprechblase.png">
-        <div class="side">
-            <div class="all">
-                <div class="wood_up_short">
-                    <div style="margin-left: -12rem; padding-top: 3rem; padding-bottom: 3rem">
-                        <div id="1">
-                            <input id="a1" class="position2
-                             size" alt="Eingabefeld" type="text" maxlength="1"
-                                   @input="submit">
-                        </div>
-                        <div class="wood_across" style="margin-left: 1rem">
-                            <div id="2" class="position1">
-                                <input id="b1" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                                       @input="submit">
-                                <input id="b2" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                                       @input="submit">
-                                <input id="b3/a2" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                                       @input="submit">
-                                <input id="b4" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                                       @input="submit">
-                            </div>
-                        </div>
-                        <div id="0">
-                            <input id="a3" class="position2 size" alt="Eingabefeld" type="text" maxlength="1"
-                                   @input="submit">
-                        </div>
-                        <div id="3">
-                            <input id="a4" class="size position2" alt="Eingabefeld" type="text" maxlength="1"
-                                   @input="submit">
-                            <input id="d1" class="size position3" alt="Eingabefeld" type="text" maxlength="1"
-                                   @input="submit">
-                        </div>
 
-                        <div class="wood_across" style="margin-left: 9rem">
-                            <div id="4" class="position2" style="margin-left: 4rem">
-                                <input id="c1" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                                       @input="submit">
-                                <input id="c2" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                                       @input="submit">
-                                <input id="c3/d2" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                                       @input="submit">
-                                <input id="c4" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                                       @input="submit">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wood_up_long">
-                    <div style="margin-left: -18rem; padding-top: 10rem">
-                        <div id="5" class="position4" style="margin-top: 1rem">
-                            <input id="d3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                                   @input="submit">
-                        </div>
-                        <div class="wood_across" style="margin-left: 17rem">
-                            <div id="6" class="position4" style="margin-left: 4rem">
-                                <input id="d4/e1" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                                       @input="submit">
-                                <input id="e2" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                                       @input="submit">
-                                <input id="e3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                                       @input="submit">
-                                <input id="e4" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                                       @input="submit">
-                            </div>
-                        </div>
-                        <div id="7" class="position4">
-                            <input id="d5" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                                   @input="submit">
-                        </div>
-                        <div id="8" class="position4">
-                            <input id="d6" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                                   @input="submit">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <v-button :size = "'small'" href="/lernsektionen/sektion1" class="btnback">Zurück</v-button>
-            <v-button :size = "'small'" href="/lernsektionen" class="btnready">Fertig</v-button>
-        </div>
-    </main-layout>
-</template>
+<input id="b12" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                        @input="$emit('userinput')">
 -->
+
 <script>
 
     import MainLayout from '../layouts/Main.vue'
     import VButton from "../components/VButton";
 
-    //import Column from "../components/Column";
-    //import Row from "../components/Row";
+    let a1;
+    let a2;
+    let a3;
+    let a4;
+    let a5;
+    let a6;
+    let a7;
 
     export default {
         name: 'Crossword',
         components: {
-            //Column,
-            //Row,
             MainLayout,
             VButton
         },
         data: () => {
             return {
                 showCodi: true,
-                showBubble: false
+                showFalse: false,
+                showBubble: false,
+                currentStep: 0
             }
         },
         methods: {
             submit: function () {
-                if (document.getElementById('b1').value.toLowerCase() === 'm' && document.getElementById('b2').value.toLowerCase() === 'a'
-                    && document.getElementById('b3').value.toLowerCase() === 'i' && document.getElementById('b4').value.toLowerCase() === 'l'
-                    && document.getElementById('b5').value.toLowerCase() === 'l') {
-                    this.showCodi = false;
-                    this.showBubble = true;
-                    setTimeout(() => {
-                            this.showBubble = false;
-                            this.showCodi = true;
-                        },
-                        2500);
+                a1 = document.getElementById('a1');
+                a2 = document.getElementById('a2');
+                a3 = document.getElementById('a3');
+                a4 = document.getElementById('a4');
+                a5 = document.getElementById('a5/b1');
+                a6 = document.getElementById('a6');
+                a7 = document.getElementById('a7');
+
+
+                if (a1.value && a2.value && a3.value && a4.value && a5.value && a6.value && a7.value) {
+                    if (a1.value.toLowerCase() === 'b' && a2.value.toLowerCase() === 'r' && a3.value.toLowerCase() === 'o' &&
+                        a4.value.toLowerCase() === 'w' && a5.value.toLowerCase() === 's' && a6.value.toLowerCase() === 'e' &&
+                        a7.value.toLowerCase() === 'r') {
+                        this.showCodi = false;
+                        this.showBubble = true;
+                        setTimeout(() => {
+                                this.showBubble = false;
+                                this.showCodi = true;
+                            },
+                            2500);
+                    } else {
+                        this.showCodi = false;
+                        this.showFalse = true;
+                        setTimeout(() => {
+                                this.showFalse = false;
+                                this.showCodi = true;
+                            },
+                            2500);
+                    }
+
                 }
 
-            }
+            },
         }
     };
 </script>

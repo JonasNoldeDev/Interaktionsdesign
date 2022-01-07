@@ -11,10 +11,9 @@
             </v-button>
         </header>
         <img class="bella" src="./../assets/img/characters/Bella.png" alt="Bella">
-        <img class="codi" v-if="showCodi" alt="Codi" src="./../assets/img/characters/codi/999.png">
-        <img class="codi" v-if="showFalse" alt="Codi" src="./../assets/img/characters/Bella.png">
-        <img class="bubble" v-if="showBubble" alt="Super"
-             src="./../assets/img/characters/codi/Codi_richtig_Sprechblase.png">
+
+        <Character class="codi" position="right" ref="character" alt="Codi"></Character>
+
 
         <div class="row_7 position1">
             <input id="a1" class="size" alt="Eingabefeld" type="text" maxlength="1"
@@ -106,6 +105,7 @@
 
     import MainLayout from '../layouts/Main.vue'
     import VButton from "../components/VButton";
+    import Character from "../components/Character";
 
     let a1;
     let a2;
@@ -119,13 +119,11 @@
         name: 'Crossword',
         components: {
             MainLayout,
-            VButton
+            VButton,
+            Character
         },
         data: () => {
             return {
-                showCodi: true,
-                showFalse: false,
-                showBubble: false,
                 currentStep: 0
             }
         },
@@ -144,21 +142,10 @@
                     if (a1.value.toLowerCase() === 'b' && a2.value.toLowerCase() === 'r' && a3.value.toLowerCase() === 'o' &&
                         a4.value.toLowerCase() === 'w' && a5.value.toLowerCase() === 's' && a6.value.toLowerCase() === 'e' &&
                         a7.value.toLowerCase() === 'r') {
-                        this.showCodi = false;
-                        this.showBubble = true;
-                        setTimeout(() => {
-                                this.showBubble = false;
-                                this.showCodi = true;
-                            },
-                            2500);
+
+                        this.$refs.character.switchPose("right", 2);
                     } else {
-                        this.showCodi = false;
-                        this.showFalse = true;
-                        setTimeout(() => {
-                                this.showFalse = false;
-                                this.showCodi = true;
-                            },
-                            2500);
+                        this.$refs.character.switchPose("wrong", 2);
                     }
 
                 }
@@ -196,9 +183,16 @@
     }
 
     .bg {
-        background-image: url(../assets/img/Kreuzwortraetsel.jpg);
-        background-repeat: no-repeat;
-        background-size: 100%;
+        @media screen and (orientation:landscape) {
+            background-image: url(src/assets/img/Kreuzwortraetsel_landscape.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        @media screen and (orientation:portrait) {
+            background-image: url(src/assets/img/Kreuzwortraetsel_portrait.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
     }
 
     .size {
@@ -261,8 +255,11 @@
         position: absolute;
         width: 15rem;
         height: auto;
-        right: 0;
         bottom: 20rem;
+
+        &.right {
+            right: 0;
+        }
     }
 
     .bella {

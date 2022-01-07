@@ -12,83 +12,89 @@
         </header>
         <img class="bella" src="./../assets/img/characters/Bella.png" alt="Bella">
 
-        <Character class="codi" position="right" ref="character" alt="Codi"></Character>
+        <Character class="codi" position="right" ref="character">
+            <Bubble class="bubble" size="small" :visible="currentStep === 0" v-on:next="currentStep++" next>
+                <p>Hier kommt die erste Aufgabe:</p>
+                <p><b>Safari</b>, <b>Google Chorme</b> und <b>Firefox</b> sind ________</p>
+            </Bubble>
+        </Character>
 
-
-        <div class="row_7 position1">
-            <input id="a1" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="submit">
-            <input id="a2" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="submit">
-            <input id="a3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="submit">
-            <input id="a4" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="submit">
-            <input id="a5/b1" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="submit">
-            <input id="a6" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="submit">
-            <input id="a7" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                   @input="submit">
-        </div>
-
-        <div class="col_12 position2">
-            <div id="5" class="position4" style="margin-top: 1rem">
-                <input id="b2" class="size" alt="Eingabefeld" type="text" maxlength="1"
+        <div class="portrait">
+            <div class="row_7 position1">
+                <input id="a1" class="size" alt="Eingabefeld" type="text" maxlength="1"
                        @input="submit">
-            </div>
-            <div id="7" class="position4">
-                <input id="b3" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                <input id="a2" class="size" alt="Eingabefeld" type="text" maxlength="1"
                        @input="submit">
-            </div>
-            <div id="8" class="position4">
-                <input id="b4" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                <input id="a3" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       @input="submit">
+                <input id="a4" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       @input="submit">
+                <input id="a5/b1" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       @input="submit">
+                <input id="a6" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       @input="submit">
+                <input id="a7" class="size" alt="Eingabefeld" type="text" maxlength="1"
                        @input="submit">
             </div>
 
-            <div class="row_3 position3">
+            <div class="col_12 position2">
+                <div class="position4" style="margin-top: 1rem">
+                    <input id="b2" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           @input="submit">
+                </div>
+                <div class="position4">
+                    <input id="b3" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           @input="submit">
+                </div>
+                <div class="position4">
+                    <input id="b4" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           @input="submit">
+                </div>
 
-                <input id="c1" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
-                <input id="b5/c2" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
-                <input id="c3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
-            </div>
+                <div class="row_3 position3">
 
-            <div class="position4">
-                <input id="b6" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
-            </div>
-            <div class="position4">
-                <input id="b7" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
-            </div>
-            <div class="position4">
-                <input id="bb84" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
-            </div>
-            <div class="position4">
-                <input id="b9" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
-            </div>
-            <div class="row_4 position3">
-                <input id="d1" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
-                <input id="d2/b10" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
-                <input id="d3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
-                <input id="d4" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
-            </div>
-            <div class="position4">
-                <input id="b11" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
-            </div>
-            <div class="position4">
-                <input id="b12" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
+                    <input id="c1" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           @input="submit">
+                    <input id="b5/c2" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           @input="submit">
+                    <input id="c3" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           @input="submit">
+                </div>
+
+                <div class="position4">
+                    <input id="b6" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           @input="submit">
+                </div>
+                <div class="position4">
+                    <input id="b7" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           @input="submit">
+                </div>
+                <div class="position4">
+                    <input id="bb84" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           @input="submit">
+                </div>
+                <div class="position4">
+                    <input id="b9" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           @input="submit">
+                </div>
+                <div class="row_4 position3">
+                    <input id="d1" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           @input="submit">
+                    <input id="d2/b10" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           @input="submit">
+                    <input id="d3" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           @input="submit">
+                    <input id="d4" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           @input="submit">
+                </div>
+                <div class="position4">
+                    <input id="b11" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           @input="submit">
+                </div>
+                <div class="position4">
+                    <input id="b12" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           @input="submit">
+                </div>
             </div>
         </div>
     </main-layout>
@@ -106,6 +112,7 @@
     import MainLayout from '../layouts/Main.vue'
     import VButton from "../components/VButton";
     import Character from "../components/Character";
+    import Bubble from "../components/Bubble";
 
     let a1;
     let a2;
@@ -120,7 +127,8 @@
         components: {
             MainLayout,
             VButton,
-            Character
+            Character,
+            Bubble
         },
         data: () => {
             return {
@@ -183,68 +191,136 @@
     }
 
     .bg {
-        @media screen and (orientation:landscape) {
-            background-image: url(src/assets/img/Kreuzwortraetsel_landscape.jpg);
+        @media screen and (orientation: landscape) {
+            background-image: url(../assets/img/Kreuzwortraetsel_landscape.jpg);
             background-repeat: no-repeat;
             background-size: 100%;
         }
-        @media screen and (orientation:portrait) {
-            background-image: url(src/assets/img/Kreuzwortraetsel_portrait.jpg);
+        @media screen and (orientation: portrait) {
+            background-image: url(../assets/img/Kreuzwortraetsel_portrait.jpg);
             background-repeat: no-repeat;
             background-size: 100%;
+        }
+    }
+
+    div.portrait {
+        @media screen and (orientation: portrait) {
+            padding-top: 25%;
         }
     }
 
     .size {
-        height: 3rem;
-        width: 3rem;
-        text-align: center;
-        font-size: 25px;
-        border-radius: 5px;
-        margin: 0.5rem;
+        @media screen and (orientation: landscape) {
+            height: 3rem;
+            width: 3rem;
+            text-align: center;
+            font-size: 25px;
+            border-radius: 5px;
+            margin: 0.5rem;
+        }
+        @media screen and (orientation: portrait) {
+            height: 2.5rem;
+            width: 2.5rem;
+            text-align: center;
+            font-size: 20px;
+            border-radius: 5px;
+            margin: 0.4rem;
+        }
     }
 
     .row_3 {
-        background-image: url(../assets/img/Holz_mitSchatten_3.png);
-        background-repeat: no-repeat;
-        background-size: 35%;
-        padding: 1.5rem;
+        @media screen and (orientation: landscape) {
+            background-image: url(../assets/img/Holz_mitSchatten_3.png);
+            background-repeat: no-repeat;
+            background-size: 35%;
+            padding: 1.5rem;
+        }
+        @media screen and (orientation: portrait) {
+            background-image: url(../assets/img/Holz_mitSchatten_3p.png);
+            background-repeat: no-repeat;
+            background-size: 40%;
+            padding: 1.1rem;
+        }
     }
 
     .row_4 {
-        background-image: url(../assets/img/Holz_mitSchatten_4.png);
-        background-repeat: no-repeat;
-        background-size: 47%;
-        padding: 1.5rem;
+        @media screen and (orientation: landscape) {
+            background-image: url(../assets/img/Holz_mitSchatten_4.png);
+            background-repeat: no-repeat;
+            background-size: 55%;
+            padding: 1.5rem 1.5rem 1.5rem 2rem;
+        }
+        @media screen and (orientation: portrait) {
+            background-image: url(../assets/img/Holz_mitSchatten_4p.png);
+            background-repeat: no-repeat;
+            background-size: 53%;
+            padding: 1.1rem;
+        }
     }
 
     .row_7 {
-        background-image: url(../assets/img/Holz_mitSchatten_7.png);
-        background-repeat: no-repeat;
-        background-size: 60%;
-        padding: 1.5rem;
+        @media screen and (orientation: landscape) {
+            background-image: url(../assets/img/Holz_mitSchatten_7.png);
+            background-repeat: no-repeat;
+            background-size: 60%;
+            padding: 1.5rem;
+        }
+        @media screen and (orientation: portrait) {
+            background-image: url(../assets/img/Holz_mitSchatten_7.png);
+            background-repeat: no-repeat;
+            background-size: 65%;
+            padding: 1.2rem 1rem 0.7rem 0.9rem;
+        }
+
     }
 
     .col_12 {
-        background-image: url(../assets/img/Holz_mitSchatten_up12.png);
-        background-repeat: no-repeat;
-        background-size: 17%;
-        padding-bottom: 1rem;
+        @media screen and (orientation: landscape) {
+            background-image: url(../assets/img/Holz_mitSchatten_up12.png);
+            background-repeat: no-repeat;
+            background-size: 17%;
+            padding-bottom: 1rem;
+        }
+        @media screen and (orientation: portrait) {
+            background-image: url(../assets/img/Holz_mitSchatten_up12p.png);
+            background-repeat: no-repeat;
+            background-size: 21%;
+            padding-bottom: 2rem;
+        }
     }
 
     .position1 {
-        margin-left: 13.5rem;
+        @media screen and (orientation: landscape) {
+            margin-left: 13.5rem;
+        }
+        @media screen and (orientation: portrait) {
+            margin-left: 11rem;
+        }
     }
 
     .position2 {
-        margin-left: 30rem;
-        margin-top: -2.5rem;
+        @media screen and (orientation: landscape) {
+            margin-left: 30rem;
+            margin-top: -2.5rem;
+        }
+        @media screen and (orientation: portrait) {
+            margin-left: 23.1rem;
+            margin-top: -1.8rem;
+        }
     }
 
+
     .position3 {
-        margin-left: -4.5rem;
-        margin-top: -1.5rem;
-        margin-bottom: -1.5rem;
+        @media screen and (orientation: landscape) {
+            margin-left: -4.5rem;
+            margin-top: -1.5rem;
+            margin-bottom: -1.5rem;
+        }
+        @media screen and (orientation: portrait) {
+            margin-left: -3.4rem;
+            margin-top: -1.1rem;
+            margin-bottom: -1.1rem;
+        }
     }
 
     .position4 {
@@ -252,14 +328,25 @@
     }
 
     .codi {
-        position: absolute;
-        width: 15rem;
-        height: auto;
-        bottom: 20rem;
-
-        &.right {
-            right: 0;
+        @media screen and (orientation: landscape) {
+            position: absolute;
+            width: 15rem;
+            height: auto;
+            top: 30%;
+            &.right {
+                right: 0.5rem;
+            }
         }
+        @media screen and (orientation: portrait) {
+            position: absolute;
+            width: 15rem;
+            height: auto;
+            top: 26%;
+            &.right {
+                right: 0.5rem;
+            }
+        }
+
     }
 
     .bella {
@@ -267,16 +354,37 @@
         width: 12rem;
         height: auto;
         left: 0;
-        top: 10rem;
+        @media screen and (orientation: landscape) {
+            top: 9rem;
+        }
+        @media screen and (orientation: portrait) {
+            top: 15rem;
+        }
     }
 
     .bubble {
-        position: absolute;
-        width: 15rem;
-        height: auto;
-        right: 1rem;
-        bottom: 20rem;
+        position: unset;
     }
+
+    .number {
+        display: inline-block;
+        color: #fff;
+        background-color: var(--color-orange);
+        border-radius: 35%;
+        padding: 0.5rem;
+        font-size: 15px;
+    }
+
+    .number.pos1 {
+        @media screen and (orientation: landscape) {
+            margin-left: 5rem;
+        }
+        @media screen and (orientation: portrait) {
+            margin-left: 10rem;
+        }
+    }
+
+
 
 
 </style>

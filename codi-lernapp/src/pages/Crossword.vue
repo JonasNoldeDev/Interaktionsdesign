@@ -21,6 +21,7 @@
 
         <div class="portrait">
             <div class="row_7 position1">
+                <v-button class="number pos1" size="xsmall" disabled>1</v-button>
                 <input id="a1" class="size" alt="Eingabefeld" type="text" maxlength="1"
                        @input="submit">
                 <input id="a2" class="size" alt="Eingabefeld" type="text" maxlength="1"
@@ -52,7 +53,7 @@
                 </div>
 
                 <div class="row_3 position3">
-
+                    <v-button class="number pos3" size="xsmall" disabled>3</v-button>
                     <input id="c1" class="size" alt="Eingabefeld" type="text" maxlength="1"
                            @input="submit">
                     <input id="b5/c2" class="size" alt="Eingabefeld" type="text" maxlength="1"
@@ -78,6 +79,7 @@
                            @input="submit">
                 </div>
                 <div class="row_4 position3">
+                    <v-button class="number pos4" size="xsmall" disabled>4</v-button>
                     <input id="d1" class="size" alt="Eingabefeld" type="text" maxlength="1"
                            @input="submit">
                     <input id="d2/b10" class="size" alt="Eingabefeld" type="text" maxlength="1"
@@ -203,9 +205,10 @@
         }
     }
 
+
     div.portrait {
         @media screen and (orientation: portrait) {
-            padding-top: 25%;
+            padding-top: 21%;
         }
     }
 
@@ -294,7 +297,7 @@
             margin-left: 13.5rem;
         }
         @media screen and (orientation: portrait) {
-            margin-left: 11rem;
+            margin-left: 10.5rem;
         }
     }
 
@@ -367,24 +370,55 @@
     }
 
     .number {
-        display: inline-block;
-        color: #fff;
-        background-color: var(--color-orange);
-        border-radius: 35%;
         padding: 0.5rem;
-        font-size: 15px;
+        border-radius: 40%;
     }
 
     .number.pos1 {
         @media screen and (orientation: landscape) {
-            margin-left: 5rem;
+            margin-left: -3.3rem;
+            margin-right: 1.8rem;
         }
         @media screen and (orientation: portrait) {
-            margin-left: 10rem;
+            margin-left: -2.5rem;
+            margin-right: 0.5rem;
         }
     }
 
+    /*
+    .number.pos2 {
+        @media screen and (orientation: landscape) {
+            margin-left: 32rem;
+        }
+        @media screen and (orientation: portrait) {
+            margin-left: 24.8rem;
+        }
+    }
+*/
+    .number.pos3 {
+        @media screen and (orientation: landscape) {
+            margin-left: -2.9rem;
+            margin-right: 1.5rem;
+        }
+        @media screen and (orientation: portrait) {
+            margin-left: -2.5rem;
+            margin-right: 1rem;
+        }
+    }
 
+    .number.pos4 {
+        @media screen and (orientation: landscape) {
 
+        }
+        @media screen and (orientation: portrait) {
+            margin-left: -2.3rem;
+            margin-right: 0.8rem;
+        }
+    }
+
+    svg {
+        width: 1em;
+        height: 1.25em;
+    }
 
 </style>

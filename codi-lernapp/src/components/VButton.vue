@@ -16,7 +16,7 @@ export default {
     color: {
       type: String,
       default: "orange",
-    },
+    }
   },
   methods: {
     go(event) {
@@ -44,5 +44,8 @@ a {
 
 .blue {
   background-color: #18A0FB;
+}
+.disable{
+  pointer-events: none;
 }
 </style>

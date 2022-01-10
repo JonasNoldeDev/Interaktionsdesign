@@ -4,5 +4,6 @@ export default {
     '/lernsektionen/start': 'Sektion1',
     '/lernsektionen/sektion1': 'Sektion1',
     '/optionen': 'Optionen',
-    '/about': 'About'
+    '/about': 'About',
+    '/explain': 'Explain'
 }

@@ -5,7 +5,7 @@
     <nav>
       <ul>
         <li>
-          <v-button href="/lernsektionen/start">Start</v-button>
+          <v-button href="/explain">Start</v-button>
         </li>
         <li>
           <v-button href="/lernsektionen">Lernsektionen</v-button>
@@ -69,5 +69,8 @@ li {
   &:not(:last-child) {
     margin-bottom: 2rem;
   }
+}
+.home-button{
+  display: none;
 }
 </style>

@@ -81,10 +81,14 @@ export default {
         .toggle-page{
             display: flex;
             flex: 1;
+            position: absolute;
+            right: 22%;
+            bottom: 10%;
         }
 
         .right{
             justify-content: flex-end;
+            right: 10%;
         }
 
         span{

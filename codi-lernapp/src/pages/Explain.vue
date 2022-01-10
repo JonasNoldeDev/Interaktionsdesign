@@ -1,0 +1,130 @@
+<template>
+    <main-layout>
+      <Carousal class="carousal" v-slot="{currentSlide}">
+        <Slide>
+          <div v-show="currentSlide === 1" class="slide-info speech-bubble">
+            <p>Hi mein Name ist Codi und heute gehen wir die erste Lektion "Internet-Browser" durch</p>
+            <div class="left-point"></div>
+          </div>
+        </Slide>
+        <Slide>
+          <div v-show="currentSlide === 2" class="slide-info speech-bubble">
+            <p>Internet Browser sind Computerprogramme, die Webseiten im Internet darstellen können</p>
+            <div class="left-point"></div>
+          </div>
+        </Slide>
+        <Slide>
+          <div v-show="currentSlide === 3" class="slide-info">
+            <img :src="require(`../assets/img/Chrome.png`)">
+            <p>Der meistgenutzte Browser ist "Google Chrome"</p>
+            <div class="left-point"></div>
+          </div>
+        </Slide>
+        <Slide>
+          <div v-show="currentSlide === 4" class="slide-info">
+            <div class="row">
+              <div class="column">
+                <img :src="require(`../assets/img/Safari.png`)">
+              </div>
+              <div class="column">
+                <img :src="require(`../assets/img/Firefox.png`)">
+              </div>
+              <div class="column">
+                <img :src="require(`../assets/img/Edge.png`)">
+              </div>
+            </div>
+            <p>Aber neben Google Chrome gibt es noch andere Browser wie "Safari", "Firefox", "Edge" und viele andere</p>
+            <div class="left-point"></div>
+          </div>
+        </Slide>
+      </Carousal>
+      <img class="codi" src="./../assets/img/characters/codi/999.png" alt="Codi">
+    </main-layout>
+</template>
+
+<script>
+  import MainLayout from '../layouts/Main.vue'
+  import Carousal from '../components/Carousal.vue'
+  import Slide from '../components/Slide.vue'
+
+export default {
+    data() {
+        return {
+            showNum: true
+        }
+    },
+    components: {
+      MainLayout,
+      Carousal,
+      Slide
+    },
+};
+</script>
+
+<style lang="scss" scoped>
+  .carousal{
+    position: relative;
+    max-height: 100%;
+    height: 88%;
+    .slide-info{
+      position: absolute;
+      top: 5%;
+      left: 25%;
+      width: 50%;
+      max-height: 100%;
+      height: 50%;
+      background-color: #fff;
+      border-radius: 2rem;
+      padding: 0 30px;
+
+      img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 25%;
+        margin-top: 50px;
+      }
+
+      p{
+        text-align: center;
+      }
+      .row {
+        display: flex;
+      }
+
+      /* Create three equal columns that sits next to each other */
+      .column {
+        flex: 33.33%;
+        padding: 5px;
+      }
+    }
+    .speech-bubble{
+      display: table;
+      padding: 0 3rem;
+      p{
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+  }
+  .codi {
+    display: block;
+    position: absolute;
+    width: 20rem;
+    height: auto;
+    left: 3rem;
+    bottom: 0;
+  }
+  .left-point{
+    width: 0;
+    height: 0;
+    border-left: 2vh solid transparent;
+    border-right: 2vh solid transparent;
+    border-top: 10vh solid #fff;
+    position: absolute;
+    top: 88%;
+    left: 20%;
+    transform: rotate(60deg);
+  }
+
+</style>

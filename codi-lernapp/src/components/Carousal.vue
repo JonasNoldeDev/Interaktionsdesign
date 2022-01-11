@@ -29,14 +29,20 @@
 <script>
 import { ref, onMounted } from "vue";
 export default {
-    setup() {
+    props: {
+        maxSlides: {
+            type: Number,
+            required: true
+        }
+    },
+    setup(props) {
         const currentSlide = ref(1);
         const getSlideCount = ref(null);
 
         //next Slide
         const nextSlide = () => {
             if (currentSlide.value === getSlideCount.value){
-                currentSlide.value = 6;
+                currentSlide.value = props.maxSlides;
                 return;
             }
             currentSlide.value += 1;

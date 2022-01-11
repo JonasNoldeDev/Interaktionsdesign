@@ -330,6 +330,7 @@
 import MainLayout from "../../layouts/Main.vue";
 import Character from "../../components/Character.vue";
 import Bubble from "../../components/Bubble.vue";
+import vueConfig from '../../../vue.config';
 
 export default {
   components: {
@@ -346,8 +347,8 @@ export default {
   watch: {
     currentStep: function (newStep) {
       if (newStep === 13) {
-        this.$root.currentRoute = "/lernsektionen/sektion1";
-        window.history.pushState(null, "Sektion1", "/lernsektionen/sektion1");
+        this.$root.currentRoute = vueConfig.publicPath + "/codi-lernapp/lernsektionen/sektion1";
+        window.history.pushState(null, "Sektion1", vueConfig.publicPath + "/codi-lernapp/lernsektionen/sektion1");
       }
 
       const poseDict = {

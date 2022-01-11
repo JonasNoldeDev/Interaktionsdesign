@@ -33,6 +33,9 @@ export default {
         maxSlides: {
             type: Number,
             required: true
+        },
+        nextPage: {
+            type: String
         }
     },
     setup(props) {
@@ -43,6 +46,7 @@ export default {
         const nextSlide = () => {
             if (currentSlide.value === getSlideCount.value){
                 currentSlide.value = props.maxSlides;
+                window.location.href = props.nextPage;
                 return;
             }
             currentSlide.value += 1;

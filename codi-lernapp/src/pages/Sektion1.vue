@@ -1,6 +1,6 @@
 <template>
   <main-layout>
-    <Carousal :maxSlides="4" class="carousal" v-slot="{currentSlide}">
+    <Carousal :maxSlides="4" :nextPage="'/'" class="carousal" v-slot="{currentSlide}">
       <Slide v-show="currentSlide === 1">
         <div class="slide-info speech-bubble">
           <p>Hi mein Name ist Codi und heute gehen wir die erste Lektion "Internet-Browser" durch</p>

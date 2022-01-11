@@ -36,7 +36,7 @@ export default {
         //next Slide
         const nextSlide = () => {
             if (currentSlide.value === getSlideCount.value){
-                currentSlide.value = 4;
+                currentSlide.value = 6;
                 return;
             }
             currentSlide.value += 1;
@@ -87,8 +87,7 @@ export default {
         }
 
         .right{
-            justify-content: flex-end;
-            right: 10%;
+            right: 12%;
         }
 
         span{
@@ -97,7 +96,7 @@ export default {
             align-items: center;
             justify-content: center;
             border-radius: 1.5rem;
-            width: 110px;
+            width: 107px;
             height: 50px; 
             background-color: #FFAA00;
             color: #fff;

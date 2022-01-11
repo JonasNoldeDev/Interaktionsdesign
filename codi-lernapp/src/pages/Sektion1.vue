@@ -1,27 +1,27 @@
 <template>
   <main-layout>
     <Carousal class="carousal" v-slot="{currentSlide}">
-      <Slide>
-        <div v-show="currentSlide === 1" class="slide-info speech-bubble">
+      <Slide v-show="currentSlide === 1">
+        <div class="slide-info speech-bubble">
           <p>Hi mein Name ist Codi und heute gehen wir die erste Lektion "Internet-Browser" durch</p>
           <div class="left-point"></div>
         </div>
       </Slide>
-      <Slide>
-        <div v-show="currentSlide === 2" class="slide-info speech-bubble">
+      <Slide v-show="currentSlide === 2">
+        <div class="slide-info speech-bubble">
           <p>Internet Browser sind Computerprogramme, die Webseiten im Internet darstellen können</p>
           <div class="left-point"></div>
         </div>
       </Slide>
-      <Slide>
-        <div v-show="currentSlide === 3" class="slide-info">
+      <Slide v-show="currentSlide === 3">
+        <div class="slide-info">
           <img :src="require(`../assets/img/Chrome.png`)">
           <p>Der meistgenutzte Browser ist "Google Chrome"</p>
           <div class="left-point"></div>
         </div>
       </Slide>
-      <Slide>
-        <div v-show="currentSlide === 4" class="slide-info">
+      <Slide v-show="currentSlide === 4">
+        <div class="slide-info">
           <div class="row">
             <div class="column">
               <img :src="require(`../assets/img/Safari.png`)">
@@ -69,15 +69,7 @@
     max-height: 100%;
     height: 88%;
     .slide-info{
-      position: absolute;
-      top: 5%;
-      left: 25%;
-      width: 50%;
-      max-height: 100%;
-      height: 50%;
-      background-color: #fff;
-      border-radius: 2rem;
-      padding: 0 30px;
+      height: 100%;
 
       img{
         display: block;

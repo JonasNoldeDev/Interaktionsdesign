@@ -69,7 +69,8 @@ a {
 #soundButtons{
   z-index: 1000;
   position: absolute;
-  bottom: 6%;
+  bottom: 8%;
+  left: 3%;
   i{
     color: #FF9900;
     font-size: 3rem;

@@ -5,13 +5,13 @@
     <nav>
       <ul>
         <li>
-          <v-button :href="vueConfig.publicPath + '/lernsektionen/start'">Start</v-button>
+          <v-button :href="(vueConfig.publicPath || '') + '/lernsektionen/start'">Start</v-button>
         </li>
         <li>
-          <v-button :href="vueConfig.publicPath + '/lernsektionen'">Lernsektionen</v-button>
+          <v-button :href="(vueConfig.publicPath || '') + '/lernsektionen'">Lernsektionen</v-button>
         </li>
         <li>
-          <v-button :href="vueConfig.publicPath + '/optionen'">Optionen</v-button>
+          <v-button :href="(vueConfig.publicPath || '') + '/optionen'">Optionen</v-button>
         </li>
       </ul>
     </nav>

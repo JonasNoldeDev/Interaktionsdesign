@@ -428,6 +428,7 @@ export default {
   position: relative;
   border: 1rem solid #111;
   border-radius: 2rem;
+  margin: 2rem;
   width: 50rem;
   overflow: hidden;
 }

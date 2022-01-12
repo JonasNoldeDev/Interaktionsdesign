@@ -8,7 +8,7 @@
         <span @click="prevSlide">zurück</span>
       </div>
       <div class="toggle-page right">
-        <span @click="nextSlide">weiter</span>
+        <span @click="nextSlide(this)">weiter</span>
       </div>
     </div>
 
@@ -28,41 +28,51 @@
 
 <script>
 import { ref, onMounted } from "vue";
+import routes from "../routes";
 export default {
-    setup() {
-        const currentSlide = ref(1);
-        const getSlideCount = ref(null);
-
-        //next Slide
-        const nextSlide = () => {
-            if (currentSlide.value === getSlideCount.value){
-                currentSlide.value = 4;
-                window.location.href = "/lernsektionen/crossword";
-                return;
-            }
-            currentSlide.value += 1;
-        };
-
-        //prev Slide
-        const prevSlide = () => {
-            if (currentSlide.value === 1){
-                currentSlide.value = 1;
-                return;
-            }
-            currentSlide.value -= 1;
-        }
-
-        const GotoSlide = (index) => {
-            currentSlide.value = index + 1;
-        }
-
-
-        onMounted(() => {
-            getSlideCount.value = document.querySelectorAll('.slide').length;
-        })
-
-        return { currentSlide, nextSlide, prevSlide, getSlideCount, GotoSlide };
+  props: {
+    maxSlides: {
+      type: Number,
+      required: true,
     },
+    nextPage: {
+      type: String,
+    },
+  },
+  setup(props) {
+    const currentSlide = ref(1);
+    const getSlideCount = ref(null);
+
+    //next Slide
+    const nextSlide = (self) => {
+      if (currentSlide.value === getSlideCount.value) {
+        currentSlide.value = props.maxSlides;
+        self.$root.currentRoute = props.nextPage;
+        window.history.pushState(null, routes[props.nextPage], props.nextPage);
+        return;
+      }
+      currentSlide.value += 1;
+    };
+
+    //prev Slide
+    const prevSlide = () => {
+      if (currentSlide.value === 1) {
+        currentSlide.value = 1;
+        return;
+      }
+      currentSlide.value -= 1;
+    };
+
+    const GotoSlide = (index) => {
+      currentSlide.value = index + 1;
+    };
+
+    onMounted(() => {
+      getSlideCount.value = document.querySelectorAll(".slide").length;
+    });
+
+    return { currentSlide, nextSlide, prevSlide, getSlideCount, GotoSlide };
+  },
 };
 </script>
 
@@ -82,10 +92,13 @@ export default {
   .toggle-page {
     display: flex;
     flex: 1;
+    position: absolute;
+    right: 22%;
+    bottom: 10%;
   }
 
   .right {
-    justify-content: flex-end;
+    right: 12%;
   }
 
   span {
@@ -94,7 +107,7 @@ export default {
     align-items: center;
     justify-content: center;
     border-radius: 1.5rem;
-    width: 110px;
+    width: 107px;
     height: 50px;
     background-color: #ffaa00;
     color: #fff;

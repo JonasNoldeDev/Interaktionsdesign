@@ -1,5 +1,6 @@
 import { createApp, h } from 'vue'
 import routes from './routes'
+import store from './store/index'
 
 const SimpleRouterApp = {
   data: () => ({
@@ -24,4 +25,4 @@ const SimpleRouterApp = {
   }
 }
 
-createApp(SimpleRouterApp).mount('#app')
+createApp(SimpleRouterApp).use(store).mount('#app')

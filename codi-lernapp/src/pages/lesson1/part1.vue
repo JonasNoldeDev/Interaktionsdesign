@@ -318,7 +318,7 @@
         <p>Super! Jetzt wissen wir wie wir zur Suchmaschine kommen.</p>
         <p>
           Als nächstes werde ich euch zeigen wie toll Suchmaschinen sind und was
-          genau das ist.
+          genau sie sind.
         </p>
         <p>Wissen ist schließlich Macht.</p>
       </Bubble>

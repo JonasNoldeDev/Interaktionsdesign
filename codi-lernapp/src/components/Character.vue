@@ -25,6 +25,36 @@
       src="./../assets/img/characters/codi/Codi_richtig.png"
       alt="Codi"
     />
+    <img
+      v-show="character === 'codi' && pose === 'stressed'"
+      class="character codi pose-stressed"
+      src="./../assets/img/characters/codi/Codi_gestresst.png"
+      alt="Codi"
+    />
+    <img
+      v-show="character === 'codi' && pose === 'moveLeft'"
+      class="character codi pose-moveLeft"
+      src="./../assets/img/characters/codi/Codi_richtig_bewegung1.png"
+      alt="Codi"
+    />
+    <img
+      v-show="character === 'codi' && pose === 'moveRight'"
+      class="character codi pose-moveRight"
+      src="./../assets/img/characters/codi/Codi_richtig_bewegung2.png"
+      alt="Codi"
+    />
+    <img
+      v-show="character === 'codi' && pose === 'flying'"
+      class="character codi pose-flying"
+      src="./../assets/img/characters/codi/Codi_flying.png"
+      alt="Codi"
+    />
+    <img
+      v-show="character === 'bella' && pose === 'normal'"
+      class="character bella pose-normal"
+      src="./../assets/img/characters/Bella.png"
+      alt="Bella"
+    />
   </div>
 </template>
 

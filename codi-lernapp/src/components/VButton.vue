@@ -53,4 +53,9 @@
     .small {
         font-size: 1.2rem;
     }
+
+    .xsmall {
+        font-size: 0.8rem;
+    }
+
 </style>

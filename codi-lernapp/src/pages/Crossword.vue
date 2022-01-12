@@ -10,13 +10,13 @@
                 </svg>
             </v-button>
         </header>
-        <Character position="right" ref="character">
+        <Character position="right" :pose="characterPose" ref="character">
             <Bubble type="speech-bubble" :visible="currentStep === 0" v-on:next="currentStep++" next>
                 <p>Oh <b>wow!</b></p>
                 <p>Wir haben schon <b>so viel</b> gelernt!</p>
                 <p>Aber können wir uns auch noch an alles <b>erinnern</b>?</p>
             </Bubble>
-            <Bubble class="bubble" size="small" :visible="currentStep === 1" v-on:next="currentStep-- & pageStep++"
+            <Bubble class="bubble" size="small" :visible="currentStep === 1" v-on:next="currentStep++ & pageStep++"
                     v-on:prev="currentStep--" prev next>
                 <p><b>Lass es uns herausfinden!</b></p>
             </Bubble>
@@ -35,120 +35,181 @@
                 </svg>
             </v-button>
         </header>
-        <img class="bella" src="./../assets/img/characters/Bella.png" alt="Bella">
-        <Bubble size="small" :visible="currentStep === 2"
-                v-on:next="currentStep++" prev next>
-            <p>Damit ich einen Baumstamm überqueren kann, müssen seine Felder richtig ausgefüllt sein.</p>
+        <Character class="bella" :character="character">
+            <Bubble size="small" :visible="currentStep === 4"
+                    v-on:next="currentStep++" v-on:prev="currentStep--" prev next>
+                <p>Damit ich einen Baumstamm <b>überqueren</b> kann, müssen seine Felder <b>richtig</b> ausgefüllt sein.
+                </p>
+            </Bubble>
+            <Bubble size="small" :visible="currentStep === 5"
+                    v-on:next="currentStep++" v-on:prev="currentStep--" prev next>
+                <p>Sind <b>alle</b> Felder vollständig ausgefüllt, kann ich zu <b>Codi</b> laufen.</p>
+            </Bubble>
+        </Character>
+
+        <Character class="codi" v-if="showBubble" :pose="bubblePose" position="right" ref="character">
+            <Bubble size="small">
+                <p><b>Super!</b></p>
+            </Bubble>
+        </Character>
+
+        <Character class="codi" v-if="showWrong" :pose="wrongPose" position="right" ref="character">
+            <Bubble size="small">
+                <p>Das ist noch nicht ganz richtig!</p>
+            </Bubble>
+        </Character>
+
+        <Bubble size="small" v-if="btnInfo">
+            <p>Wenn du deine Eingaben <b>löschen</b> möchtest, drücke den <b>blauen Button</b> mit dem <b>x</b>.</p>
         </Bubble>
-        <Bubble class="bellaBubble" size="small" type="speech-bubble-down" :visible="currentStep === 3"
-                v-on:next="currentStep++" prev next>
-            <p>Sind <b>alle</b> Felder vollständig ausgefüllt, kann ich zu <b>Codi</b> laufen.</p>
-        </Bubble>
-        <Character class="codi" position="right" ref="character">
-            <Bubble size="small" :visible="currentStep === 0" v-on:next="currentStep++" next>
+
+        <Character class="codi" v-if="showCodi" :pose="characterPose" position="right" ref="character">
+            <Bubble size="small" :visible="currentStep === 2" v-on:next="currentStep++" next>
                 <p><b>Oh nein!</b></p>
                 <p>Bella ist auf der anderen Seite des Flusses.</p>
                 <p>Alleine schafft sie es nicht über die Baumstämme zu balancieren.</p>
             </Bubble>
 
-            <Bubble size="small" :visible="currentStep === 1" v-on:next="currentStep++" v-on:prev="currentStep--" prev
+            <Bubble size="small" :visible="currentStep === 3" v-on:next="currentStep++" v-on:prev="currentStep--" prev
                     next>
                 <p>Kannst <b>Du</b> ihr helfen?</p>
             </Bubble>
 
-            <Bubble size="small" :visible="currentStep === 4" v-on:next="currentStep++" v-on:prev="currentStep--" prev
-                    next>
-                <p>Hier kommt die erste Aufgabe:</p>
-                <p><b>Safari</b>, <b>Google Chorme</b> und <b>Firefox</b> sind ________</p>
-            </Bubble>
-
-            <Bubble size="small" :visible="currentStep === 5" v-on:next="currentStep++" v-on:prev="currentStep--" prev
-                    next>
-                <p>Als nächstes suchen wir folgenden Begriff:</p>
-                <p><b>Safari</b>, <b>Google Chorme</b> und <b>Firefox</b> sind ________</p>
-            </Bubble>
-
             <Bubble size="small" :visible="currentStep === 6" v-on:next="currentStep++" v-on:prev="currentStep--" prev
                     next>
-                <p>Nummer 3:</p>
+                <p>Hier kommt die erste Aufgabe für den Baumstamm mit der <b>Nummer 1</b>:</p>
+                <p><b>Safari</b>, <b>Google Chorme</b> und <b>Firefox</b> sind ________</p>
+            </Bubble>
+
+            <Bubble size="small" :visible="currentStep === 7" v-on:next="currentStep++" v-on:prev="currentStep--" prev
+                    next>
+                <p>Für den <b>zweiten</b> Baumstamm suchen wir folgenden <b>Begriff</b>:</p>
+                <p>Das brauchen wir, um das <b>Internet</b> zu <b>durchsuchen</b>:</p>
+                <!--
+                <Bubble size="small" :visible="currentStep === 6" v-on:next="currentStep++" v-on:prev="currentStep--" prev
+                    next>
+                    <p>Tipp:</p>
+                    <p>Beispiele für den Begriff den wir suchen sind <b>Google</b> und <b>Bing</b>.</p>
+                </Bubble>
+                -->
+            </Bubble>
+
+            <Bubble size="small" :visible="currentStep === 8" v-on:next="currentStep++" v-on:prev="currentStep--" prev
+                    next>
+                <p>Nun zu Baumstamm <b>Nummer 3</b>:</p>
+                <p>Um eine <b>weitere Webseite</b> im Browser zu öffnen, drücken wir das <b>Plus-Zeichen</b>.</p>
+                <p>Dann öffnet sich ein <b>neuer</b> ______</p>
+                <p></p>
+            </Bubble>
+            <Bubble size="small" :visible="currentStep === 9" v-on:prev="currentStep--" prev>
+                <p>Ok, der letzte Baumstamm (<b>Nummer 4</b>) ist dran!</p>
+                <p>Was gibt man oben in die <b>Adressleiste</b> des Browsers ein?</p>
+            </Bubble>
+            <Bubble size="small" :visible="currentStep === 10" v-on:next="currentStep++" v-on:prev="currentStep--" prev
+                    next>
+                <p><b>Yuhuuu, Bella ist da!!</b></p>
                 <p></p>
             </Bubble>
         </Character>
 
         <div class="portrait">
             <div class="row_7 position1">
-                <input id="a1" class="size arrowRight" alt="Eingabefeld" type="text" maxlength="1" placeholder="1"
-                       @input="submit">
-                <input id="a2" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
-                <input id="a3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
-                <input id="a4" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
-                <input id="a5/b1" class="size arrowDown" alt="Eingabefeld" type="text" maxlength="1" placeholder="2"
-                       @input="submit">
-                <input id="a6" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
-                <input id="a7" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       @input="submit">
+                <input id="a1" v-model="aOne" class="size arrowRight" alt="Eingabefeld" type="text" maxlength="1"
+                       placeholder="1" :disabled="disabledA" @focus="currentStep = 6"
+                       @input="submitA">
+                <input id="a2" v-model="aTwo" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       :disabled="disabledA" @focus="currentStep = 6"
+                       @input="submitA">
+                <input id="a3" v-model="aThree" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       :disabled="disabledA" @focus="currentStep = 6"
+                       @input="submitA">
+                <input id="a4" v-model="aFour" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       :disabled="disabledA" @focus="currentStep = 6"
+                       @input="submitA">
+                <input id="a5" v-model="aFive" class="size arrowDown" alt="Eingabefeld" type="text" maxlength="1"
+                       placeholder="2" :disabled="disabledA" @focus="currentStep = 6"
+                       @input="submitA">
+                <input id="a6" v-model="aSix" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       :disabled="disabledA" @focus="currentStep = 6"
+                       @input="submitA">
+                <input id="a7" v-model="aSeven" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                       :disabled="disabledA" @focus="currentStep = 6"
+                       @input="submitA">
+                <button class="btn" v-if="clearAll" @click="resetInput"><b>x</b></button>
             </div>
 
             <div class="col_12 position2">
                 <div class="position4" style="margin-top: 1rem">
                     <input id="b2" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           @input="submit">
+                           :disabled="disabledB" @focus="currentStep = 7"
+                           @input="submitB">
                 </div>
                 <div class="position4">
                     <input id="b3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           @input="submit">
+                           :disabled="disabledB" @focus="currentStep = 7"
+                           @input="submitB">
                 </div>
                 <div class="position4">
                     <input id="b4" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           @input="submit">
+                           :disabled="disabledB" @focus="currentStep = 7"
+                           @input="submitB">
                 </div>
 
+                <div class="position4">
+                    <input id="b5" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           :disabled="disabledB" @focus="currentStep = 7"
+                           @input="submitB">
+                </div>
                 <div class="row_3 position3">
                     <input id="c1" class="size arrowRight" alt="Eingabefeld" type="text" maxlength="1" placeholder="3"
-                           @input="submit">
-                    <input id="b5/c2" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           @input="submit">
+                           :disabled="disabledC" @focus="currentStep = 8"
+                           @input="submitC">
+                    <input id="b6" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           :disabled="disabledC" @focus="currentStep = 8"
+                           @input="submitB">
                     <input id="c3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           @input="submit">
+                           :disabled="disabledC" @focus="currentStep = 8"
+                           @input="submitC">
                 </div>
 
                 <div class="position4">
-                    <input id="b6" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           @input="submit">
-                </div>
-                <div class="position4">
                     <input id="b7" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           @input="submit">
+                           :disabled="disabledB" @focus="currentStep = 7"
+                           @input="submitB">
                 </div>
                 <div class="position4">
-                    <input id="bb84" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           @input="submit">
+                    <input id="b8" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           :disabled="disabledB" @focus="currentStep = 7"
+                           @input="submitB">
                 </div>
                 <div class="position4">
                     <input id="b9" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           @input="submit">
+                           :disabled="disabledB" @focus="currentStep = 7"
+                           @input="submitB">
                 </div>
                 <div class="row_4 position3">
                     <input id="d1" class="size arrowRight" alt="Eingabefeld" type="text" maxlength="1" placeholder="4"
-                           @input="submit">
-                    <input id="d2/b10" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           @input="submit">
+                           :disabled="disabledD" @focus="currentStep = 9"
+                           @input="submitD">
+                    <input id="b10" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           :disabled="disabledD" @focus="currentStep = 9"
+                           @input="submitB">
                     <input id="d3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           @input="submit">
+                           :disabled="disabledD" @focus="currentStep = 9"
+                           @input="submitD">
                     <input id="d4" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           @input="submit">
+                           :disabled="disabledD" @focus="currentStep = 9"
+                           @input="submitD">
                 </div>
                 <div class="position4">
                     <input id="b11" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           @input="submit">
+                           :disabled="disabledB" @focus="currentStep = 7"
+                           @input="submitB">
                 </div>
                 <div class="position4">
                     <input id="b12" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           @input="submit">
+                           :disabled="disabledB" @focus="currentStep = 7"
+                           @input="submitB">
                 </div>
             </div>
         </div>
@@ -169,14 +230,6 @@
     import Character from "../components/Character";
     import Bubble from "../components/Bubble";
 
-    let a1;
-    let a2;
-    let a3;
-    let a4;
-    let a5;
-    let a6;
-    let a7;
-
     export default {
         name: 'Crossword',
         components: {
@@ -188,32 +241,250 @@
         data: () => {
             return {
                 pageStep: 0,
-                currentStep: 0
+                currentStep: 0,
+                showCodi: true,
+                showBubble: false,
+                showWrong: false,
+                clearAll: false,
+                btnInfo: false,
+                disabledA: false,
+                disabledB: false,
+                disabledC: false,
+                disabledD: false,
+                character: "bella",
+                characterPose: "right",
+                bubblePose: "right",
+                leftMove: "moveLeft",
+                wrongPose: "wrong",
+                pose: "normal",
+                aOne: "",
+                aTwo: "",
+                aThree: "",
+                aFour: "",
+                aFive: "",
+                aSix: "",
+                aSeven: "",
             }
         },
-        methods: {
-            submit: function () {
-                a1 = document.getElementById('a1');
-                a2 = document.getElementById('a2');
-                a3 = document.getElementById('a3');
-                a4 = document.getElementById('a4');
-                a5 = document.getElementById('a5/b1');
-                a6 = document.getElementById('a6');
-                a7 = document.getElementById('a7');
+        watch: {
+            currentStep: function (newStep) {
+                const poseDict = {
+                    0: "right",
+                    1: "explaining",
+                    2: "stressed",
+                    3: "explaining",
+                    4: "normal",
+                    5: "right",
+                    6: "explaining",
+                    7: "explaining",
+                    8: "explaining",
+                    9: "explaining",
+                    10: "right",
+                };
 
+                if (!(newStep in poseDict)) return;
+                this.characterPose = poseDict[newStep];
+            },
+        },
+        methods: { //switch case?
+            submitA: function () {
+                let inputsA = [];
+                let browser = ["b", "r", "o", "w", "s", "e", "r"];
+                const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b)
 
-                if (a1.value && a2.value && a3.value && a4.value && a5.value && a6.value && a7.value) {
-                    if (a1.value.toLowerCase() === 'b' && a2.value.toLowerCase() === 'r' && a3.value.toLowerCase() === 'o' &&
-                        a4.value.toLowerCase() === 'w' && a5.value.toLowerCase() === 's' && a6.value.toLowerCase() === 'e' &&
-                        a7.value.toLowerCase() === 'r') {
-
-                        this.$refs.character.switchPose("right", 3);
-                    } else {
-                        this.$refs.character.switchPose("wrong", 3);
-                    }
-
+                for (let i = 1; i <= 7; i++) {
+                    let input = document.getElementById('a' + i).value.toLowerCase();
+                    inputsA.push(input);
                 }
 
+                if (inputsA[0] && inputsA[1] && inputsA[2] && inputsA[3] && inputsA[4] && inputsA[5] && inputsA[6]) {
+                    this.clearAll = true;
+                    if (equals(inputsA, browser)) {
+                        this.showCodi = false;
+                        this.showBubble = true;
+                        setTimeout(() => {
+                                this.showBubble = false;
+                                this.showCodi = true;
+                                this.currentStep = 7;
+                            },
+                            2000);
+                        this.disabledA = true;
+                        this.browser = [];
+                        return true;
+                    } else {
+                        this.showCodi = false;
+                        this.showWrong = true;
+                        setTimeout(() => {
+                                this.showWrong = false;
+                                this.showCodi = true;
+                            },
+                            3000);
+                        this.disabledA = false;
+                        this.btnInfo = true;
+                        this.browser = [];
+                        return false;
+                    }
+                } else {
+                    this.browser = [];
+                }
+                this.submitAll();
+            },
+
+            submitB: function () {
+                let inputsB = [];
+                let such = ["u", "c", "h", "m", "a", "s", "c", "h", "i", "n", "e"];
+                const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b)
+
+                for (let i = 2; i <= 12; i++) {
+                    let input = document.getElementById('b' + i).value.toLowerCase();
+                    inputsB.push(input);
+                }
+                if (inputsB[0] && inputsB[1] && inputsB[2] && inputsB[3] && inputsB[4] && inputsB[5] &&
+                    inputsB[6] && inputsB[7] && inputsB[8] && inputsB[9] && inputsB[10]) {
+                    this.clearAll = true;
+                    if (equals(inputsB, such)) {
+                        this.showCodi = false;
+                        this.showBubble = true;
+                        setTimeout(() => {
+                                this.showBubble = false;
+                                this.showCodi = true;
+                                this.currentStep = 8;
+                            },
+                            2000);
+                        this.disabledB = true;
+                        this.submitAll();
+                        this.such = [];
+                        return true;
+                    } else {
+                        this.showCodi = false;
+                        this.showWrong = true;
+                        setTimeout(() => {
+                                this.showWrong = false;
+                                this.showCodi = true;
+                            },
+                            3000);
+                        this.disabledB = false;
+                        this.btnInfo = true;
+                        this.such = [];
+                        return false;
+                    }
+                } else {
+                    this.such = [];
+                    return false;
+                }
+            },
+            submitC: function () {
+                let inputsC = [];
+                let tab = ["t", "a", "b"];
+                const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b)
+
+                for (let i = 1; i <= 3; i++) {
+                    if (i === 2) {
+                        let input = document.getElementById('b6').value.toLowerCase();
+                        inputsC.push(input);
+                    } else {
+                        let input = document.getElementById('c' + i).value.toLowerCase();
+                        inputsC.push(input);
+                    }
+                }
+                if (inputsC[0] && inputsC[1] && inputsC[2]) {
+                    this.clearAll = true;
+                    if (equals(inputsC, tab)) {
+                        this.showCodi = false;
+                        this.showBubble = true;
+                        setTimeout(() => {
+                                this.showBubble = false;
+                                this.showCodi = true;
+                                this.currentStep = 9;
+                            },
+                            2000);
+                        this.disabledC = true;
+                        this.submitAll();
+                        this.tab = [];
+                        return true;
+                    } else {
+                        this.showCodi = false;
+                        this.showWrong = true;
+                        setTimeout(() => {
+                                this.showWrong = false;
+                                this.showCodi = true;
+                            },
+                            3000);
+                        this.disabledC = false;
+                        this.btnInfo = true;
+                        this.tab = [];
+                        return false;
+                    }
+                } else {
+                    this.tab = [];
+                    return false;
+                }
+            },
+            submitD: function () {
+                let inputsD = [];
+                let link = ["l", "i", "n", "k"];
+                const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b)
+
+                for (let i = 1; i <= 4; i++) {
+                    if (i === 2) {
+                        let input = document.getElementById('b10').value.toLowerCase();
+                        inputsD.push(input);
+                    } else {
+                        let input = document.getElementById('d' + i).value.toLowerCase();
+                        inputsD.push(input);
+                    }
+                }
+                if (inputsD[0] && inputsD[1] && inputsD[2] && inputsD[3]) {
+                    this.clearAll = true;
+                    if (equals(inputsD, link)) {
+                        this.showCodi = false;
+                        this.showBubble = true;
+                        setTimeout(() => {
+                                this.showBubble = false;
+                                this.showCodi = true;
+                                //this.currentStep = 10;
+                            },
+                            2000);
+                        this.disabledD = true;
+                        this.submitAll();
+                        this.link = [];
+                        return true;
+                    } else {
+                        this.showCodi = false;
+                        this.showWrong = true;
+                        setTimeout(() => {
+                                this.showWrong = false;
+                                this.showCodi = true;
+                            },
+                            3000);
+                        this.disabledD = false;
+                        this.btnInfo = true;
+                        this.link = [];
+                        return false;
+                    }
+                } else {
+                    this.link = [];
+                    return false;
+                }
+            },
+            submitAll: function () {
+                if(this.submitA && this.submitB() && this.submitC && this.submitD) {
+                    alert("Yeiii")
+                    //this.currentStep = 10;
+                }
+            },
+
+            resetInput() {
+                this.aOne = "";
+                this.aTwo = "";
+                this.aThree = "";
+                this.aFour = "";
+                this.aFive = "";
+                this.aSix = "";
+                this.aSeven = "";
+                this.btnInfo = false;
+                this.disabledA = false;
+                this.currentStep = 6;
             },
         }
     };
@@ -234,16 +505,44 @@
         }
     }
 
-    .btnback {
+    .btn {
+        line-height: 1;
+        color: #fff;
+        background: var(--color-blue);
+        display: inline-block;
+        text-decoration: none;
+        padding: 0.4em 0.8em 0.6em 0.8em;
+        border-radius: var(--border-radius);
+        font-size: 0.8rem;
+        border: none;
         position: absolute;
-        left: 1rem;
-        bottom: 1rem;
+        transform: scale(1);
+        box-shadow: 0 0 0 0 var(--color-blue);
+        animation: pulse-blue 2s infinite;
+
+        @media screen and (orientation: landscape) {
+            top: 5.5%;
+        }
+        @media screen and (orientation: portrait) {
+            top: 19%;
+        }
     }
 
-    .btnready {
-        position: absolute;
-        right: 1rem;
-        bottom: 1rem;
+    @keyframes pulse-blue {
+        0% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+        }
+
+        70% {
+            transform: scale(1);
+            box-shadow: 0 0 0 10px rgba(52, 172, 224, 0);
+        }
+
+        100% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
+        }
     }
 
     .bg {
@@ -321,7 +620,7 @@
             background-image: url(../assets/img/Holz_mitSchatten_4.png);
             background-repeat: no-repeat;
             background-size: 55%;
-            padding: 1.5rem 1.5rem 1.5rem 2rem;
+            padding: 1.5rem;
         }
         @media screen and (orientation: portrait) {
             background-image: url(../assets/img/Holz_mitSchatten_4p.png);
@@ -403,7 +702,7 @@
     .codi {
         position: absolute;
         @media screen and (orientation: landscape) {
-            width: 18rem;
+            width: 25%;
             height: auto;
             bottom: 20%;
             &.right {
@@ -415,26 +714,25 @@
             height: auto;
             bottom: 27%;
             &.right {
-                right: 0.5rem;
+                right: 0.1rem;
             }
         }
     }
 
     .bella {
         position: absolute;
-        width: 12rem;
         height: auto;
         left: 0;
         @media screen and (orientation: landscape) {
-            top: 20%;
+            width: 25%;
+            bottom: 20%;
+            left: 0.5rem;
         }
         @media screen and (orientation: portrait) {
-            top: 30%;
+            width: 32%;
+            bottom: 27%;
+            right: 0.1rem;
         }
-    }
-
-    .bellaBubble {
-
     }
 
     svg {

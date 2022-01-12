@@ -1,5 +1,5 @@
 <template>
-  <a :href="href" :class="color" @click="go">
+  <a :href="href" :class="[color]" @click="go">
     <slot></slot>
   </a>
 </template>

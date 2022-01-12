@@ -1,45 +1,59 @@
 <template>
   <main-layout>
+    <h1>Deine Lernsektionen</h1>
     <nav>
-      <header>
-        <v-button :href="(vueConfig.publicPath || '') + '/'"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-left" class="svg-inline--fa fa-angle-left fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg></v-button>
-        <h1>Deine Lernsektionen</h1>
-      </header>
       <ul>
         <li class="sektion">
           <div class="sektion-text">
-            <img src="./../assets/img/sections/SektionSuchmaschinen.jpg" alt="">
-            <v-button :href="(vueConfig.publicPath || '') + '/lernsektionen/crossword'">Start</v-button>
+            <img
+              src="./../assets/img/sections/SektionSuchmaschinen.jpg"
+              alt=""
+            />
+            <v-button
+              :href="
+                (vueConfig.publicPath || '') + '/'
+              "
+              >Start</v-button
+            >
           </div>
           <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 70%;"></div>
+            <div class="progress-bar-inner" style="width: 70%"></div>
           </div>
-          <h2 class="sektion-title">Internet-Browser</h2>
+          <h2 class="sektion-title">Suchmaschinen</h2>
         </li>
         <li class="sektion">
           <div class="sektion-text">
-            <v-button :href="(vueConfig.publicPath || '') + '/lernsektionen/sektion1'">Start</v-button>
+            <v-button
+              :href="(vueConfig.publicPath || '') + '/'"
+              >Start</v-button
+            >
           </div>
           <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 40%;"></div>
+            <div class="progress-bar-inner" style="width: 40%"></div>
           </div>
           <h2 class="sektion-title">E-Mails</h2>
         </li>
         <li class="sektion">
           <div class="sektion-text">
-            <v-button :href="(vueConfig.publicPath || '') + '/lernsektionen/sektion1'">Start</v-button>
+            <v-button
+              :href="(vueConfig.publicPath || '') + '/'"
+              >Start</v-button
+            >
           </div>
           <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 10%;"></div>
+            <div class="progress-bar-inner" style="width: 10%"></div>
           </div>
           <h2 class="sektion-title">Links</h2>
         </li>
         <li class="sektion">
           <div class="sektion-text">
-            <v-button :href="(vueConfig.publicPath || '') + '/lernsektionen/sektion1'">Start</v-button>
+            <v-button
+              :href="(vueConfig.publicPath || '') + '/'"
+              >Start</v-button
+            >
           </div>
           <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 50%;"></div>
+            <div class="progress-bar-inner" style="width: 50%"></div>
           </div>
           <h2 class="sektion-title">Soziale Medien</h2>
         </li>
@@ -49,19 +63,19 @@
 </template>
 
 <script>
-  import MainLayout from '../layouts/Main.vue';
-  import VButton from "../components/VButton.vue";
-  import vueConfig from '../../vue.config';
+import MainLayout from "../layouts/Main.vue";
+import VButton from "../components/VButton.vue";
+import vueConfig from "../../vue.config";
 
-  export default {
-    components: {
-      MainLayout,
-      VButton
-    },
-    data: () => ({
-      vueConfig: vueConfig
-    })
-  }
+export default {
+  components: {
+    MainLayout,
+    VButton,
+  },
+  data: () => ({
+    vueConfig: vueConfig,
+  }),
+};
 </script>
 
 <style lang="scss" scoped>
@@ -112,7 +126,7 @@ li {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: .5;
+    opacity: 0.5;
   }
 
   a {
@@ -131,12 +145,19 @@ li {
 }
 
 .progress-bar {
-  height: .25rem;
+  height: 0.25rem;
   background: hsl(204, 97%, 74%);
 }
 
 .progress-bar-inner {
   height: 100%;
-  background: #18A0FB;
+  background: #18a0fb;
+}
+
+h1 {
+  font-size: 1.5em;
+  display: inline;
+  vertical-align: top;
+  line-height: 7rem;
 }
 </style>

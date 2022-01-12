@@ -347,8 +347,8 @@ export default {
   watch: {
     currentStep: function (newStep) {
       if (newStep === 13) {
-        this.$root.currentRoute = (vueConfig.publicPath || '') + "/codi-lernapp/lernsektionen/sektion1";
-        window.history.pushState(null, "Sektion1", (vueConfig.publicPath || '') + "/codi-lernapp/lernsektionen/sektion1");
+        this.$root.currentRoute = (vueConfig.publicPath || '') + "/lernsektionen/sektion1";
+        window.history.pushState(null, "Sektion1", (vueConfig.publicPath || '') + "/lernsektionen/sektion1");
       }
 
       const poseDict = {
@@ -428,6 +428,7 @@ export default {
   position: relative;
   border: 1rem solid #111;
   border-radius: 2rem;
+  margin: 2rem;
   width: 50rem;
   overflow: hidden;
 }

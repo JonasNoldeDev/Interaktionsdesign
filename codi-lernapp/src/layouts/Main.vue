@@ -14,6 +14,20 @@
         </div>
       <slot></slot>
     </main>
+    <div class="overlay" v-show="overlay === true" :class="color" >
+      <div class="grid-item"></div>
+      <div class="grid-item">
+        <div class="headers">
+          <h1>{{ firstheader }}</h1>
+          <h2>{{ secondheader }}</h2>
+        </div>
+      </div>
+      <div class="grid-item">
+        <img v-show="picFile === 'Codi-Normal'" class="codi" src='./../assets/img/characters/codi/999.png' alt="Codi">
+        <img v-show="picFile === 'Codi-Erklaerend'" class="codi" src='./../assets/img/characters/codi/Papagai_erklaerend_gross.png' alt="Codi">
+        <img v-show="picFile === 'Codi-Richtig'" class="codi" src='./../assets/img/characters/codi/Codi_richtig.png' alt="Codi">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -24,6 +38,28 @@ import VButton from '../components/VButton.vue'
 
 
 export default {
+  props: {
+    color: {
+      type: String,
+      default: "orange"
+    },
+    overlay: {
+      type: Boolean,
+      default: false
+    },
+    firstheader: {
+      type: String
+    },
+    secondheader: {
+      type: String
+    },
+    picFile: {
+      type: String
+    }
+  },
+  mounted:() => {
+    console.log(this)
+  },
   computed: {
     playMusic () {
       return this.$store.state.playMusic
@@ -67,13 +103,96 @@ a {
   color: #FF9900;
 }
 #soundButtons{
-  z-index: 1000;
+  z-index: 100;
   position: absolute;
   bottom: 8%;
   left: 3%;
   i{
     color: #FF9900;
     font-size: 3rem;
+  }
+}
+
+.overlay{
+  grid-template-columns: auto auto auto;
+  display: grid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  color: #fff;
+  animation-name: overlay-anim;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1.2s;
+
+  .grid-item{
+    display: table;
+
+    .headers{
+      margin-top: 14rem;
+
+      h1{
+        font-size: 6rem;
+        line-height: 4rem;
+        animation-name: overlay-anim;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+        animation-delay: 1s;
+      }
+
+      h2{
+        font-size: 3.5rem;
+        animation-name: overlay-anim;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+        animation-delay: 0.95s;
+      }
+    }
+    
+    .codi {
+      position: absolute;
+      width: 30rem;
+      height: auto;
+      right: 1rem;
+      bottom: 0;
+      animation-name: overlay-anim;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
+      animation-delay: 0.9s;
+    }
+  }
+}
+
+.orange{
+  background: #FFAA00;
+}
+.red{
+  background: #FF5500;
+}
+.green{
+  background: #B3D334;
+}
+.blue{
+  background: #18A0FB;
+}
+
+@keyframes overlay-anim{
+  0% {
+      transform: translate(0, 0);
+  }
+  50% {
+      transform: translate(0, 0);
+  }
+  100% {
+      transform: translate(100vw, 0);
+      display: none;
   }
 }
 

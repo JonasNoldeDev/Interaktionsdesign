@@ -8,7 +8,7 @@
               <span @click="prevSlide">zurück</span>
           </div>
           <div class="toggle-page right">
-              <span @click="nextSlide">weiter</span>
+              <span @click="nextSlide(this)">weiter</span>
           </div>
       </div>
 
@@ -28,6 +28,7 @@
 
 <script>
 import { ref, onMounted } from "vue";
+import routes from "../routes";
 export default {
     props: {
         maxSlides: {
@@ -43,10 +44,11 @@ export default {
         const getSlideCount = ref(null);
 
         //next Slide
-        const nextSlide = () => {
+        const nextSlide = (self) => {
             if (currentSlide.value === getSlideCount.value){
                 currentSlide.value = props.maxSlides;
-                window.location.href = props.nextPage;
+                self.$root.currentRoute = props.nextPage;
+                window.history.pushState(null, routes[props.nextPage], props.nextPage);
                 return;
             }
             currentSlide.value += 1;

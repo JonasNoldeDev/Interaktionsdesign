@@ -1,5 +1,5 @@
 <template>
-  <main-layout>
+  <main-layout :overlay="true" :color="'blue'" :firstheader="'Lektion 1'" :secondheader="'Internet-Browser'" :picFile="'Codi-Richtig'">
     <Carousal :maxSlides="4" :nextPage="'/'" class="carousal" v-slot="{currentSlide}">
       <Slide v-show="currentSlide === 1">
         <div class="slide-info speech-bubble">

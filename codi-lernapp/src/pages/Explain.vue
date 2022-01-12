@@ -1,5 +1,5 @@
 <template>
-    <main-layout>
+    <main-layout :overlay="true" :firstheader="'Einführung'" :picFile="'Codi-Normal'">
       <Carousal :maxSlides="6" :nextPage="'/lernsektionen/sektion1'" class="carousal" v-slot="{currentSlide}">
         <Slide v-show="currentSlide === 1">
           <div class="slide-info speech-bubble">

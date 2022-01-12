@@ -8,7 +8,7 @@
   >
     <Carousal
       :maxSlides="4"
-      :nextPage="'/'"
+      :nextPage="'/lernsektionen/crossword'"
       class="carousal"
       v-slot="{ currentSlide }"
     >

@@ -11,9 +11,10 @@ let routes = {
     '/about': 'About'
 };
 
-for (const path in routes) {
-    routes[vueConfig.publicPath + path] = routes[path];
-    if (vueConfig.publicPath) delete routes[path];
+if ('publicPath' in vueConfig && vueConfig.publicPath != '') {
+    for (const path in routes) {
+        routes[vueConfig.publicPath + path] = routes[path];
+    }
 }
 
 export default routes;

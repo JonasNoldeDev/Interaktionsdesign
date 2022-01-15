@@ -1,5 +1,5 @@
 <template>
-    <main-layout :overlay="true" :firstheader="'Einführung'" :picFile="'Codi-Normal'">
+    <main-layout :isSlider="'slider'" :overlay="true" :firstheader="'Einführung'" :picFile="'Codi-Normal'">
       <Carousal :maxSlides="6" :nextPage="'/lernsektionen/lesson1/part1'" class="carousal" v-slot="{currentSlide}">
         <Slide v-show="currentSlide === 1">
           <div class="slide-info speech-bubble">
@@ -99,7 +99,7 @@ export default {
   .carousal{
     position: relative;
     max-height: 100%;
-    height: 88%;
+    height: 100%;
     .slide-info{
       height: 100%;
       img{
@@ -166,14 +166,14 @@ export default {
     }
     .Pointer-home{
       position: absolute;
-      left: 2.7%;
-      top: -2%;
+      left: 3.6%;
+      top: 16%;
       animation: floating 1s ease-in-out infinite;
     }
     .Pointer-sound{
       position: absolute;
-      left: 1.5%;
-      bottom: 18%;
+      left: 3%;
+      bottom: 15%;
       animation: floating 1s ease-in-out infinite;
     }
 
@@ -215,7 +215,7 @@ export default {
     border-right: 2vh solid transparent;
     border-top: 10vh solid #fff;
     position: absolute;
-    top: 89%;
+    top: 83%;
     left: 20%;
     transform: rotate(60deg);
   }

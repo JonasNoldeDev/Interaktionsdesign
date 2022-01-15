@@ -5,38 +5,55 @@
       <ul>
         <li class="sektion">
           <div class="sektion-text">
-            <img src="./../assets/img/sections/SektionSuchmaschinen.jpg" alt="">
-            <v-button href="/lernsektionen/sektion1">Start</v-button>
+            <img
+              src="./../assets/img/sections/SektionSuchmaschinen.jpg"
+              alt=""
+            />
+            <v-button
+              :href="
+                (vueConfig.publicPath || '') + '/'
+              "
+              >Start</v-button
+            >
           </div>
           <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 70%;"></div>
+            <div class="progress-bar-inner" style="width: 70%"></div>
           </div>
-          <h2 class="sektion-title">Internet-Browser</h2>
+          <h2 class="sektion-title">Suchmaschinen</h2>
         </li>
         <li class="sektion">
           <div class="sektion-text">
-            <v-button href="/lernsektionen/sektion1">Start</v-button>
+            <v-button
+              :href="(vueConfig.publicPath || '') + '/'"
+              >Start</v-button
+            >
           </div>
           <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 40%;"></div>
+            <div class="progress-bar-inner" style="width: 40%"></div>
           </div>
           <h2 class="sektion-title">E-Mails</h2>
         </li>
         <li class="sektion">
           <div class="sektion-text">
-            <v-button href="/lernsektionen/sektion1">Start</v-button>
+            <v-button
+              :href="(vueConfig.publicPath || '') + '/'"
+              >Start</v-button
+            >
           </div>
           <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 10%;"></div>
+            <div class="progress-bar-inner" style="width: 10%"></div>
           </div>
           <h2 class="sektion-title">Links</h2>
         </li>
         <li class="sektion">
           <div class="sektion-text">
-            <v-button href="/lernsektionen/sektion1">Start</v-button>
+            <v-button
+              :href="(vueConfig.publicPath || '') + '/'"
+              >Start</v-button
+            >
           </div>
           <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 50%;"></div>
+            <div class="progress-bar-inner" style="width: 50%"></div>
           </div>
           <h2 class="sektion-title">Soziale Medien</h2>
         </li>
@@ -46,15 +63,19 @@
 </template>
 
 <script>
-  import MainLayout from '../layouts/Main.vue';
-  import VButton from "../components/VButton.vue";
+import MainLayout from "../layouts/Main.vue";
+import VButton from "../components/VButton.vue";
+import vueConfig from "../../vue.config";
 
-  export default {
-    components: {
-      MainLayout,
-      VButton
-    }
-  }
+export default {
+  components: {
+    MainLayout,
+    VButton,
+  },
+  data: () => ({
+    vueConfig: vueConfig,
+  }),
+};
 </script>
 
 <style lang="scss" scoped>
@@ -105,7 +126,7 @@ li {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: .5;
+    opacity: 0.5;
   }
 
   a {
@@ -124,16 +145,16 @@ li {
 }
 
 .progress-bar {
-  height: .25rem;
+  height: 0.25rem;
   background: hsl(204, 97%, 74%);
 }
 
 .progress-bar-inner {
   height: 100%;
-  background: #18A0FB;
+  background: #18a0fb;
 }
 
-h1{
+h1 {
   font-size: 1.5em;
   display: inline;
   vertical-align: top;

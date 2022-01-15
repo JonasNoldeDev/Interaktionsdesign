@@ -1,5 +1,5 @@
 <template>
-  <a :href="href" :class="color" @click="go">
+  <a :href="href" :class="[color]" @click="go">
     <slot></slot>
   </a>
 </template>
@@ -16,7 +16,7 @@ export default {
     color: {
       type: String,
       default: "orange",
-    }
+    },
   },
   methods: {
     go(event) {
@@ -35,17 +35,14 @@ a {
   display: inline-block;
   text-decoration: none;
   padding: 1em 1.5em;
-  border-radius: 1.5rem;
+  border-radius: var(--border-radius);
 }
 
 .orange {
-  background-color: #FF9900;
+  background-color: var(--color-orange);
 }
 
 .blue {
-  background-color: #18A0FB;
-}
-.disable{
-  pointer-events: none;
+  background-color: var(--color-blue);
 }
 </style>

@@ -5,13 +5,13 @@
     <nav>
       <ul>
         <li>
-          <v-button href="/explain">Start</v-button>
+          <v-button :href="(vueConfig.publicPath || '') + '/explain'">Start</v-button>
         </li>
         <li>
-          <v-button href="/lernsektionen">Lernsektionen</v-button>
+          <v-button :href="(vueConfig.publicPath || '') + '/lernsektionen'">Lernsektionen</v-button>
         </li>
         <li>
-          <v-button href="/optionen">Optionen</v-button>
+          <v-button :href="(vueConfig.publicPath || '') + '/optionen'">Optionen</v-button>
         </li>
       </ul>
     </nav>
@@ -21,12 +21,16 @@
 <script>
   import MainLayout from '../layouts/Main.vue';
   import VButton from "../components/VButton.vue";
+  import vueConfig from '../../vue.config';
 
   export default {
     components: {
       MainLayout,
       VButton
-    }
+    },
+    data: () => ({
+      vueConfig: vueConfig
+    })
   }
 </script>
 

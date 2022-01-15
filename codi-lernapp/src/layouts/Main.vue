@@ -91,6 +91,7 @@ export default {
 a {
   align-items: center;
   margin: 1rem 0 2rem;
+  font-size: 1.3rem;
 
   svg {
     display: block;
@@ -120,13 +121,13 @@ a {
   top: 0;
   left: 0;
   height: 100%;
-  width: 100%;
+  width: 120%;
   z-index: 1000;
   color: #fff;
   animation-name: overlay-anim;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   animation-delay: 1.2s;
 
   .grid-item{
@@ -134,6 +135,8 @@ a {
 
     .headers{
       margin-top: 14rem;
+      z-index: 10;
+      position: relative;
 
       h1{
         font-size: 6rem;
@@ -141,7 +144,7 @@ a {
         animation-name: overlay-anim;
         animation-duration: 1s;
         animation-fill-mode: forwards;
-        animation-timing-function: ease-in-out;
+        animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
         animation-delay: 1s;
       }
 
@@ -150,7 +153,7 @@ a {
         animation-name: overlay-anim;
         animation-duration: 1s;
         animation-fill-mode: forwards;
-        animation-timing-function: ease-in-out;
+        animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
         animation-delay: 0.95s;
       }
     }
@@ -159,12 +162,12 @@ a {
       position: absolute;
       width: 30rem;
       height: auto;
-      right: 1rem;
+      right: 20rem;
       bottom: 0;
       animation-name: overlay-anim;
       animation-duration: 1s;
       animation-fill-mode: forwards;
-      animation-timing-function: ease-in-out;
+      animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
       animation-delay: 0.9s;
     }
   }

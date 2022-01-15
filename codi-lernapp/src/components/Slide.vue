@@ -25,18 +25,19 @@ export default {
         border-radius: 2rem;
         padding: 0 30px;
         animation-name: expand-bounce;
-        animation-duration: 0.4s;
+        animation-duration: 0.3s;
+        animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transform-origin: left bottom;
     }
 
     @keyframes expand-bounce {
         0% {
-            transform: scale(0);
-        }
-        50% {
-            transform: scale(1.25);
+            transform: scale(0.9);
+            opacity: 0;
         }
         100% {
             transform: scale(1);
+            opacity: 1;
         }
     }
 

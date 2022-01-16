@@ -187,11 +187,21 @@
                            :disabled="disabledB" @focus="currentStep = 7"
                            @input="submitB">
                 </div>
-                <div class="row_4 position3">
+                <div class="position4">
+                    <input id="b10" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           :disabled="disabledB" @focus="currentStep = 7"
+                           @input="submitB">
+                </div>
+                <div class="position4">
+                    <input id="b11" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           :disabled="disabledB" @focus="currentStep = 7"
+                           @input="submitB">
+                </div>
+                <div class="row_7a position5">
                     <input id="d1" class="size arrowRight" alt="Eingabefeld" type="text" maxlength="1" placeholder="4"
                            :disabled="disabledD" @focus="currentStep = 9"
                            @input="submitD">
-                    <input id="b10" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                    <input id="b12" class="size" alt="Eingabefeld" type="text" maxlength="1"
                            :disabled="disabledD" @focus="currentStep = 9"
                            @input="submitB">
                     <input id="d3" class="size" alt="Eingabefeld" type="text" maxlength="1"
@@ -200,16 +210,15 @@
                     <input id="d4" class="size" alt="Eingabefeld" type="text" maxlength="1"
                            :disabled="disabledD" @focus="currentStep = 9"
                            @input="submitD">
-                </div>
-                <div class="position4">
-                    <input id="b11" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledB" @focus="currentStep = 7"
-                           @input="submitB">
-                </div>
-                <div class="position4">
-                    <input id="b12" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledB" @focus="currentStep = 7"
-                           @input="submitB">
+                    <input id="d5" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           :disabled="disabledD" @focus="currentStep = 9"
+                           @input="submitD">
+                    <input id="d6" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           :disabled="disabledD" @focus="currentStep = 9"
+                           @input="submitD">
+                    <input id="d7" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           :disabled="disabledD" @focus="currentStep = 9"
+                           @input="submitD">
                 </div>
             </div>
         </div>
@@ -468,7 +477,7 @@
                 }
             },
             submitAll: function () {
-                if(this.submitA && this.submitB() && this.submitC && this.submitD) {
+                if (this.submitA && this.submitB() && this.submitC && this.submitD) {
                     alert("Yeiii")
                     //this.currentStep = 10;
                 }
@@ -588,7 +597,7 @@
             text-align: center;
             font-size: 25px;
             border-radius: 5px;
-            margin: 0.5rem;
+            margin: 0.4rem;
         }
         @media screen and (orientation: portrait) {
             height: 2.5rem;
@@ -604,8 +613,8 @@
         @media screen and (orientation: landscape) {
             background-image: url(../assets/img/Holz_mitSchatten_3.png);
             background-repeat: no-repeat;
-            background-size: 35%;
-            padding: 1.5rem;
+            background-size: 28%;
+            padding: 1.6rem 1.5rem 1.4rem 1.4rem;
         }
         @media screen and (orientation: portrait) {
             background-image: url(../assets/img/Holz_mitSchatten_3p.png);
@@ -615,43 +624,37 @@
         }
     }
 
-    .row_4 {
-        @media screen and (orientation: landscape) {
-            background-image: url(../assets/img/Holz_mitSchatten_4.png);
-            background-repeat: no-repeat;
-            background-size: 55%;
-            padding: 1.5rem;
-        }
-        @media screen and (orientation: portrait) {
-            background-image: url(../assets/img/Holz_mitSchatten_4p.png);
-            background-repeat: no-repeat;
-            background-size: 53%;
-            padding: 1.1rem;
-        }
-    }
-
     .row_7 {
         @media screen and (orientation: landscape) {
             background-image: url(../assets/img/Holz_mitSchatten_7.png);
             background-repeat: no-repeat;
-            background-size: 60%;
-            padding: 1.5rem;
+            background-size: 49%;
+            padding: 0.5rem 0.5rem 1rem 1rem;
         }
         @media screen and (orientation: portrait) {
             background-image: url(../assets/img/Holz_mitSchatten_7.png);
             background-repeat: no-repeat;
             background-size: 65%;
-            padding: 1.2rem 1rem 0.7rem 0.9rem;
+            padding: 0.5rem 0.5rem 1rem 1rem;
         }
 
+    }
+
+    .row_7a {
+        @media screen and (orientation: landscape) {
+            background-image: url(../assets/img/Holz_mitSchatten_7a.png);
+            background-repeat: no-repeat;
+            background-size: 63%;
+            padding: 0.5rem 0.5rem 1rem 1rem;
+        }
     }
 
     .col_12 {
         @media screen and (orientation: landscape) {
             background-image: url(../assets/img/Holz_mitSchatten_up12.png);
             background-repeat: no-repeat;
-            background-size: 17%;
-            padding-bottom: 1rem;
+            background-size: 14%;
+            padding-left: 0.2rem;
         }
         @media screen and (orientation: portrait) {
             background-image: url(../assets/img/Holz_mitSchatten_up12p.png);
@@ -663,7 +666,7 @@
 
     .position1 {
         @media screen and (orientation: landscape) {
-            margin-left: 13.5rem;
+            margin-left: 14rem;
         }
         @media screen and (orientation: portrait) {
             margin-left: 10rem;
@@ -672,8 +675,8 @@
 
     .position2 {
         @media screen and (orientation: landscape) {
-            margin-left: 30rem;
-            margin-top: -2.5rem;
+            margin-left: 29rem;
+            margin-top: -2.1rem;
         }
         @media screen and (orientation: portrait) {
             margin-left: 23.1rem;
@@ -684,8 +687,8 @@
 
     .position3 {
         @media screen and (orientation: landscape) {
-            margin-left: -4.5rem;
-            margin-top: -1.5rem;
+            margin-left: -4.2rem;
+            margin-top: -1.7rem;
             margin-bottom: -1.5rem;
         }
         @media screen and (orientation: portrait) {
@@ -693,6 +696,10 @@
             margin-top: -1.1rem;
             margin-bottom: -1.1rem;
         }
+    }
+
+    .position5 {
+        margin-top: -0.4rem;
     }
 
     .position4 {
@@ -704,7 +711,7 @@
         @media screen and (orientation: landscape) {
             width: 25%;
             height: auto;
-            bottom: 20%;
+            bottom: 10%;
             &.right {
                 right: 0.5rem;
             }

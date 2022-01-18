@@ -19,7 +19,7 @@
         </Slide>
         <Slide v-show="currentSlide === 3">
           <div class="slide-info speech-bubble">
-            <p>Falls du schon alles über die Steuerungsgrundlagen weißt, kannst du mit &#8635; meine Erklärungen vollständig überspringen.<br>
+            <p>Falls du schon alles über die Steuerungsgrundlagen weißt, kannst du mit &nbsp; <i class="fa-solid fa-forward-step"></i> &nbsp; meine Erklärungen vollständig überspringen.<br>
                Du landest dann direkt im Rundgang!
             </p>
             <div class="left-point"></div>
@@ -52,7 +52,7 @@
       <img v-show="currentSlide === 4 || currentSlide === 6" class="codi codi-sing" src="./../assets/img/characters/codi/Codi_richtig.png" alt="Codi">
       
       <div class="skip">
-        <span v-on:click="jumpTo">&#8635;</span>
+        <i v-on:click="jumpTo" class="fa-solid fa-forward-step"></i>
       </div>
       <div v-show="currentSlide === 2" class="Pointer-weiter">
         <i class="icon fas fa-sort-down"></i>
@@ -139,7 +139,7 @@ export default {
       bottom: 10%;
       justify-content: flex-end;
       right: 7%;
-      span{
+      i{
         cursor: pointer;
         display: flex;
         align-items: center;

@@ -11,7 +11,7 @@
             />
             <v-button
               :href="
-                (vueConfig.publicPath || '') + '/'
+                (vueConfig.publicPath || '') + '/lernsektionen/lesson1/part1'
               "
               >Start</v-button
             >

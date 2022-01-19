@@ -90,7 +90,7 @@ export default {
     },
     isSlider: {
       type: String,
-    }
+    },
   },
   computed: {
     playMusic() {
@@ -114,8 +114,11 @@ export default {
 <style lang="scss" scoped>
 .page-wrapper {
   height: 100%;
-  border-bottom: 1.5rem solid #408802;
   padding: 1rem;
+  background-image: url("~@/assets/img/Gras.png");
+  background-size: 100% auto;
+  background-position: 0 110%;
+  background-repeat: no-repeat;
 }
 .main {
   height: 100%;
@@ -153,7 +156,7 @@ a {
   }
 }
 
-.slider{
+.slider {
   position: absolute;
   width: 100%;
 }

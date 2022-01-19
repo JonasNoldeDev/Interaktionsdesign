@@ -101,7 +101,7 @@ header {
 .carousal {
   position: relative;
   max-height: 100%;
-  height: 88%;
+  height: 100%;
   .slide-info {
     height: 100%;
 
@@ -140,8 +140,8 @@ header {
   position: absolute;
   width: 20rem;
   height: auto;
-  left: 3rem;
-  bottom: 0;
+  left: 8rem;
+  bottom: 1rem;
 }
 .left-point {
   width: 0;
@@ -150,26 +150,7 @@ header {
   border-right: 2vh solid transparent;
   border-top: 10vh solid #fff;
   position: absolute;
-  top: 88%;
-  left: 20%;
-  transform: rotate(60deg);
-}
-.codi {
-  display: block;
-  position: absolute;
-  width: 20rem;
-  height: auto;
-  left: 3rem;
-  bottom: 0;
-}
-.left-point {
-  width: 0;
-  height: 0;
-  border-left: 2vh solid transparent;
-  border-right: 2vh solid transparent;
-  border-top: 10vh solid #fff;
-  position: absolute;
-  top: 88%;
+  top: 83%;
   left: 20%;
   transform: rotate(60deg);
 }

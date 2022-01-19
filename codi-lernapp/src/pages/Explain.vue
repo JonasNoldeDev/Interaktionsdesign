@@ -166,8 +166,8 @@ export default {
     }
     .Pointer-home{
       position: absolute;
-      left: 3.6%;
-      top: 16%;
+      left: 3%;
+      top: 14%;
       animation: floating 1s ease-in-out infinite;
     }
     .Pointer-sound{

@@ -35,7 +35,7 @@
                 </svg>
             </v-button>
         </header>
-        <Character class="bella" :character="character">
+        <Character class="bella" :character="character" v-if="currentStep >= 2 && currentStep <= 5">
             <Bubble size="small" :visible="currentStep === 4"
                     v-on:next="currentStep++" v-on:prev="currentStep--" prev next>
                 <p>Damit ich einen Baumstamm <b>überqueren</b> kann, müssen seine Felder <b>richtig</b> ausgefüllt sein.
@@ -45,6 +45,10 @@
                     v-on:next="currentStep++" v-on:prev="currentStep--" prev next>
                 <p>Sind <b>alle</b> Felder vollständig ausgefüllt, kann ich zu <b>Codi</b> laufen.</p>
             </Bubble>
+        </Character>
+
+        <Character id="bella" class="bellaWalk slideUp rotate" :character="character" v-if="currentStep > 5" :pose="bellaPose">
+
         </Character>
 
         <Character class="codi" v-if="showBubble" :pose="bubblePose" position="right" ref="character">
@@ -249,6 +253,7 @@
         },
         data: () => {
             return {
+                value1: false,
                 pageStep: 0,
                 currentStep: 0,
                 showCodi: true,
@@ -257,14 +262,15 @@
                 clearAll: false,
                 btnInfo: false,
                 disabledA: false,
-                disabledAB: false,
                 disabledB: false,
-                disabledBC: false,
-                disabledBD: false,
                 disabledC: false,
                 disabledD: false,
+                disabledAB: false,
+                disabledBC: false,
+                disabledBD: false,
                 character: "bella",
                 characterPose: "right",
+                bellaPose: "normal",
                 bubblePose: "right",
                 leftMove: "moveLeft",
                 wrongPose: "wrong",
@@ -296,6 +302,17 @@
 
                 if (!(newStep in poseDict)) return;
                 this.characterPose = poseDict[newStep];
+
+                const bellaDict = {
+                    6: "lookUp",
+                    7: "up",
+                    8: "lookUp",
+                    9: "lookUp",
+                    10: "up",
+                };
+
+                if (!(newStep in bellaDict)) return;
+                this.bellaPose = bellaDict[newStep];
             },
         },
         methods: { //switch case?
@@ -323,7 +340,7 @@
                         this.disabledA = true;
                         this.disabledAB = true;
                         this.browser = [];
-                        return true;
+                        document.getElementById('bella').className += " slideRight";
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -335,7 +352,6 @@
                         //this.disabledA = false;
                         //this.btnInfo = true;
                         this.browser = [];
-                        return false;
                     }
                 } else {
                     this.browser = [];
@@ -374,9 +390,7 @@
                         this.disabledBC = true;
                         this.disabledBD = true;
 
-                        this.submitAll();
                         this.such = [];
-                        return true;
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -388,12 +402,11 @@
                         //this.disabledB = false;
                         //this.btnInfo = true;
                         this.such = [];
-                        return false;
                     }
                 } else {
                     this.such = [];
-                    return false;
                 }
+                this.submitAll();
             },
             submitC: function () {
                 let inputsC = [];
@@ -424,7 +437,6 @@
                         this.disabledBC = true;
                         this.submitAll();
                         this.tab = [];
-                        return true;
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -436,12 +448,11 @@
                         //this.disabledC = false;
                         //this.btnInfo = true;
                         this.tab = [];
-                        return false;
                     }
                 } else {
                     this.tab = [];
-                    return false;
                 }
+                this.submitAll();
             },
             submitD: function () {
                 let inputsD = [];
@@ -472,7 +483,6 @@
                         this.disabledBD = true;
                         this.submitAll();
                         this.link = [];
-                        return true;
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -484,16 +494,16 @@
                         //this.disabledD = false;
                         //this.btnInfo = true;
                         this.link = [];
-                        return false;
                     }
                 } else {
                     this.link = [];
-                    return false;
                 }
+                this.submitAll();
             },
 
             submitAll: function () {
-                if (this.submitA && this.submitB() && this.submitC && this.submitD) {
+                if (this.disabledA && this.disabledAB && this.disabledB && this.disabledBC && this.disabledBD &&
+                    this.disabledC && this.disabledD) {
                     this.currentStep = 10;
                 }
             },
@@ -507,7 +517,7 @@
                 this.aSix = "";
                 this.aSeven = "";
                 this.btnInfo = false;
-                this.disabledA = false;
+                //this.disabledA = false;
                 this.currentStep = 6;
             },
         }
@@ -644,7 +654,7 @@
             background-image: url(../assets/img/Holz_mitSchatten_7.png);
             background-repeat: no-repeat;
             background-size: 49%;
-            padding: 0.5rem 0.5rem 1rem 1rem;
+            padding: 1rem 0.5rem 1rem 1rem;
         }
         @media screen and (orientation: portrait) {
             background-image: url(../assets/img/Holz_mitSchatten_7.png);
@@ -659,7 +669,7 @@
         @media screen and (orientation: landscape) {
             background-image: url(../assets/img/Holz_mitSchatten_7a.png);
             background-repeat: no-repeat;
-            background-size: 63%;
+            background-size: 60%;
             padding: 0.5rem 0.5rem 1rem 1rem;
         }
     }
@@ -681,7 +691,7 @@
 
     .position1 {
         @media screen and (orientation: landscape) {
-            margin-left: 14rem;
+            margin-left: 15rem;
         }
         @media screen and (orientation: portrait) {
             margin-left: 10rem;
@@ -690,7 +700,7 @@
 
     .position2 {
         @media screen and (orientation: landscape) {
-            margin-left: 29rem;
+            margin-left: 30rem;
             margin-top: -2.1rem;
         }
         @media screen and (orientation: portrait) {
@@ -748,6 +758,7 @@
         left: 0;
         @media screen and (orientation: landscape) {
             width: 25%;
+            height: auto;
             bottom: 20%;
             left: 0.5rem;
         }
@@ -755,6 +766,63 @@
             width: 32%;
             bottom: 27%;
             right: 0.1rem;
+        }
+    }
+
+    .bellaWalk {
+        position: absolute;
+        width: 10%;
+        height: auto;
+        bottom: 20%;
+        left: 5%;
+
+    }
+
+    .slideUp {
+        left: 10%;
+        transform: rotate(180deg);
+        animation-name: slideUp, rotate;
+        animation-duration: 3s, 3s;
+        animation-delay: 0s, 3s;
+        animation-fill-mode: forwards, forwards;
+    }
+
+    @keyframes slideUp {
+        from {
+            bottom: 20%;
+        }
+        to {
+            bottom: 65%;
+        }
+    }
+
+    @keyframes rotate {
+        from {
+            left: 10%;
+            bottom: 65%;
+        }
+        to {
+            left: 5%;
+            bottom: 77%;
+        }
+        100% { -moz-transform: rotate(270deg); }
+    }
+
+    .slideRight {
+        left: 10%;
+        bottom: 77%;
+        transform: rotate(270deg);
+        animation-name: slideRight;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes slideRight {
+        from {
+            left: 10%;
+        }
+        to {
+            left: 25%;
         }
     }
 

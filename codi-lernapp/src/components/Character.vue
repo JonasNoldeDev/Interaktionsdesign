@@ -55,6 +55,18 @@
       src="./../assets/img/characters/Bella.png"
       alt="Bella"
     />
+    <img
+     v-show="character === 'bella' && pose === 'up'"
+     class="character bella pose-normal"
+     src="./../assets/img/characters/Bella_Draufsicht1.png"
+     alt="Bella"
+    />
+    <img
+     v-show="character === 'bella' && pose === 'lookUp'"
+     class="character bella pose-normal"
+     src="./../assets/img/characters/Bella_Draufsicht2.png"
+     alt="Bella"
+    />
   </div>
 </template>
 

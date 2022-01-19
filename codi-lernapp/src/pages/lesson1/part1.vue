@@ -166,7 +166,7 @@
       >
         <p>
           Meine Freundin Bella hat mir erzählt, dass man im
-          <b>Internet</b> alles <b>finden</b> kann was man wissen will.
+          <b>Internet</b> alles <b>finden</b> kann, was man wissen will.
         </p>
         <p>Das können wir doch gemeinsam ausprobieren!</p>
       </Bubble>

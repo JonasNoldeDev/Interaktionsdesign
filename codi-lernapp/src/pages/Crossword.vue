@@ -103,7 +103,7 @@
             </Bubble>
             <Bubble size="small" :visible="currentStep === 9" v-on:prev="currentStep--" prev>
                 <p>Ok, der letzte Baumstamm (<b>Nummer 4</b>) ist dran!</p>
-                <p>Was gibt man oben in die <b>Adressleiste</b> des Browsers ein?</p>
+                <p>Was wird angezeigt, wenn wir eine Adresse in die Adresszeile eingeben?</p>
             </Bubble>
             <Bubble size="small" :visible="currentStep === 10" v-on:next="currentStep++" v-on:prev="currentStep--" prev
                     next>
@@ -115,25 +115,25 @@
         <div class="portrait">
             <div class="row_7 position1">
                 <input id="a1" v-model="aOne" class="size arrowRight" alt="Eingabefeld" type="text" maxlength="1"
-                       placeholder="1" :disabled="disabledA" @focus="currentStep = 6"
+                       placeholder="1" :disabled="disabledA"
                        @input="submitA">
                 <input id="a2" v-model="aTwo" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       :disabled="disabledA" @focus="currentStep = 6"
+                       :disabled="disabledA"
                        @input="submitA">
                 <input id="a3" v-model="aThree" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       :disabled="disabledA" @focus="currentStep = 6"
+                       :disabled="disabledA"
                        @input="submitA">
                 <input id="a4" v-model="aFour" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       :disabled="disabledA" @focus="currentStep = 6"
+                       :disabled="disabledA"
                        @input="submitA">
                 <input id="a5" v-model="aFive" class="size arrowDown" alt="Eingabefeld" type="text" maxlength="1"
-                       placeholder="2" :disabled="disabledA" @focus="currentStep = 6"
+                       placeholder="2" :disabled="disabledAB"
                        @input="submitA">
                 <input id="a6" v-model="aSix" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       :disabled="disabledA" @focus="currentStep = 6"
+                       :disabled="disabledA"
                        @input="submitA">
                 <input id="a7" v-model="aSeven" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                       :disabled="disabledA" @focus="currentStep = 6"
+                       :disabled="disabledA"
                        @input="submitA">
                 <button class="btn" v-if="clearAll" @click="resetInput"><b>x</b></button>
             </div>
@@ -141,75 +141,84 @@
             <div class="col_12 position2">
                 <div class="position4" style="margin-top: 1rem">
                     <input id="b2" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledB" @focus="currentStep = 7"
+                           :disabled="disabledB"
                            @input="submitB">
                 </div>
                 <div class="position4">
                     <input id="b3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledB" @focus="currentStep = 7"
+                           :disabled="disabledB"
                            @input="submitB">
                 </div>
                 <div class="position4">
                     <input id="b4" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledB" @focus="currentStep = 7"
+                           :disabled="disabledB"
                            @input="submitB">
                 </div>
 
                 <div class="position4">
                     <input id="b5" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledB" @focus="currentStep = 7"
+                           :disabled="disabledB"
                            @input="submitB">
                 </div>
                 <div class="row_3 position3">
                     <input id="c1" class="size arrowRight" alt="Eingabefeld" type="text" maxlength="1" placeholder="3"
-                           :disabled="disabledC" @focus="currentStep = 8"
+                           :disabled="disabledC"
                            @input="submitC">
                     <input id="b6" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledC" @focus="currentStep = 8"
+                           :disabled="disabledBC"
                            @input="submitB">
                     <input id="c3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledC" @focus="currentStep = 8"
+                           :disabled="disabledC"
                            @input="submitC">
                 </div>
 
                 <div class="position4">
                     <input id="b7" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledB" @focus="currentStep = 7"
+                           :disabled="disabledB"
                            @input="submitB">
                 </div>
                 <div class="position4">
                     <input id="b8" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledB" @focus="currentStep = 7"
+                           :disabled="disabledB"
                            @input="submitB">
                 </div>
                 <div class="position4">
                     <input id="b9" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledB" @focus="currentStep = 7"
+                           :disabled="disabledB"
                            @input="submitB">
                 </div>
-                <div class="row_4 position3">
-                    <input id="d1" class="size arrowRight" alt="Eingabefeld" type="text" maxlength="1" placeholder="4"
-                           :disabled="disabledD" @focus="currentStep = 9"
-                           @input="submitD">
+                <div class="position4">
                     <input id="b10" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledD" @focus="currentStep = 9"
+                           :disabled="disabledB"
                            @input="submitB">
-                    <input id="d3" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledD" @focus="currentStep = 9"
-                           @input="submitD">
-                    <input id="d4" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledD" @focus="currentStep = 9"
-                           @input="submitD">
                 </div>
                 <div class="position4">
                     <input id="b11" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledB" @focus="currentStep = 7"
+                           :disabled="disabledB"
                            @input="submitB">
                 </div>
-                <div class="position4">
+                <div class="row_7a position5">
+                    <input id="d1" class="size arrowRight" alt="Eingabefeld" type="text" maxlength="1" placeholder="4"
+                           :disabled="disabledD"
+                           @input="submitD">
                     <input id="b12" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledB" @focus="currentStep = 7"
+                           :disabled="disabledBD"
                            @input="submitB">
+                    <input id="d3" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           :disabled="disabledD"
+                           @input="submitD">
+                    <input id="d4" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           :disabled="disabledD"
+                           @input="submitD">
+                    <input id="d5" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           :disabled="disabledD"
+                           @input="submitD">
+                    <input id="d6" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           :disabled="disabledD"
+                           @input="submitD">
+                    <input id="d7" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           :disabled="disabledD"
+                           @input="submitD">
                 </div>
             </div>
         </div>
@@ -248,7 +257,10 @@
                 clearAll: false,
                 btnInfo: false,
                 disabledA: false,
+                disabledAB: false,
                 disabledB: false,
+                disabledBC: false,
+                disabledBD: false,
                 disabledC: false,
                 disabledD: false,
                 character: "bella",
@@ -298,7 +310,7 @@
                 }
 
                 if (inputsA[0] && inputsA[1] && inputsA[2] && inputsA[3] && inputsA[4] && inputsA[5] && inputsA[6]) {
-                    this.clearAll = true;
+                    //this.clearAll = true;
                     if (equals(inputsA, browser)) {
                         this.showCodi = false;
                         this.showBubble = true;
@@ -309,6 +321,7 @@
                             },
                             2000);
                         this.disabledA = true;
+                        this.disabledAB = true;
                         this.browser = [];
                         return true;
                     } else {
@@ -319,8 +332,8 @@
                                 this.showCodi = true;
                             },
                             3000);
-                        this.disabledA = false;
-                        this.btnInfo = true;
+                        //this.disabledA = false;
+                        //this.btnInfo = true;
                         this.browser = [];
                         return false;
                     }
@@ -332,16 +345,21 @@
 
             submitB: function () {
                 let inputsB = [];
-                let such = ["u", "c", "h", "m", "a", "s", "c", "h", "i", "n", "e"];
+                let such = ["s", "u", "c", "h", "m", "a", "s", "c", "h", "i", "n", "e"];
                 const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b)
 
-                for (let i = 2; i <= 12; i++) {
-                    let input = document.getElementById('b' + i).value.toLowerCase();
-                    inputsB.push(input);
+                for (let i = 1; i <= 12; i++) {
+                    if (i === 1) {
+                        let input = document.getElementById('a5').value.toLowerCase();
+                        inputsB.push(input);
+                    } else {
+                        let input = document.getElementById('b' + i).value.toLowerCase();
+                        inputsB.push(input);
+                    }
                 }
                 if (inputsB[0] && inputsB[1] && inputsB[2] && inputsB[3] && inputsB[4] && inputsB[5] &&
-                    inputsB[6] && inputsB[7] && inputsB[8] && inputsB[9] && inputsB[10]) {
-                    this.clearAll = true;
+                    inputsB[6] && inputsB[7] && inputsB[8] && inputsB[9] && inputsB[10] && inputsB[11]) {
+                    //this.clearAll = true;
                     if (equals(inputsB, such)) {
                         this.showCodi = false;
                         this.showBubble = true;
@@ -351,7 +369,11 @@
                                 this.currentStep = 8;
                             },
                             2000);
+                        this.disabledAB = true;
                         this.disabledB = true;
+                        this.disabledBC = true;
+                        this.disabledBD = true;
+
                         this.submitAll();
                         this.such = [];
                         return true;
@@ -363,8 +385,8 @@
                                 this.showCodi = true;
                             },
                             3000);
-                        this.disabledB = false;
-                        this.btnInfo = true;
+                        //this.disabledB = false;
+                        //this.btnInfo = true;
                         this.such = [];
                         return false;
                     }
@@ -388,7 +410,7 @@
                     }
                 }
                 if (inputsC[0] && inputsC[1] && inputsC[2]) {
-                    this.clearAll = true;
+                    //this.clearAll = true;
                     if (equals(inputsC, tab)) {
                         this.showCodi = false;
                         this.showBubble = true;
@@ -399,6 +421,7 @@
                             },
                             2000);
                         this.disabledC = true;
+                        this.disabledBC = true;
                         this.submitAll();
                         this.tab = [];
                         return true;
@@ -410,8 +433,8 @@
                                 this.showCodi = true;
                             },
                             3000);
-                        this.disabledC = false;
-                        this.btnInfo = true;
+                        //this.disabledC = false;
+                        //this.btnInfo = true;
                         this.tab = [];
                         return false;
                     }
@@ -422,21 +445,21 @@
             },
             submitD: function () {
                 let inputsD = [];
-                let link = ["l", "i", "n", "k"];
+                let website = ["w", "e", "b", "s", "i", "t", "e"];
                 const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b)
 
-                for (let i = 1; i <= 4; i++) {
+                for (let i = 1; i <= 7; i++) {
                     if (i === 2) {
-                        let input = document.getElementById('b10').value.toLowerCase();
+                        let input = document.getElementById('b12').value.toLowerCase();
                         inputsD.push(input);
                     } else {
                         let input = document.getElementById('d' + i).value.toLowerCase();
                         inputsD.push(input);
                     }
                 }
-                if (inputsD[0] && inputsD[1] && inputsD[2] && inputsD[3]) {
-                    this.clearAll = true;
-                    if (equals(inputsD, link)) {
+                if (inputsD[0] && inputsD[1] && inputsD[2] && inputsD[3] && inputsD[4] && inputsD[5] && inputsD[6]) {
+                    //this.clearAll = true;
+                    if (equals(inputsD, website)) {
                         this.showCodi = false;
                         this.showBubble = true;
                         setTimeout(() => {
@@ -446,6 +469,7 @@
                             },
                             2000);
                         this.disabledD = true;
+                        this.disabledBD = true;
                         this.submitAll();
                         this.link = [];
                         return true;
@@ -457,8 +481,8 @@
                                 this.showCodi = true;
                             },
                             3000);
-                        this.disabledD = false;
-                        this.btnInfo = true;
+                        //this.disabledD = false;
+                        //this.btnInfo = true;
                         this.link = [];
                         return false;
                     }
@@ -467,10 +491,10 @@
                     return false;
                 }
             },
+
             submitAll: function () {
-                if(this.submitA && this.submitB() && this.submitC && this.submitD) {
-                    alert("Yeiii")
-                    //this.currentStep = 10;
+                if (this.submitA && this.submitB() && this.submitC && this.submitD) {
+                    this.currentStep = 10;
                 }
             },
 
@@ -588,7 +612,7 @@
             text-align: center;
             font-size: 25px;
             border-radius: 5px;
-            margin: 0.5rem;
+            margin: 0.4rem;
         }
         @media screen and (orientation: portrait) {
             height: 2.5rem;
@@ -604,8 +628,8 @@
         @media screen and (orientation: landscape) {
             background-image: url(../assets/img/Holz_mitSchatten_3.png);
             background-repeat: no-repeat;
-            background-size: 35%;
-            padding: 1.5rem;
+            background-size: 28%;
+            padding: 1.6rem 1.5rem 1.4rem 1.4rem;
         }
         @media screen and (orientation: portrait) {
             background-image: url(../assets/img/Holz_mitSchatten_3p.png);
@@ -615,43 +639,37 @@
         }
     }
 
-    .row_4 {
-        @media screen and (orientation: landscape) {
-            background-image: url(../assets/img/Holz_mitSchatten_4.png);
-            background-repeat: no-repeat;
-            background-size: 55%;
-            padding: 1.5rem;
-        }
-        @media screen and (orientation: portrait) {
-            background-image: url(../assets/img/Holz_mitSchatten_4p.png);
-            background-repeat: no-repeat;
-            background-size: 53%;
-            padding: 1.1rem;
-        }
-    }
-
     .row_7 {
         @media screen and (orientation: landscape) {
             background-image: url(../assets/img/Holz_mitSchatten_7.png);
             background-repeat: no-repeat;
-            background-size: 60%;
-            padding: 1.5rem;
+            background-size: 49%;
+            padding: 0.5rem 0.5rem 1rem 1rem;
         }
         @media screen and (orientation: portrait) {
             background-image: url(../assets/img/Holz_mitSchatten_7.png);
             background-repeat: no-repeat;
             background-size: 65%;
-            padding: 1.2rem 1rem 0.7rem 0.9rem;
+            padding: 0.5rem 0.5rem 1rem 1rem;
         }
 
+    }
+
+    .row_7a {
+        @media screen and (orientation: landscape) {
+            background-image: url(../assets/img/Holz_mitSchatten_7a.png);
+            background-repeat: no-repeat;
+            background-size: 63%;
+            padding: 0.5rem 0.5rem 1rem 1rem;
+        }
     }
 
     .col_12 {
         @media screen and (orientation: landscape) {
             background-image: url(../assets/img/Holz_mitSchatten_up12.png);
             background-repeat: no-repeat;
-            background-size: 17%;
-            padding-bottom: 1rem;
+            background-size: 14%;
+            padding-left: 0.2rem;
         }
         @media screen and (orientation: portrait) {
             background-image: url(../assets/img/Holz_mitSchatten_up12p.png);
@@ -663,7 +681,7 @@
 
     .position1 {
         @media screen and (orientation: landscape) {
-            margin-left: 13.5rem;
+            margin-left: 14rem;
         }
         @media screen and (orientation: portrait) {
             margin-left: 10rem;
@@ -672,8 +690,8 @@
 
     .position2 {
         @media screen and (orientation: landscape) {
-            margin-left: 30rem;
-            margin-top: -2.5rem;
+            margin-left: 29rem;
+            margin-top: -2.1rem;
         }
         @media screen and (orientation: portrait) {
             margin-left: 23.1rem;
@@ -684,8 +702,8 @@
 
     .position3 {
         @media screen and (orientation: landscape) {
-            margin-left: -4.5rem;
-            margin-top: -1.5rem;
+            margin-left: -4.2rem;
+            margin-top: -1.7rem;
             margin-bottom: -1.5rem;
         }
         @media screen and (orientation: portrait) {
@@ -693,6 +711,11 @@
             margin-top: -1.1rem;
             margin-bottom: -1.1rem;
         }
+    }
+
+    .position5 {
+        margin-top: -0.4rem;
+        margin-left: -3.8rem;
     }
 
     .position4 {
@@ -704,7 +727,7 @@
         @media screen and (orientation: landscape) {
             width: 25%;
             height: auto;
-            bottom: 20%;
+            bottom: 10%;
             &.right {
                 right: 0.5rem;
             }

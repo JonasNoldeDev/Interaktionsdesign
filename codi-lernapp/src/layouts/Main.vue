@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrapper">
-    <main class="main" role="main">
+    <main class="main" :class="isSlider" role="main">
       <v-button class="home-button" href="/">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -88,6 +88,9 @@ export default {
     picFile: {
       type: String,
     },
+    isSlider: {
+      type: String,
+    }
   },
   computed: {
     playMusic() {
@@ -148,6 +151,11 @@ a {
     color: #ff9900;
     font-size: 3rem;
   }
+}
+
+.slider{
+  position: absolute;
+  width: 100%;
 }
 
 .overlay {

@@ -40,7 +40,7 @@
   position: absolute;
   width: 16rem;
   height: auto;
-  left: 7rem;
+  left: 10rem;
   top: 4rem;
 }
 
@@ -49,7 +49,7 @@
   position: absolute;
   width: 35rem;
   height: auto;
-  left: 3rem;
+  left: 10rem;
   bottom: 0;
 }
 
@@ -59,7 +59,7 @@ nav {
   left: 0;
   display: flex;
   align-items: center;
-  margin-left: 42rem;
+  margin-left: 53rem;
   height: 100%;
 }
 

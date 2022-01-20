@@ -1,7 +1,7 @@
 <template>
     <main-layout :visible="pageStep === 0" :hidden="pageStep !== 0">
         <Character position="right" :pose="characterPose" ref="character">
-            <Bubble type="speech-bubble" :visible="currentStep === 0" v-on:next="currentStep++" next>
+            <Bubble :visible="currentStep === 0" v-on:next="currentStep++" next>
                 <p>Oh <b>wow!</b></p>
                 <p>Wir haben schon <b>so viel</b> gelernt!</p>
                 <p>Aber können wir uns auch noch an alles <b>erinnern</b>?</p>
@@ -25,7 +25,8 @@
                 </svg>
             </v-button>
         </header>
-        <Character class="bella" :character="character" v-if="currentStep >= 2 && currentStep <= 5">
+        <Character id="bella" class="bella" :character="character"
+                   v-if="currentStep >= 2 && currentStep <= 5 || currentStep > 10">
             <Bubble size="small" :visible="currentStep === 4"
                     v-on:next="currentStep++" v-on:prev="currentStep--" prev next>
                 <p>Damit ich einen Baumstamm <b>überqueren</b> kann, müssen seine Felder <b>richtig</b> ausgefüllt sein.
@@ -37,7 +38,8 @@
             </Bubble>
         </Character>
 
-        <Character id="bella" class="bellaWalk slideUp rotate" :character="character" v-if="currentStep > 5" :pose="bellaPose">
+        <Character id="bellaWalk" class="bellaWalk slideUp" :character="character"
+                   v-if="currentStep > 5 && currentStep < 11" :pose="bellaPose">
 
         </Character>
 
@@ -99,8 +101,12 @@
                 <p>Ok, der letzte Baumstamm (<b>Nummer 4</b>) ist dran!</p>
                 <p>Was wird angezeigt, wenn wir eine Adresse in die Adresszeile eingeben?</p>
             </Bubble>
-            <Bubble size="small" :visible="currentStep === 10" v-on:next="currentStep++" v-on:prev="currentStep--" prev
-                    next>
+        </Character>
+
+        <Character class="codi codiAnim" v-if="showFin" :pose="characterPose" position="right" ref="character">
+            <Bubble style="left: -75%; margin-bottom: -45%;" size="small" type="speech-bubble-left"
+                    :visible="currentStep                                                                                        >= 10"
+                    v-on:next="currentStep++" next>
                 <p><b>Yuhuuu, Bella ist da!!</b></p>
                 <p></p>
             </Bubble>
@@ -159,7 +165,7 @@
                            :disabled="disabledC"
                            @input="submitC">
                     <input id="b6" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledBC"
+                           :disabled="disabledC"
                            @input="submitB">
                     <input id="c3" class="size" alt="Eingabefeld" type="text" maxlength="1"
                            :disabled="disabledC"
@@ -249,6 +255,7 @@
                 showCodi: true,
                 showBubble: false,
                 showWrong: false,
+                showFin: false,
                 clearAll: false,
                 btnInfo: false,
                 disabledA: false,
@@ -256,7 +263,6 @@
                 disabledC: false,
                 disabledD: false,
                 disabledAB: false,
-                disabledBC: false,
                 disabledBD: false,
                 character: "bella",
                 characterPose: "right",
@@ -287,7 +293,7 @@
                     7: "explaining",
                     8: "explaining",
                     9: "explaining",
-                    10: "right",
+                    10: "right"
                 };
 
                 if (!(newStep in poseDict)) return;
@@ -330,7 +336,7 @@
                         this.disabledA = true;
                         this.disabledAB = true;
                         this.browser = [];
-                        document.getElementById('bella').className += " slideRight";
+                        document.getElementById('bellaWalk').className += " slideRight1";
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -377,10 +383,9 @@
                             2000);
                         this.disabledAB = true;
                         this.disabledB = true;
-                        this.disabledBC = true;
                         this.disabledBD = true;
-
                         this.such = [];
+                        document.getElementById('bellaWalk').className += " slideDown1";
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -424,9 +429,9 @@
                             },
                             2000);
                         this.disabledC = true;
-                        this.disabledBC = true;
                         this.submitAll();
                         this.tab = [];
+                        document.getElementById('bellaWalk').className += " slideDown2";
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -465,14 +470,15 @@
                         this.showBubble = true;
                         setTimeout(() => {
                                 this.showBubble = false;
-                                this.showCodi = true;
+                                //this.showCodi = true;
                                 //this.currentStep = 10;
                             },
                             2000);
                         this.disabledD = true;
                         this.disabledBD = true;
                         this.submitAll();
-                        this.link = [];
+                        this.website = [];
+                        document.getElementById('bellaWalk').className += " slideRight2";
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -483,18 +489,26 @@
                             3000);
                         //this.disabledD = false;
                         //this.btnInfo = true;
-                        this.link = [];
+                        this.website = [];
                     }
                 } else {
-                    this.link = [];
+                    this.website = [];
                 }
                 this.submitAll();
             },
 
             submitAll: function () {
-                if (this.disabledA && this.disabledAB && this.disabledB && this.disabledBC && this.disabledBD &&
+                if (this.disabledA && this.disabledAB && this.disabledB && this.disabledBD &&
                     this.disabledC && this.disabledD) {
+                    this.showFin = true;
+                    this.showCodi = false;
+                    this.showBubble = false;
                     this.currentStep = 10;
+                    setTimeout(() => {
+                            document.getElementById('bella').className += " bellaFin";
+                            this.currentStep = 11;
+                        },
+                        5000);
                 }
             },
 
@@ -742,6 +756,21 @@
         }
     }
 
+    .codiAnim {
+        animation-name: codiAnim;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes codiAnim {
+        from {
+            bottom: 10%;
+        }
+        to {
+            bottom: 53%;
+        }
+    }
+
     .bella {
         position: absolute;
         height: auto;
@@ -759,6 +788,15 @@
         }
     }
 
+    .bellaFin {
+        position: absolute;
+        width: 25%;
+        height: auto;
+        right: 0.5rem;
+        bottom: 5%;
+
+    }
+
     .bellaWalk {
         position: absolute;
         width: 10%;
@@ -771,8 +809,8 @@
     .slideUp {
         left: 10%;
         transform: rotate(180deg);
-        animation-name: slideUp, rotate;
-        animation-duration: 3s, 3s;
+        animation-name: slideUp, rotateRight;
+        animation-duration: 3s, 2s;
         animation-delay: 0s, 3s;
         animation-fill-mode: forwards, forwards;
     }
@@ -786,7 +824,7 @@
         }
     }
 
-    @keyframes rotate {
+    @keyframes rotateRight {
         from {
             left: 10%;
             bottom: 65%;
@@ -795,19 +833,21 @@
             left: 5%;
             bottom: 77%;
         }
-        100% { -moz-transform: rotate(270deg); }
+        100% {
+            -moz-transform: rotate(270deg);
+        }
     }
 
-    .slideRight {
+    .slideRight1 {
         left: 10%;
         bottom: 77%;
         transform: rotate(270deg);
-        animation-name: slideRight;
+        animation-name: slideRight1;
         animation-duration: 3s;
         animation-fill-mode: forwards;
     }
 
-    @keyframes slideRight {
+    @keyframes slideRight1 {
         from {
             left: 10%;
         }
@@ -815,6 +855,87 @@
             left: 25%;
         }
     }
+
+    .slideDown1 {
+        left: 25%;
+        bottom: 77%;
+        animation-name: rotateDown1, slideDown1;
+        animation-duration: 1.5s, 3s;
+        animation-delay: 0s, 1s;
+        animation-fill-mode: forwards, forwards;
+    }
+
+    @keyframes rotateDown1 {
+        from {
+            left: 25%
+        }
+        to {
+            left: 36.5%;
+        }
+        100% {
+            -moz-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes slideDown1 {
+        from {
+            bottom: 77%;
+        }
+        to {
+            bottom: 58%;
+        }
+    }
+
+    .slideDown2 {
+        left: 36.5%;
+        bottom: 58%;
+        transform: rotate(0);
+        animation-name: slideDown2;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes slideDown2 {
+        from {
+            bottom: 58%;
+        }
+        to {
+            bottom: 10%;
+        }
+    }
+
+    .slideRight2 {
+        left: 36.5%;
+        bottom: 10%;
+        animation-name: rotateRight2, slideRight2;
+        animation-duration: 1.5s, 3s;
+        animation-delay: 0s, 1.5s;
+        animation-fill-mode: forwards, forwards;
+    }
+
+    @keyframes rotateRight2 {
+        from {
+            left: 36.5%;
+            bottom: 10%;
+        }
+        to {
+            left: 38%;
+            bottom: -9.5%;
+        }
+        100% {
+            -moz-transform: rotate(-90deg);
+        }
+    }
+
+    @keyframes slideRight2 {
+        from {
+            left: 40%;
+        }
+        to {
+            left: 80%;
+        }
+    }
+
 
     svg {
         width: 1em;

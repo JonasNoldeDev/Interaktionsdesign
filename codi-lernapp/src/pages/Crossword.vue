@@ -604,11 +604,13 @@
             background-image: url(../assets/img/Kreuzwortraetsel_landscape.jpg);
             background-repeat: no-repeat;
             background-size: 100%;
+            background-position: initial;
         }
         @media screen and (orientation: portrait) {
             background-image: url(../assets/img/Kreuzwortraetsel_portrait.jpg);
             background-repeat: no-repeat;
             background-size: 100%;
+            background-position: initial;
         }
     }
 

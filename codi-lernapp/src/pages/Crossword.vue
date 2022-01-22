@@ -26,7 +26,7 @@
             </v-button>
         </header>
         <Character id="bella" class="bella" :character="character"
-                   v-if="currentStep >= 2 && currentStep <= 5 || currentStep > 10">
+                   v-if="currentStep >= 2 && currentStep <= 5">
             <Bubble size="small" :visible="currentStep === 4"
                     v-on:next="currentStep++" v-on:prev="currentStep--" prev next>
                 <p>Damit ich einen Baumstamm <b>überqueren</b> kann, müssen seine Felder <b>richtig</b> ausgefüllt sein.
@@ -42,6 +42,17 @@
                    v-if="currentStep > 5 && currentStep < 11" :pose="bellaPose">
 
         </Character>
+
+
+        <Character id="bellaFin" class="bellaFin" :character="character"
+                   v-if="currentStep === 11">
+            <Bubble size="small" type="speech-bubble-left"  style="right: 110%; margin-bottom: -60%;"
+                    v-on:next="currentStep++" next>
+                <p>Endlich bin ich wieder bei meinem Freund <b>Codi</b>.</p>
+                <p>Dank <b>deiner Hilfe!</b></p>
+            </Bubble>
+        </Character>
+
 
         <Character class="codi" v-if="showBubble" :pose="bubblePose" position="right" ref="character">
             <Bubble size="small">
@@ -105,8 +116,7 @@
 
         <Character class="codi codiAnim" v-if="showFin" :pose="characterPose" position="right" ref="character">
             <Bubble style="left: -75%; margin-bottom: -45%;" size="small" type="speech-bubble-left"
-                    :visible="currentStep                                                                                        >= 10"
-                    v-on:next="currentStep++" next>
+                    :visible="currentStep >= 10">
                 <p><b>Yuhuuu, Bella ist da!!</b></p>
                 <p></p>
             </Bubble>
@@ -238,6 +248,7 @@
     import VButton from "../components/VButton";
     import Character from "../components/Character";
     import Bubble from "../components/Bubble";
+    import vueConfig from "../../vue.config";
 
     export default {
         name: 'Crossword',
@@ -282,6 +293,11 @@
         },
         watch: {
             currentStep: function (newStep) {
+                if (newStep === 12) {
+                    this.$root.currentRoute = (vueConfig.publicPath || '') + "/lernsektionen";
+                    window.history.pushState(null, "Lernsektionen", (vueConfig.publicPath || '') + "/lernsektionen");
+                }
+
                 const poseDict = {
                     0: "right",
                     1: "explaining",
@@ -293,7 +309,7 @@
                     7: "explaining",
                     8: "explaining",
                     9: "explaining",
-                    10: "right"
+                    10: "right",
                 };
 
                 if (!(newStep in poseDict)) return;
@@ -505,10 +521,10 @@
                     this.showBubble = false;
                     this.currentStep = 10;
                     setTimeout(() => {
-                            document.getElementById('bella').className += " bellaFin";
                             this.currentStep = 11;
                         },
                         5000);
+                    console.log('CurrentStep: ' + this.currentStep);
                 }
             },
 
@@ -779,7 +795,6 @@
             width: 25%;
             height: auto;
             bottom: 20%;
-            left: 0.5rem;
         }
         @media screen and (orientation: portrait) {
             width: 32%;
@@ -792,7 +807,7 @@
         position: absolute;
         width: 25%;
         height: auto;
-        right: 0.5rem;
+        left: 75%;
         bottom: 5%;
 
     }

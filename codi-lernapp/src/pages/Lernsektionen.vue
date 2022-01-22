@@ -6,7 +6,7 @@
         <li class="sektion">
           <div class="sektion-text">
             <img
-              src="./../assets/img/sections/SektionSuchmaschinen.jpg"
+              src="./../assets/img/sections/SektionSuchmaschinen.png"
               alt=""
             />
             <v-button
@@ -84,10 +84,6 @@ header {
   align-items: center;
   margin: 1rem 0 2rem;
 
-  h1 {
-    margin: 0 0 0 2rem;
-  }
-
   svg {
     display: block;
     width: 1em;
@@ -95,12 +91,20 @@ header {
   }
 }
 
+h1 {
+  font-size: 1.5em;
+  display: inline;
+  vertical-align: top;
+  line-height: 4.5rem;
+  margin: 0 0 0 8rem;
+}
+
 ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
-  margin: 0 -1rem -1rem 0;
+  margin: 2rem -1rem -1rem 0;
 }
 
 li {
@@ -152,12 +156,5 @@ li {
 .progress-bar-inner {
   height: 100%;
   background: #18a0fb;
-}
-
-h1 {
-  font-size: 1.5em;
-  display: inline;
-  vertical-align: top;
-  line-height: 7rem;
 }
 </style>

@@ -7,6 +7,7 @@ let routes = {
     '/lernsektionen/sektion1': 'Sektion1',
     '/lernsektionen/crossword': 'Crossword',
     '/lernsektionen/lesson1/part1': 'lesson1/part1',
+    '/lernsektionen/pdf': 'PDF',
     '/optionen': 'Optionen',
     '/explain': 'Explain'
 };

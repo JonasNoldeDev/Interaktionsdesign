@@ -36,14 +36,14 @@
         <li class="sektion">
           <div class="sektion-text">
             <v-button
-              :href="(vueConfig.publicPath || '') + '/'"
+              :href="(vueConfig.publicPath || '') + '/lernsektionen/PDF'"
               >Start</v-button
             >
           </div>
           <div class="progress-bar">
             <div class="progress-bar-inner" style="width: 10%"></div>
           </div>
-          <h2 class="sektion-title">Links</h2>
+          <h2 class="sektion-title">PDF</h2>
         </li>
         <li class="sektion">
           <div class="sektion-text">

@@ -108,14 +108,102 @@
                 </div>
             </Slide>
             <Slide v-show="currentSlide === 8">
-                <div class="speech-bubble">
+                <div class="speech-bubble" style="font-size: 1.2rem">
                     <div id="square_Save"></div>
                     <img src="./../assets/img/pdf/Word_Sidebar.png" class="word" alt="Word">
-                    <p><br><br><br><br><br><br><br></p>
-                    <p>Klickst du 'nur' auf <b>Speichern</b>, so wird das Dokument als <b>Word Datei</b> gespeichert.</p>
+                    <p><br><br><br><br><br><br><br><br><br></p>
+                    <p>Klickst du 'nur' auf <b>Speichern</b>, so wird das Dokument als <b>Word Datei</b> gespeichert.
+                    </p>
                     <p>Also beispielsweise als <b>Kurzgeschichte.docx</b></p>
+                    <div class="left-point"></div>
                 </div>
-                <div class="left-point"></div>
+            </Slide>
+            <Slide v-show="currentSlide === 9">
+                <div class="speech-bubble">
+                    <div id="square_SaveAs"></div>
+                    <img src="./../assets/img/pdf/Word_Sidebar.png" class="word" alt="Word">
+                    <p><br><br><br><br><br><br><br></p>
+                    <p>Willst du allerdings einen Text in Word als PDF speichern, so klickst du auf <b>Speichern
+                        unter</b>.</p>
+                    <div class="left-point"></div>
+                </div>
+            </Slide>
+            <Slide v-show="currentSlide === 10">
+                <div class="speech-bubble" style="font-size: 1.15rem">
+                    <div id="square_Filename"></div>
+                    <img src="./../assets/img/pdf/Word_SaveAs.png" class="word2" alt="Word">
+                    <p><br><br><br><br><br><br></p>
+                    <p>Es erscheint eine neue Ansicht.<br>
+                        Zunächst kannst du bei <i>'Hier Dateinamen eingeben'</i> den Namen deines Dokumentes festlegen.
+                        Zum Beispiel <b>CodisKurzgeschichte</b>.</p>
+                    <p>Vermeide Umlaute, Leerzeichen und Punkte im Dateinamen, da andere Programme die Datei sonst oft
+                        nicht lesen können.</p>
+                    <div class="left-point"></div>
+                </div>
+            </Slide>
+            <Slide v-show="currentSlide === 11">
+                <div class="speech-bubble">
+                    <div id="square_Filetype"></div>
+                    <div id="square_Arrow"></div>
+                    <img src="./../assets/img/pdf/Word_Filetype.png" class="word" alt="Word">
+                    <p><br><br><br><br><br><br></p>
+                    <p>Schauen wir uns nun die Zeile darunter an.</p>
+                    <p>
+                        Hier kannst du den <b>Dateitypen</b> auswählen.<br>
+                        Dazu klickst du auf den Pfeil ganz rechts im Feld.
+                    </p>
+                    <div class="left-point"></div>
+                </div>
+            </Slide>
+            <Slide v-show="currentSlide === 12">
+                <div class="speech-bubble">
+                    <div id="square_Dropdown"></div>
+                    <img src="./../assets/img/pdf/Word_Dropdown.png" class="word" alt="Word">
+                    <p><br><br><br><br><br><br><br><br><br></p>
+                    <p>Es erscheint ein <b>Dropdown</b>-Menü.</p>
+                    <div class="left-point"></div>
+                </div>
+            </Slide>
+            <Slide v-show="currentSlide === 13">
+                <div class="speech-bubble" style="font-size: 1.2rem">
+                    <div id="square_PDF"></div>
+                    <img src="./../assets/img/pdf/Word_Dropdown.png" class="word2" alt="Word">
+                    <p><br><br><br><br><br><br><br><br><br><br></p>
+                    <p>Dort siehst du <i>PDF (*.pdf)</i>. Genau darauf musst du klicken, wenn du ein Dokument als
+                        <b>PDF</b> speichern möchstest.</p>
+                    <div class="left-point"></div>
+                </div>
+            </Slide>
+            <Slide v-show="currentSlide === 14">
+                <div class="speech-bubble" style="font-size: 1rem">
+                    <div id="square_Options1"></div>
+                    <div id="square_Options2"></div>
+                    <div id="square_Options3"></div>
+                    <div id="square_Options4"></div>
+                    <img src="./../assets/img/pdf/Word_Options.png" class="word2" alt="Word">
+                    <p><br><br><br><br><br><br><br><br><br></p>
+                    <p>Nun haben wir sowohl den Dateinamen, als auch den Dateityp ausgewählt.<br>
+                        Falls du einen speziellen <b>Speicherort</b> wählen möchtest, hast du 3 Optionen:<br>
+                        <span style="color: var(--color-orange)"><b>1.</b></span> Zuerst <i>Dieser PC</i> anwählen und anschließend einen der Ordner, die dir rechts angezeigt
+                        werden<br>
+
+                        <span style="color: var(--color-blue)"><b>2.</b></span> Durchsuchen<br>
+
+                        <span style="color: var(--color-green)"><b>3.</b></span> Weitere Optionen<br>
+                    </p>
+                    <p style="margin-top: -0.6rem">Dann auf <b>speichern</b> und wir haben es geschafft!</p>
+                    <div class="left-point"></div>
+                </div>
+            </Slide>
+            <Slide v-show="currentSlide === 15">
+                <div class="speech-bubble">
+                    <div id="square_Saved"></div>
+                    <img src="./../assets/img/pdf/Word.png" class="word" alt="Word">
+                    <p><br><br><br><br></p>
+                    <p>Und schwupps, landest du wieder in Word.</p>
+                    <p>Aber dein Dokument ist als PDF abgespeichert.</p>
+                    <div class="left-point"></div>
+                </div>
             </Slide>
             <Character position="right"></Character>
         </Carousal>
@@ -215,6 +303,14 @@
         width: 85%;
     }
 
+    .word2 {
+        position: absolute;
+        top: 5%;
+        padding-bottom: 10rem;
+        z-index: 0;
+        width: 85%;
+    }
+
     #square {
         position: absolute;
         z-index: 1;
@@ -225,7 +321,7 @@
         top: 16.5%;
         border-radius: 0.3rem;
         box-shadow: 0 0 0 0 var(--color-orange);
-        animation: pulse 2s infinite;
+        animation: pulseO 2s infinite;
     }
 
     #square_File {
@@ -238,7 +334,7 @@
         top: 16.5%;
         border-radius: 0.3rem;
         box-shadow: 0 0 0 0 var(--color-orange);
-        animation: pulse 2s infinite;
+        animation: pulseO 2s infinite;
     }
 
     #square_Save {
@@ -247,15 +343,142 @@
         background: transparent;
         border: 0.2rem solid var(--color-orange);
         height: 1.2rem;
-        width: 7%;
-        left: 10.2%;
+        width: 12.5%;
+        left: 7.5%;
         top: 48.8%;
         border-radius: 0.3rem;
         box-shadow: 0 0 0 0 var(--color-orange);
-        animation: pulse 2s infinite;
+        animation: pulseO 2s infinite;
     }
 
-    @keyframes pulse {
+    #square_SaveAs {
+        position: absolute;
+        z-index: 1;
+        background: transparent;
+        border: 0.2rem solid var(--color-orange);
+        height: 1.2rem;
+        width: 12.5%;
+        left: 7.5%;
+        top: 54.8%;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 0 0 var(--color-orange);
+        animation: pulseO 2s infinite;
+    }
+
+    #square_Filename {
+        position: absolute;
+        z-index: 1;
+        background: transparent;
+        border: 0.2rem solid var(--color-orange);
+        height: 1rem;
+        width: 37%;
+        left: 45%;
+        top: 20.4%;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 0 0 var(--color-orange);
+        animation: pulseO 2s infinite;
+    }
+
+    #square_Filetype {
+        position: absolute;
+        z-index: 1;
+        background: transparent;
+        border: 0.2rem solid var(--color-orange);
+        height: 1rem;
+        width: 35%;
+        left: 45%;
+        top: 28.5%;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 0 0 var(--color-orange);
+        animation: pulseO 2s infinite;
+    }
+
+    #square_Dropdown {
+        position: absolute;
+        z-index: 1;
+        background: transparent;
+        border: 0.2rem solid var(--color-orange);
+        height: 47.5%;
+        width: 44%;
+        left: 49%;
+        top: 31%;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 0 0 var(--color-orange);
+        animation: pulseO 2s infinite;
+    }
+
+
+    #square_PDF {
+        position: absolute;
+        z-index: 1;
+        background: transparent;
+        border: 0.2rem solid var(--color-orange);
+        height: 4%;
+        width: 43.5%;
+        left: 49.2%;
+        top: 44.4%;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 0 0 var(--color-orange);
+        animation: pulseO 2s infinite;
+    }
+
+    #square_Options1 {
+        position: absolute;
+        z-index: 1;
+        background: transparent;
+        border: 0.2rem solid var(--color-orange);
+        height: 6%;
+        width: 22.5%;
+        left: 19.5%;
+        top: 36.4%;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 0 0 var(--color-orange);
+        animation: pulseO 2s infinite;
+    }
+
+    #square_Options2 {
+        position: absolute;
+        z-index: 1;
+        background: transparent;
+        border: 0.2rem solid var(--color-blue);
+        height: 6%;
+        width: 22.5%;
+        left: 19.5%;
+        top: 47%;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 0 0 var(--color-blue);
+        animation: pulseB 2s infinite;
+    }
+
+    #square_Options3 {
+        position: absolute;
+        z-index: 1;
+        background: transparent;
+        border: 0.2rem solid var(--color-orange);
+        height: 15.5%;
+        width: 45%;
+        left: 44.5%;
+        top: 41%;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 0 0 var(--color-orange);
+        animation: pulseO 2s infinite;
+    }
+
+    #square_Options4 {
+        position: absolute;
+        z-index: 1;
+        background: transparent;
+        border: 0.2rem solid var(--color-green);
+        height: 4%;
+        width: 9%;
+        left: 44.5%;
+        top: 25.7%;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 0 0 var(--color-green);
+        animation: pulseG 2s infinite;
+    }
+
+    @keyframes pulseO {
         0% {
             box-shadow: 0 0 0 0 rgba(255, 153, 0, 0.7);
         }
@@ -266,6 +489,48 @@
 
         100% {
             box-shadow: 0 0 0 0 rgba(255, 153, 0, 0);
+        }
+    }
+
+    @keyframes pulseG {
+        0% {
+            box-shadow: 0 0 0 0 rgba(137, 190, 51, 0.7);
+        }
+
+        70% {
+            box-shadow: 0 0 0 10px rgba(137, 190, 51, 0);
+        }
+
+        100% {
+            box-shadow: 0 0 0 0 rgba(137, 190, 51, 0);
+        }
+    }
+
+    #square_Arrow {
+        position: absolute;
+        z-index: 1;
+        background: transparent;
+        border: 0.2rem solid var(--color-blue);
+        height: 1rem;
+        width: 2.1%;
+        left: 79.9%;
+        top: 28.5%;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 0 0 var(--color-blue);
+        animation: pulseB 2s infinite;
+    }
+
+    @keyframes pulseB {
+        0% {
+            box-shadow: 0 0 0 0 rgba(24, 160, 251, 0.7);
+        }
+
+        70% {
+            box-shadow: 0 0 0 10px rgba(24, 160, 251, 0);
+        }
+
+        100% {
+            box-shadow: 0 0 0 0 rgba(24, 160, 251, 0);
         }
     }
 
@@ -336,13 +601,14 @@
     }
 
     .left-point {
+        z-index: 0;
         width: 0;
         height: 0;
         border-left: 2vh solid transparent;
         border-right: 2vh solid transparent;
         border-top: 10vh solid #fff;
         position: absolute;
-        top: 90%;
+        top: 88%;
         left: 70%;
         transform: rotate(300deg) scaleX(-1);
     }

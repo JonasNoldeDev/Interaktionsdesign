@@ -36,8 +36,8 @@
 
         <Carousal
                 v-show="currentStep === 3"
-                :maxSlides="15"
-                :nextPage="'/lernsektionen/crossword'"
+                :maxSlides="25"
+                :nextPage="'/lernsektionen'"
                 class="carousal"
                 v-slot="{ currentSlide }"
         >
@@ -184,7 +184,8 @@
                     <p><br><br><br><br><br><br><br><br><br></p>
                     <p>Nun haben wir sowohl den Dateinamen, als auch den Dateityp ausgewählt.<br>
                         Falls du einen speziellen <b>Speicherort</b> wählen möchtest, hast du 3 Optionen:<br>
-                        <span style="color: var(--color-orange)"><b>1.</b></span> Zuerst <i>Dieser PC</i> anwählen und anschließend einen der Ordner, die dir rechts angezeigt
+                        <span style="color: var(--color-orange)"><b>1.</b></span> Zuerst <i>Dieser PC</i> anwählen und
+                        anschließend einen der Ordner, die dir rechts angezeigt
                         werden<br>
 
                         <span style="color: var(--color-blue)"><b>2.</b></span> Durchsuchen<br>
@@ -198,16 +199,93 @@
             <Slide v-show="currentSlide === 15">
                 <div class="speech-bubble">
                     <div id="square_Saved"></div>
-                    <img src="./../assets/img/pdf/Word.png" class="word" alt="Word">
-                    <p><br><br><br><br></p>
+                    <img src="./../assets/img/pdf/Word_Leiste.png" class="word" alt="Word">
+                    <p><br><br><br><br><br><br><br></p>
                     <p>Und schwupps, landest du wieder in Word.</p>
                     <p>Aber dein Dokument ist als PDF abgespeichert.</p>
                     <div class="left-point"></div>
                 </div>
             </Slide>
+            <Slide v-show="currentSlide === 16">
+                <div class="speech-bubble">
+                    <p>Es kann sein, dass sich dein PDF direkt nach dem Abspeichern von selbst öffnet.</p>
+                    <p>Zur Sicherheit können wir aber nachschauen, ob es auch wirklich vorhanden ist.</p>
+                    <div class="left-point"></div>
+                </div>
+            </Slide>
+            <Slide v-show="currentSlide === 17">
+                <div class="speech-bubble">
+                    <div id="square_Explorer"></div>
+                    <img src="./../assets/img/pdf/Explorer.png" class="explorer" alt="Explorer">
+                    <p><br><br><br><br><br><br><br></p>
+                    <p>Gehe dazu in den entsprechenden Ordner, den du als <b>Speicherort</b> ausgewählt hast.<br>
+                        Dort befindet sich dein Dokument.</p>
+                    <div class="left-point"></div>
+                </div>
+            </Slide>
+            <Slide v-show="currentSlide === 18">
+                <div class="speech-bubble" style="font-size: 1.14rem">
+                    <img src="./../assets/img/pdf/Explorer.png" class="explorer" alt="Explorer">
+                    <img src="./../assets/img/pdf/Pointer.png" class="pointer" alt="Mauszeiger">
+                    <p><br><br><br><br><br><br><br><br><br></p>
+                    <p>Du kannst das PDF mit dem Programm <b>Adobe Acrobat</b> oder im <b>Browser</b> öffnen.<br>
+                        Ist bereits ein Programm festgelegt, so wie im Bild oben, kannst du einfach einen
+                        <b>Doppelklick</b> auf dein PDF machen.</p>
+                    <div class="left-point"></div>
+                </div>
+            </Slide>
+            <Slide v-show="currentSlide === 19">
+                <div class="speech-bubble" style="font-size: 1.3rem">
+                    <img src="./../assets/img/pdf/Explorer.png" class="explorer" alt="Explorer">
+                    <img src="./../assets/img/pdf/Pointer.png" class="pointer" alt="Mauszeiger">
+                    <p><br><br><br><br><br><br><br><br></p>
+                    <p>Falls noch kein Programm ausgewählt ist, oder du das PDF mit einem anderen Programm öffnen
+                        möchtest, dann <b>klicke mit der rechten Maustaste</b> auf dein PDF.<br>
+                    </p>
+                    <div class="left-point"></div>
+                </div>
+            </Slide>
+            <Slide v-show="currentSlide === 20">
+                <div class="speech-bubble" style="font-size: 1.1rem">
+                    <img src="./../assets/img/pdf/Explorer.png" class="explorer" alt="Explorer">
+                    <img src="./../assets/img/pdf/Pointer.png" class="pointerDropdown" alt="Mauszeiger">
+                    <img src="./../assets/img/pdf/Explorer_Dropdown.png" class="explorerDropdown" alt="Explorer">
+                    <p><br><br><br><br><br><br><br><br><br><br></p>
+                    <p>Es öffnet sich ein <b>Dropdown</b>-Menü.<br>
+                        Wenn dort '<b>Mit Adobe Acrobat DC öffnen</b>' steht,<br>
+                        dann kannst du darauf klicken. Willst du das PDF<br>
+                        aber mit einem Browser öffnen, dann klicke auf<br>
+                        '<b>Öffnen mit</b>'.</p>
+                    <div class="left-point"></div>
+                </div>
+            </Slide>
+            <Slide v-show="currentSlide === 21">
+                <div class="speech-bubble" style="font-size: 1.2rem">
+                    <img src="./../assets/img/pdf/Explorer.png" class="explorer" alt="Explorer">
+                    <img src="./../assets/img/pdf/Pointer.png" class="pointerOpen" alt="Mauszeiger">
+                    <img src="./../assets/img/pdf/Explorer_Open.png" class="explorerOpen" alt="Explorer">
+                    <div id="explorerOpen"></div>
+                    <div id="explorerOpen2"></div>
+                    <p><br><br><br><br><br><br><br><br></p>
+                    <p>Klicke nun auf den Browser, den <br>
+                        du normalerweise benutzt.<br>
+                        Dann sollte sich dein PDF im <br>
+                        entsprechenden Browser öffnen.</p>
+                    <div class="left-point"></div>
+                </div>
+            </Slide>
+            <Slide v-show="currentSlide === 22">
+                <div class="speech-bubble">
+                    <p><b>Super1</b></p>
+                    <p>Jetzt habe das PDF und kann es nachhert an Bella schicken.</p>
+                    <p><b>Danke an dich!</b></p>
+                    <p>Jetzt kannst du dein Wissen als <b>PDF Experte oder Expertin</b> testen!</p>
+                    <div class="left-point"></div>
+                </div>
+            </Slide>
             <Character position="right"></Character>
+            <button v-show="currentSlide === 21">Weiter</button>
         </Carousal>
-
     </main-layout>
 </template>
 
@@ -309,6 +387,90 @@
         padding-bottom: 10rem;
         z-index: 0;
         width: 85%;
+    }
+
+    .explorer {
+        position: absolute;
+        top: 5%;
+        left: 2.5%;
+        z-index: 0;
+        width: 95%;
+    }
+
+    .explorerOpen {
+        position: absolute;
+        top: 42%;
+        left: 54%;
+        z-index: 2;
+        width: 45%;
+    }
+
+    #explorerOpen {
+        position: absolute;
+        top: 42%;
+        left: 54%;
+        z-index: 1;
+        width: 27.4%;
+        height: 57.5%;
+        border-radius: 0.3rem;
+        animation: pulseO 2s infinite;
+    }
+
+    #explorerOpen2 {
+        position: absolute;
+        top: 64.8%;
+        left: 81%;
+        z-index: 1;
+        width: 18%;
+        height: 25%;
+        border-radius: 0.3rem;
+        animation: pulseO 2s infinite;
+    }
+
+    .explorerDropdown {
+        position: absolute;
+        top: 42%;
+        left: 70%;
+        z-index: 1;
+        width: 25%;
+        animation: pulseO 2s infinite;
+    }
+
+    .pointer {
+        position: absolute;
+        top: 41.5%;
+        left: 30%;
+        z-index: 0;
+        width: 1.3%;
+        animation: pulse 2s infinite;
+    }
+
+    .pointerDropdown {
+        position: absolute;
+        top: 42.5%;
+        left: 70.2%;
+        z-index: 3;
+        width: 1.3%;
+    }
+
+    .pointerOpen {
+        position: absolute;
+        top: 42%;
+        left: 54%;
+        z-index: 3;
+        width: 1.3%;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.5);
+        }
+        100% {
+            transform: scale(1);
+        }
     }
 
     #square {
@@ -478,6 +640,20 @@
         animation: pulseG 2s infinite;
     }
 
+    #square_Explorer {
+        position: absolute;
+        z-index: 1;
+        background: transparent;
+        border: 0.2rem solid var(--color-orange);
+        height: 5%;
+        width: 68%;
+        left: 23.5%;
+        top: 40%;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 0 0 var(--color-orange);
+        animation: pulseO 2s infinite;
+    }
+
     @keyframes pulseO {
         0% {
             box-shadow: 0 0 0 0 rgba(255, 153, 0, 0.7);
@@ -608,7 +784,7 @@
         border-right: 2vh solid transparent;
         border-top: 10vh solid #fff;
         position: absolute;
-        top: 88%;
+        top: 85%;
         left: 70%;
         transform: rotate(300deg) scaleX(-1);
     }

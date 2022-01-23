@@ -36,7 +36,7 @@
         <li class="sektion">
           <div class="sektion-text">
             <v-button
-              :href="(vueConfig.publicPath || '') + '/lernsektionen/PDF'"
+              :href="(vueConfig.publicPath || '') + '/lernsektionen/pdf'"
               >Start</v-button
             >
           </div>

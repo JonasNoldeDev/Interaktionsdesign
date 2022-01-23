@@ -14,10 +14,10 @@
 
     <!-- Pagination -->
     <!--<div class="pagination">
-          <span 
+          <span
             @click="GotoSlide(index)"
-            v-for="(slide, index) in getSlideCount" 
-            :key="index" 
+            v-for="(slide, index) in getSlideCount"
+            :key="index"
             :class="{ active : index + 1 === currentSlide }"
           >
 
@@ -93,12 +93,12 @@ export default {
     display: flex;
     flex: 1;
     position: absolute;
-    right: 22%;
+    right: 15%;
     bottom: 10%;
   }
 
   .right {
-    right: 12%;
+    right: 5%;
   }
 
   span {

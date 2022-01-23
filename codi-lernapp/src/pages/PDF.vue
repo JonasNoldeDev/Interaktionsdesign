@@ -187,9 +187,7 @@
                         <span style="color: var(--color-orange)"><b>1.</b></span> Zuerst <i>Dieser PC</i> anwählen und
                         anschließend einen der Ordner, die dir rechts angezeigt
                         werden<br>
-
                         <span style="color: var(--color-blue)"><b>2.</b></span> Durchsuchen<br>
-
                         <span style="color: var(--color-green)"><b>3.</b></span> Weitere Optionen<br>
                     </p>
                     <p style="margin-top: -0.6rem">Dann auf <b>speichern</b> und wir haben es geschafft!</p>
@@ -276,15 +274,14 @@
             </Slide>
             <Slide v-show="currentSlide === 22">
                 <div class="speech-bubble">
-                    <p><b>Super1</b></p>
+                    <p><b>Super!</b></p>
                     <p>Jetzt habe das PDF und kann es nachhert an Bella schicken.</p>
                     <p><b>Danke an dich!</b></p>
                     <p>Jetzt kannst du dein Wissen als <b>PDF Experte oder Expertin</b> testen!</p>
                     <div class="left-point"></div>
                 </div>
             </Slide>
-            <Character position="right"></Character>
-            <button v-show="currentSlide === 21">Weiter</button>
+            <Character position="center"></Character>
         </Carousal>
     </main-layout>
 </template>
@@ -780,13 +777,13 @@
         z-index: 0;
         width: 0;
         height: 0;
-        border-left: 2vh solid transparent;
-        border-right: 2vh solid transparent;
-        border-top: 10vh solid #fff;
+        border-left: 1.5vh solid transparent;
+        border-right: 1vh solid transparent;
+        border-top: 6vh solid #fff;
         position: absolute;
-        top: 85%;
-        left: 70%;
-        transform: rotate(300deg) scaleX(-1);
+        top: 94%;
+        left: 55%;
+        transform: rotate(320deg) scaleX(-1);
     }
 
     .bg {

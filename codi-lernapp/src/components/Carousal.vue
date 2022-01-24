@@ -95,10 +95,18 @@ export default {
     position: absolute;
     right: 15%;
     bottom: 10%;
+
+    .navigation-with-skip & {
+      right: 22%;
+    }
   }
 
   .right {
     right: 5%;
+
+    .navigation-with-skip & {
+      right: 12%;
+    }
   }
 
   span {

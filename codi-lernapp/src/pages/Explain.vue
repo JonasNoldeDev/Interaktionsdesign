@@ -1,6 +1,6 @@
 <template>
     <main-layout :isSlider="'slider'" :overlay="true" :firstheader="'Einführung'" :picFile="'Codi-Normal'">
-      <Carousal :maxSlides="7" :nextPage="'/lernsektionen/lesson1/part1'" class="carousal" v-slot="{currentSlide}">
+      <Carousal :maxSlides="7" :nextPage="'/lernsektionen/lesson1/part1'" class="carousal navigation-with-skip" v-slot="{currentSlide}">
         <Slide v-show="currentSlide === 1">
           <div class="slide-info speech-bubble">
             <p>Hallo und Willkommen in meinem Paradies zur digitalen Kompetenz!<br>

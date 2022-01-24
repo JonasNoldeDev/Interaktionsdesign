@@ -65,9 +65,9 @@
               ref="search"
               class="search"
               type="text"
-              value="google.com"
+              value="google.de"
               disabled
-              v-else-if="currentStep >= 12"
+              v-else-if="currentStep >= 12 || currentStep === 8 || currentStep === 9"
             />
             <input
               ref="search"
@@ -177,12 +177,12 @@
         prev
       >
         <p>
-          Alles was wir dafür brauchen ist ein Browser wie Safari, Google Chrome
+          Alles, was wir dafür brauchen, ist ein Browser wie Safari, Google Chrome
           oder Firefox.
         </p>
         <p>
-          Klicke doch bitte mal auf das Symbol deines Browsers (auch Icon
-          genannt)!
+          Klicke doch bitte mal auf das Symbol deines Browsers, auch Icon
+          genannt!
         </p>
       </Bubble>
       <Bubble
@@ -203,9 +203,9 @@
         prev
         next
       >
-        <p>Wie ihr seht befinden wir uns gerade im ersten <b>Tab</b>.</p>
+        <p>Wie ihr seht, befinden wir uns gerade im ersten <b>Tab</b>.</p>
         <p>
-          Das heißt wir sehen eine <b>Website</b>, in diesem Fall die
+          Das heißt, wir sehen eine <b>Webseite</b>, in diesem Fall die
           <b>Startseite</b> unseres <b>Browsers</b>. Sie kann verschieden
           aussehen, diese hier ist nur ein Beispiel.
         </p>
@@ -220,7 +220,7 @@
       >
         <p>
           Okay, dann wollen wir mal das Internet durchsuchen. Dafür brauchen wir
-          eine <b>Suchmaschine</b> wie Google, Bing oder andere.
+          eine <b>Suchmaschine</b> wie Google, Bing oder eine andere.
         </p>
       </Bubble>
       <Bubble
@@ -232,8 +232,8 @@
         next
       >
         <p>
-          Seht ihr die Adresszeile in der "codis-browser-startseite.de" steht?
-          Dort könnt ihr die Adresse der <b>Website</b> eingeben die ihr
+          Seht ihr die Adresszeile, in der "codis-browser-startseite.de" steht?
+          Dort könnt ihr die Adresse der <b>Webseite</b> eingeben, die ihr
           besuchen wollt.
         </p>
       </Bubble>
@@ -245,8 +245,8 @@
       >
         <p>Heute wollen wir die bekannteste Suchmaschine "Google" benutzen.</p>
         <p>
-          Um auf die Website von Google zu gelangen, gebt doch bitte die Adresse
-          "google.com" in die Adresszeile ein.
+          Um auf die Webseite von Google zu gelangen, gebt doch bitte die Adresse
+          "google.de" in die Adresszeile ein.
         </p>
       </Bubble>
       <Bubble
@@ -258,7 +258,7 @@
         <p>
           Das ist glaube ich nicht ganz richtig. Versuche es doch noch einmal.
         </p>
-        <p>Gib die Adresse "google.com" in die Adresszeile ein.</p>
+        <p>Gib die Adresse "google.de" in die Adresszeile ein.</p>
       </Bubble>
       <Bubble
         size="small"
@@ -279,9 +279,9 @@
         <p>Du kannst auch mehrere Wesites gleichzeitig geöffnet haben.</p>
         <p>
           Über das <b>Plus-Zeichen</b> oben in der Browserleiste kannst du einen
-          weiteren Tab öffnen und eine andere Website besuchen.
+          weiteren Tab öffnen und eine andere Webseite besuchen.
         </p>
-        <p>Tippe einfach mal auf das <b>+</b>.</p>
+        <p>Tippe einfach mal auf das "<b>+</b>".</p>
       </Bubble>
       <Bubble
         size="small"
@@ -292,8 +292,8 @@
         next
       >
         <p>
-          Und schwupps, ihr habt einen neuen Tab geöffnet. Über die Adresszeile
-          könntet ihr wieder die Adresse einer Website eingeben.
+          Und schwupps, du hast einen neuen Tab geöffnet. Über die Adresszeile
+          kannst du wieder die Adresse einer Webseite eingeben.
         </p>
       </Bubble>
       <Bubble
@@ -315,9 +315,9 @@
         prev
         next
       >
-        <p>Super! Jetzt wissen wir wie wir zur Suchmaschine kommen.</p>
+        <p>Super! Jetzt wissen wir, wie wir zur Suchmaschine kommen.</p>
         <p>
-          Als nächstes werde ich euch zeigen wie toll Suchmaschinen sind und was
+          Als nächstes werde ich euch zeigen, wie toll Suchmaschinen sind und was
           genau sie sind.
         </p>
         <p>Wissen ist schließlich Macht.</p>
@@ -375,7 +375,7 @@ export default {
     submitSearch(searchValue) {
       if (this.currentStep !== 6 && this.currentStep !== 7) return;
 
-      if (searchValue === "google.com") {
+      if (searchValue.toLowerCase() === "google.de") {
         this.currentStep = 8;
       } else {
         this.currentStep = 7;

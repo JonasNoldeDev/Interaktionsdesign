@@ -849,7 +849,7 @@
         height: auto;
         bottom: 20%;
         left: 5%;
-
+        pointer-events: none;
     }
 
     .slideUp {
@@ -880,7 +880,7 @@
             bottom: 77%;
         }
         100% {
-            -moz-transform: rotate(270deg);
+            transform: rotate(270deg);
         }
     }
 
@@ -919,7 +919,7 @@
             left: 36.5%;
         }
         100% {
-            -moz-transform: rotate(360deg);
+            transform: rotate(360deg);
         }
     }
 
@@ -969,7 +969,7 @@
             bottom: -9.5%;
         }
         100% {
-            -moz-transform: rotate(-90deg);
+            transform: rotate(-90deg);
         }
     }
 

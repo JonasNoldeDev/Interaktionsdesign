@@ -1,19 +1,19 @@
 <template>
     <main-layout :isSlider="'slider'" :overlay="true" :firstheader="'Einführung'" :picFile="'Codi-Normal'">
-      <Carousal :maxSlides="6" :nextPage="'/lernsektionen/lesson1/part1'" class="carousal" v-slot="{currentSlide}">
+      <Carousal :maxSlides="7" :nextPage="'/lernsektionen/lesson1/part1'" class="carousal" v-slot="{currentSlide}">
         <Slide v-show="currentSlide === 1">
           <div class="slide-info speech-bubble">
             <p>Hallo und Willkommen in meinem Paradies zur digitalen Kompetenz!<br>
-               Mein Name ist Codi und ich freue mich darauf mit dir etwas mehr über (...) zu lernen.<br>
+               Mein Name ist Codi und ich freue mich schon auf den digitalen Lernspaß.<br>
                Bevor du dich allerdings beweisen kannst, erkläre ich dir noch, wie du dich hier zurecht findest.<br>
-               Keine Sorge ich halte mich kurz!
+               Keine Sorge, ich halte mich kurz!
             </p>
             <div class="left-point"></div>
           </div>
         </Slide>
         <Slide v-show="currentSlide === 2">
           <div class="slide-info speech-bubble">
-            <p>Mit "Weiter" kommen wir in unserem jetzigen Gespräch weiter</p>
+            <p>Mit "<b>Weiter</b>" kommen wir in unserem jetzigen Gespräch voran.</p>
             <div class="left-point"></div>
           </div>
         </Slide>
@@ -27,27 +27,33 @@
         </Slide>
         <Slide v-show="currentSlide === 4">
           <div class="slide-info speech-bubble">
-            <p>Du willst mehr Hören? Super!<br>
-               Dann drücke auf "Weiter"
+            <p>Du willst mehr hören? Super!<br>
+               Dann drücke auf "<b>Weiter</b>".
             </p>
             <div class="left-point"></div>
           </div>
         </Slide>  
         <Slide v-show="currentSlide === 5">
           <div class="slide-info speech-bubble">
-            <p>Mit dem Haus-Symbol kommst du übrigens wieder zum Startmenü.<br>
-               Hier kannst du erneut den Rundgang starten, die Lernsequenzen auswählen oder die Option anpassen.
+            <p>Mit dem <b>Haus</b>-Symbol kommst du übrigens wieder zum Startmenü.<br>
+               Hier kannst du erneut den Rundgang starten, die Lernsequenzen auswählen oder die Optionen anpassen.
             </p>
             <div class="left-point"></div>
           </div>
         </Slide>
         <Slide v-show="currentSlide === 6">
           <div class="slide-info speech-bubble">
-            <p>Wenn du Musik haben willst oder diese dich stören, dann drücke einfach hier drauf</p>
+            <p>Mit diesem Knopf kannst du Musik und Sounds an- oder ausstellen, je nachdem ob du sie hören möchtest oder nicht.</p>
             <div class="left-point"></div>
           </div>
-        </Slide>        
-      <img v-show="currentSlide === 1 || currentSlide === 3" class="codi" src="./../assets/img/characters/codi/999.png" alt="Codi">
+        </Slide>  
+        <Slide v-show="currentSlide === 7">
+          <div class="slide-info speech-bubble">
+            <p>Klasse, dann können wir auch schon in die digitale Welt eintauchen. <br>Mit "Weiter" geht's auch schon los mit Numero 1: dem <b>Browser</b>.</p>
+            <div class="left-point"></div>
+          </div>
+        </Slide>      
+      <img v-show="currentSlide === 1 || currentSlide === 3 || currentSlide === 7" class="codi" src="./../assets/img/characters/codi/999.png" alt="Codi">
       <img v-show="currentSlide === 2 || currentSlide === 5" class="codi codi-gross" src="./../assets/img/characters/codi/Papagai_erklaerend_gross.png" alt="Codi">
       <img v-show="currentSlide === 4 || currentSlide === 6" class="codi codi-sing" src="./../assets/img/characters/codi/Codi_richtig.png" alt="Codi">
       

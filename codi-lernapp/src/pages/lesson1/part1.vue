@@ -1,5 +1,11 @@
 <template>
-  <main-layout>
+  <main-layout    
+    :overlay="true"
+    :color="'blue'"
+    :firstheader="'Lektion 1'"
+    :secondheader="'Browser Simulator'"
+    :picFile="'Codi-Richtig'"
+  >
     <div class="ipad">
       <div class="ipad-homescreen">
         <div class="apps">

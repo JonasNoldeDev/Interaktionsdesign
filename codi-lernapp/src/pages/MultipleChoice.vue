@@ -108,33 +108,33 @@
             </Bubble>
             <Bubble size="small" :visible="currentStep === 1 && wronganswer === false && rightanswer === false">
                 <p>
-                    Hier kommt die Frage <b>Nummmer 1</b>:
+                    Hier kommt die Frage <br><b>Nummer 1</b>:
                 </p>
-                <p>Was ist die Bedeutung von <b>E-Mail</b>?</p>
+                <p>Was ist die Bedeutung von <br><b>E-Mail</b>?</p>
             </Bubble>
             <Bubble size="small" :visible="currentStep === 2 && wronganswer === false && rightanswer === false">
                 <p>
-                    Frage <b>Nummmer 2</b>:
+                    Frage <b>Nummer 2</b>:
                 </p>
                 <p>Wie ist eine <b>E-Mail</b> aufgebaut?</p>
             </Bubble>
             <Bubble size="small" :visible="currentStep === 3 && wronganswer === false && rightanswer === false">
                 <p>Auf zur nächtsten Frage</p>
                 <p>
-                    Hier kommt die Frage <b>Nummmer 3</b>:
+                    Hier kommt die Frage <br><b>Nummer 3</b>:
                 </p>
-                <p>Welche von den Obtionen ist ein <b>E-Mail Dienst</b>?</p>
+                <p>Welche von den Optionen ist ein <b>E-Mail Dienst</b>?</p>
             </Bubble>
             <Bubble size="small" :visible="currentStep === 4 && wronganswer === false && rightanswer === false">
                 <p>Jetzt kommt die letzte Frage</p>
                 <p>
-                    Frage <b>Nummmer 4</b>:
+                    Frage <b>Nummer 4</b>:
                 </p>
                 <p>Bei einer ungelesenen <b>E-Mail</b> ist die Schrift...</p>
             </Bubble>
             <Bubble size="small" :visible="currentStep === 5 && wronganswer === false && rightanswer === false" v-on:next="currentStep++, this.changePose('right')" next>
                 <p>Super!!!</p>
-                <p>Du hast alle Fragen mit bravour beantwortet.</p>
+                <p>Du hast alle Fragen gemeistert.</p>
             </Bubble>
             <Bubble size="small" :visible="currentStep === 6 && wronganswer === false && rightanswer === false" v-on:next="jumpTo" next>
                 <p>Auf zur nächsten Lektion!</p>

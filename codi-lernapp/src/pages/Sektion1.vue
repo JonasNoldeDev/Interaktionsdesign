@@ -1,9 +1,9 @@
 <template>
-  <main-layout
+  <main-layout    
     :overlay="true"
     :color="'blue'"
     :firstheader="'Lektion 1'"
-    :secondheader="'Internet-Browser'"
+    :secondheader="'Browser Wissen'"
     :picFile="'Codi-Richtig'"
   >
     <Carousal

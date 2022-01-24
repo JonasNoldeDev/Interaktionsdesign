@@ -56,17 +56,18 @@
       alt="Bella"
     />
     <img
-     v-show="character === 'bella' && pose === 'up'"
-     class="character bella pose-normal"
-     src="./../assets/img/characters/Bella_Draufsicht1.png"
-     alt="Bella"
+      v-show="character === 'bella' && pose === 'up'"
+      class="character bella pose-normal"
+      src="./../assets/img/characters/Bella_Draufsicht1.png"
+      alt="Bella"
     />
     <img
-     v-show="character === 'bella' && pose === 'lookUp'"
-     class="character bella pose-normal"
-     src="./../assets/img/characters/Bella_Draufsicht2.png"
-     alt="Bella"
+      v-show="character === 'bella' && pose === 'lookUp'"
+      class="character bella pose-normal"
+      src="./../assets/img/characters/Bella_Draufsicht2.png"
+      alt="Bella"
     />
+    <div class="height-spacer" aria-hidden="true"></div>
   </div>
 </template>
 
@@ -92,6 +93,7 @@ export default {
 <style lang="scss" scoped>
 .character-wrapper {
   position: absolute;
+  z-index: 1;
   width: 20rem;
   height: auto;
   left: 3rem;
@@ -105,8 +107,38 @@ export default {
     right: 3rem;
   }
 }
+
 .character {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   display: block;
   max-width: 100%;
+  transform-origin: bottom center;
+  pointer-events: none;
+
+  &.codi.pose-normal {
+    transform: scale(1.15);
+  }
+
+  &.codi.pose-wrong {
+    transform: scale(0.9);
+  }
+
+  &.codi.pose-right {
+    transform: scale(1.1);
+  }
+
+  &.codi.pose-flying {
+    transform: scale(1.1);
+  }
+}
+
+.height-spacer {
+  width: 100%;
+
+  .codi ~ & {
+    height: 22rem;
+  }
 }
 </style>

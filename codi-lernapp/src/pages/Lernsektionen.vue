@@ -16,46 +16,26 @@
               >Start</v-button
             >
           </div>
-          <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 70%"></div>
-          </div>
-          <h2 class="sektion-title">Suchmaschinen</h2>
+          <h2 class="sektion-title">Internet Browser</h2>
         </li>
-        <li class="sektion">
+        <li class="sektion disabled">
           <div class="sektion-text">
             <v-button
               :href="(vueConfig.publicPath || '') + '/'"
+              tabindex="-1"
               >Start</v-button
             >
-          </div>
-          <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 40%"></div>
           </div>
           <h2 class="sektion-title">E-Mails</h2>
         </li>
         <li class="sektion">
           <div class="sektion-text">
             <v-button
-              :href="(vueConfig.publicPath || '') + '/'"
+              :href="(vueConfig.publicPath || '') + '/lernsektionen/pdf'"
               >Start</v-button
             >
           </div>
-          <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 10%"></div>
-          </div>
-          <h2 class="sektion-title">Links</h2>
-        </li>
-        <li class="sektion">
-          <div class="sektion-text">
-            <v-button
-              :href="(vueConfig.publicPath || '') + '/'"
-              >Start</v-button
-            >
-          </div>
-          <div class="progress-bar">
-            <div class="progress-bar-inner" style="width: 50%"></div>
-          </div>
-          <h2 class="sektion-title">Soziale Medien</h2>
+          <h2 class="sektion-title">PDF</h2>
         </li>
       </ul>
     </nav>
@@ -93,10 +73,8 @@ header {
 
 h1 {
   font-size: 1.5em;
-  display: inline;
-  vertical-align: top;
   line-height: 4.5rem;
-  margin: 0 0 0 8rem;
+  margin-top: 8rem;
 }
 
 ul {
@@ -110,6 +88,11 @@ ul {
 li {
   width: calc(33.333% - 1rem);
   margin: 0 1rem 1rem 0;
+}
+
+.sektion.disabled {
+  pointer-events: none;
+  opacity: .25;
 }
 
 .sektion-text {
@@ -146,15 +129,5 @@ li {
   padding: 1rem;
   background-color: #fff;
   border-radius: 0 0 1.5rem 1.5rem;
-}
-
-.progress-bar {
-  height: 0.25rem;
-  background: hsl(204, 97%, 74%);
-}
-
-.progress-bar-inner {
-  height: 100%;
-  background: #18a0fb;
 }
 </style>

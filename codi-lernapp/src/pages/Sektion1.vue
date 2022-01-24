@@ -16,7 +16,7 @@
         <div class="slide-info speech-bubble">
           <p>
             Hi! Hier bin ich wieder, Codi, dein Abenteuerfreund im digitalen Dschungel. <br>
-            Schön, dass du mit mir die <b>erste Lektion: Internet-Browser</b> durchgehst!
+            Schön, dass du mit mir die <b>erste Lektion: Internet Browser</b> durchgehst!
           </p>
           <div class="left-point"></div>
         </div>

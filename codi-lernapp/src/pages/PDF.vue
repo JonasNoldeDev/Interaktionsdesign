@@ -1,5 +1,4 @@
 <template>
-
     <main-layout :visible="pageStep === 0" :hidden="pageStep !== 0"
                  :overlay="true"
                  :color="'orange'"
@@ -272,16 +271,21 @@
                     <div class="left-point"></div>
                 </div>
             </Slide>
-            <Slide v-show="currentSlide === 22">
+            <Character v-show="currentSlide < 22" position="center"></Character>
+            <Slide v-show="currentSlide === 22" style="visibility: hidden">
                 <div class="speech-bubble">
-                    <p><b>Super!</b></p>
-                    <p>Jetzt habe das PDF und kann es nachhert an Bella schicken.</p>
-                    <p><b>Danke an dich!</b></p>
-                    <p>Jetzt kannst du dein Wissen als <b>PDF Experte oder Expertin</b> testen!</p>
+                    <p>Hidden Slide</p>
                     <div class="left-point"></div>
                 </div>
             </Slide>
-            <Character position="center"></Character>
+            <Character v-show="currentSlide === 22" position="center" :pose="poseFin" ref="character">
+                <Bubble type="speech-bubble" style="padding: 2rem">
+                    <p><b>Super!</b></p>
+                    <p>Jetzt habe das PDF und kann es nachher an Bella schicken.</p>
+                    <p><b>Danke an dich!</b></p>
+                    <p>Jetzt kannst du dein Wissen als <b>PDF Experte / Expertin</b> testen!</p>
+                </Bubble>
+            </Character>
         </Carousal>
     </main-layout>
 </template>
@@ -312,6 +316,7 @@
                 pageStep: 0,
                 currentStep: 0,
                 pose: "explaining",
+                poseFin: "right",
                 characterPose: "normal",
 
             }
@@ -322,14 +327,18 @@
                     0: "normal",
                     1: "wrong",
                     2: "right",
-                    3: "explaining",
-                    4: "normal",
-                    5: "right",
-                    6: "explaining",
-                    7: "explaining",
-                    8: "explaining",
-                    9: "explaining",
-                    10: "right",
+                };
+
+                if (!(newStep in poseDict)) return;
+                this.characterPose = poseDict[newStep];
+            },
+            currentSlide: function (newStep) {
+                const poseDict = {
+                    1: "normal",
+                    2: "wrong",
+                    3: "right",
+                    4: "explaining",
+                    5: "explaining",
                 };
 
                 if (!(newStep in poseDict)) return;

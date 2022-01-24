@@ -10,9 +10,6 @@
         <li>
           <v-button :href="(vueConfig.publicPath || '') + '/lernsektionen'">Lernsektionen</v-button>
         </li>
-        <li>
-          <v-button :href="(vueConfig.publicPath || '') + '/optionen'">Optionen</v-button>
-        </li>
       </ul>
     </nav>
   </main-layout>

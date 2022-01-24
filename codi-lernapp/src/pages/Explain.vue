@@ -36,7 +36,7 @@
         <Slide v-show="currentSlide === 5">
           <div class="slide-info speech-bubble">
             <p>Mit dem <b>Haus</b>-Symbol kommst du übrigens wieder zum Startmenü.<br>
-               Hier kannst du erneut den Rundgang starten, die Lernsequenzen auswählen oder die Optionen anpassen.
+               Hier kannst du erneut den Rundgang starten oder die Lernsequenzen auswählen.
             </p>
             <div class="left-point"></div>
           </div>

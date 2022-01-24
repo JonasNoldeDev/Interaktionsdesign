@@ -1,9 +1,9 @@
 <template>
-  <main-layout
+  <main-layout    
     :overlay="true"
     :color="'blue'"
     :firstheader="'Lektion 1'"
-    :secondheader="'Internet-Browser'"
+    :secondheader="'Browser Wissen'"
     :picFile="'Codi-Richtig'"
   >
     <Carousal
@@ -15,8 +15,8 @@
       <Slide v-show="currentSlide === 1">
         <div class="slide-info speech-bubble">
           <p>
-            Hi mein Name ist Codi und heute gehen wir die erste Lektion
-            "Internet-Browser" durch
+            Hi! Hier bin ich wieder, Codi, dein Abenteuerfreund im digitalen Dschungel. <br>
+            Schön, dass du mit mir die <b>erste Lektion: Internet-Browser</b> durchgehst!
           </p>
           <div class="left-point"></div>
         </div>
@@ -25,7 +25,7 @@
         <div class="slide-info speech-bubble">
           <p>
             Internet Browser sind Computerprogramme, die Webseiten im Internet
-            darstellen können
+            darstellen können.
           </p>
           <div class="left-point"></div>
         </div>
@@ -33,7 +33,7 @@
       <Slide v-show="currentSlide === 3">
         <div class="slide-info">
           <img :src="require(`../assets/img/Chrome.png`)" />
-          <p>Der meistgenutzte Browser ist "Google Chrome"</p>
+          <p style="text-align: center">Der meistgenutzte Browser ist "Google Chrome".</p>
           <div class="left-point"></div>
         </div>
       </Slide>
@@ -50,19 +50,17 @@
               <img :src="require(`../assets/img/Edge.png`)" />
             </div>
           </div>
-          <p>
+          <p style="text-align: center">
             Aber neben Google Chrome gibt es noch andere Browser wie "Safari",
-            "Firefox", "Edge" und viele andere
+            "Firefox", "Edge" und viele andere.
           </p>
           <div class="left-point"></div>
         </div>
       </Slide>
+      <img v-show="currentSlide === 2 || currentSlide === 4" class="codi" src="./../assets/img/characters/codi/999.png" alt="Codi">
+      <img v-show="currentSlide === 3" class="codi codi-gross" src="./../assets/img/characters/codi/Papagai_erklaerend_gross.png" alt="Codi">
+      <img v-show="currentSlide === 1" class="codi codi-sing" src="./../assets/img/characters/codi/Codi_richtig.png" alt="Codi">
     </Carousal>
-    <img
-      class="codi"
-      src="./../assets/img/characters/codi/999.png"
-      alt="Codi"
-    />
   </main-layout>
 </template>
 
@@ -114,7 +112,7 @@ header {
     }
 
     p {
-      text-align: center;
+      line-height: 2rem;
     }
     .row {
       display: flex;
@@ -135,14 +133,21 @@ header {
     }
   }
 }
-.codi {
-  display: block;
-  position: absolute;
-  width: 20rem;
-  height: auto;
-  left: 8rem;
-  bottom: 1rem;
-}
+  .codi {
+    display: block;
+    position: absolute;
+    width: 20rem;
+    height: auto;
+    left: 8rem;
+    bottom: 1rem;
+  }
+  .codi-gross{
+    width: 18rem;
+    bottom: 0.5rem;
+  }
+  .codi-sing{
+    bottom: 0.5rem;
+  }
 .left-point {
   width: 0;
   height: 0;

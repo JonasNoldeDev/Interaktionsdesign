@@ -89,8 +89,8 @@ export default {
 .speech-bubble {
   &:before {
     content: "";
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
     position: absolute;
     border-left: .5rem solid transparent;
     border-right: .5rem solid var(--color-orange);
@@ -98,6 +98,22 @@ export default {
     border-bottom: .5rem solid transparent;
     left: calc(var(--border-radius) + 20%);
     top: 100%;
+  }
+}
+
+.speech-bubble-left {
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    border-width: 1.5rem 0 0 1.5rem;
+    border-color: transparent transparent transparent var(--color-orange);
+    top: 50%;
+    right: -5%;
+    margin-top: -10px;
   }
 }
 

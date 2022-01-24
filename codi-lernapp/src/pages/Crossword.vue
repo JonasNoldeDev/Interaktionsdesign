@@ -1,7 +1,12 @@
 <template>
-    <main-layout :visible="pageStep === 0" :hidden="pageStep !== 0">
+    <main-layout :visible="pageStep === 0" :hidden="pageStep !== 0"
+                 :overlay="true"
+                 :color="'blue'"
+                 :firstheader="'Lektion 1'"
+                 :secondheader="'Browser Spiel'"
+                 :picFile="'Codi-Richtig'">
         <Character position="right" :pose="characterPose" ref="character">
-            <Bubble type="speech-bubble" :visible="currentStep === 0" v-on:next="currentStep++" next>
+            <Bubble :visible="currentStep === 0" v-on:next="currentStep++" next>
                 <p>Oh <b>wow!</b></p>
                 <p>Wir haben schon <b>so viel</b> gelernt!</p>
                 <p>Aber können wir uns auch noch an alles <b>erinnern</b>?</p>
@@ -25,7 +30,8 @@
                 </svg>
             </v-button>
         </header>
-        <Character class="bella" :character="character" v-if="currentStep >= 2 && currentStep <= 5">
+        <Character id="bella" class="bella" :character="character"
+                   v-if="currentStep >= 2 && currentStep <= 5">
             <Bubble size="small" :visible="currentStep === 4"
                     v-on:next="currentStep++" v-on:prev="currentStep--" prev next>
                 <p>Damit ich einen Baumstamm <b>überqueren</b> kann, müssen seine Felder <b>richtig</b> ausgefüllt sein.
@@ -37,9 +43,20 @@
             </Bubble>
         </Character>
 
-        <Character id="bella" class="bellaWalk slideUp rotate" :character="character" v-if="currentStep > 5" :pose="bellaPose">
-
+        <Character id="bellaWalk" class="bellaWalk slideUp" :character="character"
+                   v-if="currentStep > 5 && currentStep < 11" :pose="bellaPose">
         </Character>
+
+
+        <Character id="bellaFin" class="bellaFin" :character="character"
+                   v-if="currentStep === 11">
+            <Bubble size="small" type="speech-bubble-left"  style="right: 110%; margin-bottom: -60%;"
+                    v-on:next="pageStep++" next>
+                <p>Endlich bin ich wieder bei meinem Freund <b>Codi</b>.</p>
+                <p>Dank <b>deiner Hilfe!</b></p>
+            </Bubble>
+        </Character>
+
 
         <Character class="codi" v-if="showBubble" :pose="bubblePose" position="right" ref="character">
             <Bubble size="small">
@@ -72,7 +89,7 @@
             <Bubble size="small" :visible="currentStep === 6" v-on:next="currentStep++" v-on:prev="currentStep--" prev
                     next>
                 <p>Hier kommt die erste Aufgabe für den Baumstamm mit der <b>Nummer 1</b>:</p>
-                <p><b>Safari</b>, <b>Google Chorme</b> und <b>Firefox</b> sind ________</p>
+                <p><b>Safari</b>, <b>Google Chrome</b> und <b>Firefox</b> sind ________</p>
             </Bubble>
 
             <Bubble size="small" :visible="currentStep === 7" v-on:next="currentStep++" v-on:prev="currentStep--" prev
@@ -99,8 +116,11 @@
                 <p>Ok, der letzte Baumstamm (<b>Nummer 4</b>) ist dran!</p>
                 <p>Was wird angezeigt, wenn wir eine Adresse in die Adresszeile eingeben?</p>
             </Bubble>
-            <Bubble size="small" :visible="currentStep === 10" v-on:next="currentStep++" v-on:prev="currentStep--" prev
-                    next>
+        </Character>
+
+        <Character class="codi codiAnim" v-if="showFin" :pose="characterPose" position="right" ref="character">
+            <Bubble style="left: -75%; margin-bottom: -45%;" size="small" type="speech-bubble-left"
+                    :visible="currentStep >= 10">
                 <p><b>Yuhuuu, Bella ist da!!</b></p>
                 <p></p>
             </Bubble>
@@ -159,7 +179,7 @@
                            :disabled="disabledC"
                            @input="submitC">
                     <input id="b6" class="size" alt="Eingabefeld" type="text" maxlength="1"
-                           :disabled="disabledBC"
+                           :disabled="disabledC"
                            @input="submitB">
                     <input id="c3" class="size" alt="Eingabefeld" type="text" maxlength="1"
                            :disabled="disabledC"
@@ -191,7 +211,7 @@
                            :disabled="disabledB"
                            @input="submitB">
                 </div>
-                <div class="row_7a position5">
+                <div class="row_8 position5">
                     <input id="d1" class="size arrowRight" alt="Eingabefeld" type="text" maxlength="1" placeholder="4"
                            :disabled="disabledD"
                            @input="submitD">
@@ -213,9 +233,24 @@
                     <input id="d7" class="size" alt="Eingabefeld" type="text" maxlength="1"
                            :disabled="disabledD"
                            @input="submitD">
+                    <input id="d8" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           :disabled="disabledD"
+                           @input="submitD">
                 </div>
             </div>
         </div>
+    </main-layout>
+
+
+    <main-layout :visible="pageStep === 2" :hidden="pageStep !== 2">
+        <Character position="right" :pose="characterPose" ref="character">
+            <Bubble v-on:next="currentStep++" next>
+                <p><b>Super!</b></p>
+                <p>Du hast das Gelernte der Lektion <b>'Browser & Suchmaschinen'</b> angewendet.</p>
+                <p><b>Sehr gut gemacht!</b><br>
+                    Auf zur nächsten Lektion!</p>
+            </Bubble>
+        </Character>
     </main-layout>
 </template>
 
@@ -232,6 +267,7 @@
     import VButton from "../components/VButton";
     import Character from "../components/Character";
     import Bubble from "../components/Bubble";
+    import vueConfig from "../../vue.config";
 
     export default {
         name: 'Crossword',
@@ -249,6 +285,7 @@
                 showCodi: true,
                 showBubble: false,
                 showWrong: false,
+                showFin: false,
                 clearAll: false,
                 btnInfo: false,
                 disabledA: false,
@@ -256,7 +293,6 @@
                 disabledC: false,
                 disabledD: false,
                 disabledAB: false,
-                disabledBC: false,
                 disabledBD: false,
                 character: "bella",
                 characterPose: "right",
@@ -276,6 +312,11 @@
         },
         watch: {
             currentStep: function (newStep) {
+                if (newStep === 12) {
+                    this.$root.currentRoute = (vueConfig.publicPath || '') + "/lernsektionen";
+                    window.history.pushState(null, "Lernsektionen", (vueConfig.publicPath || '') + "/lernsektionen");
+                }
+
                 const poseDict = {
                     0: "right",
                     1: "explaining",
@@ -294,11 +335,12 @@
                 this.characterPose = poseDict[newStep];
 
                 const bellaDict = {
-                    6: "lookUp",
-                    7: "up",
-                    8: "lookUp",
+                    6: "up",
+                    7: "lookUp",
+                    8: "up",
                     9: "lookUp",
                     10: "up",
+                    11: "lookUp",
                 };
 
                 if (!(newStep in bellaDict)) return;
@@ -330,7 +372,14 @@
                         this.disabledA = true;
                         this.disabledAB = true;
                         this.browser = [];
-                        document.getElementById('bella').className += " slideRight";
+                        if(this.disabledB){
+                            document.getElementById('bellaWalk').className += " slideRight1";
+                            setTimeout(() => {
+                                    document.getElementById('bellaWalk').className += " slideDown1";
+                                },
+                                3000);
+                        }
+
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -377,10 +426,11 @@
                             2000);
                         this.disabledAB = true;
                         this.disabledB = true;
-                        this.disabledBC = true;
                         this.disabledBD = true;
-
                         this.such = [];
+                        if(this.disabledA) {
+                            document.getElementById('bellaWalk').className += " slideDown1";
+                        }
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -424,9 +474,9 @@
                             },
                             2000);
                         this.disabledC = true;
-                        this.disabledBC = true;
                         this.submitAll();
                         this.tab = [];
+                        document.getElementById('bellaWalk').className += " slideDown2";
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -446,10 +496,10 @@
             },
             submitD: function () {
                 let inputsD = [];
-                let website = ["w", "e", "b", "s", "i", "t", "e"];
+                let website = ["w", "e", "b", "s", "e", "i", "t", "e"];
                 const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b)
 
-                for (let i = 1; i <= 7; i++) {
+                for (let i = 1; i <= 8; i++) {
                     if (i === 2) {
                         let input = document.getElementById('b12').value.toLowerCase();
                         inputsD.push(input);
@@ -458,21 +508,22 @@
                         inputsD.push(input);
                     }
                 }
-                if (inputsD[0] && inputsD[1] && inputsD[2] && inputsD[3] && inputsD[4] && inputsD[5] && inputsD[6]) {
+                if (inputsD[0] && inputsD[1] && inputsD[2] && inputsD[3] && inputsD[4] && inputsD[5] && inputsD[6] && inputsD[7]) {
                     //this.clearAll = true;
                     if (equals(inputsD, website)) {
                         this.showCodi = false;
                         this.showBubble = true;
                         setTimeout(() => {
                                 this.showBubble = false;
-                                this.showCodi = true;
+                                //this.showCodi = true;
                                 //this.currentStep = 10;
                             },
                             2000);
                         this.disabledD = true;
                         this.disabledBD = true;
                         this.submitAll();
-                        this.link = [];
+                        this.website = [];
+                        document.getElementById('bellaWalk').className += " slideRight2";
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -483,18 +534,26 @@
                             3000);
                         //this.disabledD = false;
                         //this.btnInfo = true;
-                        this.link = [];
+                        this.website = [];
                     }
                 } else {
-                    this.link = [];
+                    this.website = [];
                 }
                 this.submitAll();
             },
 
             submitAll: function () {
-                if (this.disabledA && this.disabledAB && this.disabledB && this.disabledBC && this.disabledBD &&
+                if (this.disabledA && this.disabledAB && this.disabledB && this.disabledBD &&
                     this.disabledC && this.disabledD) {
+                    this.showFin = true;
+                    this.showCodi = false;
+                    this.showBubble = false;
                     this.currentStep = 10;
+                    setTimeout(() => {
+                            this.currentStep = 11;
+                        },
+                        5000);
+                    console.log('CurrentStep: ' + this.currentStep);
                 }
             },
 
@@ -646,7 +705,7 @@
             background-image: url(../assets/img/Holz_mitSchatten_7.png);
             background-repeat: no-repeat;
             background-size: 49%;
-            padding: 1rem 0.5rem 1rem 1rem;
+            padding: 1rem 0.5rem 1.2rem 1rem;
         }
         @media screen and (orientation: portrait) {
             background-image: url(../assets/img/Holz_mitSchatten_7.png);
@@ -657,11 +716,11 @@
 
     }
 
-    .row_7a {
+    .row_8 {
         @media screen and (orientation: landscape) {
-            background-image: url(../assets/img/Holz_mitSchatten_7a.png);
+            background-image: url(../assets/img/Holz_mitSchatten_8.png);
             background-repeat: no-repeat;
-            background-size: 60%;
+            background-size: 63%;
             padding: 0.5rem 0.5rem 1rem 1rem;
         }
     }
@@ -683,7 +742,7 @@
 
     .position1 {
         @media screen and (orientation: landscape) {
-            margin-left: 15rem;
+            margin-left: 14rem;
         }
         @media screen and (orientation: portrait) {
             margin-left: 10rem;
@@ -692,7 +751,7 @@
 
     .position2 {
         @media screen and (orientation: landscape) {
-            margin-left: 30rem;
+            margin-left: 29rem;
             margin-top: -2.1rem;
         }
         @media screen and (orientation: portrait) {
@@ -744,6 +803,21 @@
         }
     }
 
+    .codiAnim {
+        animation-name: codiAnim;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes codiAnim {
+        from {
+            bottom: 10%;
+        }
+        to {
+            bottom: 53%;
+        }
+    }
+
     .bella {
         position: absolute;
         height: auto;
@@ -752,13 +826,21 @@
             width: 25%;
             height: auto;
             bottom: 20%;
-            left: 0.5rem;
         }
         @media screen and (orientation: portrait) {
             width: 32%;
             bottom: 27%;
             right: 0.1rem;
         }
+    }
+
+    .bellaFin {
+        position: absolute;
+        width: 25%;
+        height: auto;
+        left: 75%;
+        bottom: 5%;
+
     }
 
     .bellaWalk {
@@ -773,8 +855,8 @@
     .slideUp {
         left: 10%;
         transform: rotate(180deg);
-        animation-name: slideUp, rotate;
-        animation-duration: 3s, 3s;
+        animation-name: slideUp, rotateRight;
+        animation-duration: 3s, 2s;
         animation-delay: 0s, 3s;
         animation-fill-mode: forwards, forwards;
     }
@@ -788,7 +870,7 @@
         }
     }
 
-    @keyframes rotate {
+    @keyframes rotateRight {
         from {
             left: 10%;
             bottom: 65%;
@@ -797,19 +879,21 @@
             left: 5%;
             bottom: 77%;
         }
-        100% { -moz-transform: rotate(270deg); }
+        100% {
+            -moz-transform: rotate(270deg);
+        }
     }
 
-    .slideRight {
+    .slideRight1 {
         left: 10%;
         bottom: 77%;
         transform: rotate(270deg);
-        animation-name: slideRight;
+        animation-name: slideRight1;
         animation-duration: 3s;
         animation-fill-mode: forwards;
     }
 
-    @keyframes slideRight {
+    @keyframes slideRight1 {
         from {
             left: 10%;
         }
@@ -817,6 +901,87 @@
             left: 25%;
         }
     }
+
+    .slideDown1 {
+        left: 25%;
+        bottom: 77%;
+        animation-name: rotateDown1, slideDown1;
+        animation-duration: 1.5s, 3s;
+        animation-delay: 0s, 1s;
+        animation-fill-mode: forwards, forwards;
+    }
+
+    @keyframes rotateDown1 {
+        from {
+            left: 25%
+        }
+        to {
+            left: 36.5%;
+        }
+        100% {
+            -moz-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes slideDown1 {
+        from {
+            bottom: 77%;
+        }
+        to {
+            bottom: 58%;
+        }
+    }
+
+    .slideDown2 {
+        left: 36.5%;
+        bottom: 58%;
+        transform: rotate(0);
+        animation-name: slideDown2;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes slideDown2 {
+        from {
+            bottom: 58%;
+        }
+        to {
+            bottom: 10%;
+        }
+    }
+
+    .slideRight2 {
+        left: 36.5%;
+        bottom: 10%;
+        animation-name: rotateRight2, slideRight2;
+        animation-duration: 1.5s, 3s;
+        animation-delay: 0s, 1.5s;
+        animation-fill-mode: forwards, forwards;
+    }
+
+    @keyframes rotateRight2 {
+        from {
+            left: 36.5%;
+            bottom: 10%;
+        }
+        to {
+            left: 38%;
+            bottom: -9.5%;
+        }
+        100% {
+            -moz-transform: rotate(-90deg);
+        }
+    }
+
+    @keyframes slideRight2 {
+        from {
+            left: 40%;
+        }
+        to {
+            left: 80%;
+        }
+    }
+
 
     svg {
         width: 1em;

@@ -40,14 +40,13 @@
 
         <Character id="bellaWalk" class="bellaWalk slideUp" :character="character"
                    v-if="currentStep > 5 && currentStep < 11" :pose="bellaPose">
-
         </Character>
 
 
         <Character id="bellaFin" class="bellaFin" :character="character"
                    v-if="currentStep === 11">
             <Bubble size="small" type="speech-bubble-left"  style="right: 110%; margin-bottom: -60%;"
-                    v-on:next="currentStep++" next>
+                    v-on:next="pageStep++" next>
                 <p>Endlich bin ich wieder bei meinem Freund <b>Codi</b>.</p>
                 <p>Dank <b>deiner Hilfe!</b></p>
             </Bubble>
@@ -85,7 +84,7 @@
             <Bubble size="small" :visible="currentStep === 6" v-on:next="currentStep++" v-on:prev="currentStep--" prev
                     next>
                 <p>Hier kommt die erste Aufgabe für den Baumstamm mit der <b>Nummer 1</b>:</p>
-                <p><b>Safari</b>, <b>Google Chorme</b> und <b>Firefox</b> sind ________</p>
+                <p><b>Safari</b>, <b>Google Chrome</b> und <b>Firefox</b> sind ________</p>
             </Bubble>
 
             <Bubble size="small" :visible="currentStep === 7" v-on:next="currentStep++" v-on:prev="currentStep--" prev
@@ -233,6 +232,18 @@
             </div>
         </div>
     </main-layout>
+
+
+    <main-layout :visible="pageStep === 2" :hidden="pageStep !== 2">
+        <Character position="right" :pose="characterPose" ref="character">
+            <Bubble v-on:next="currentStep++" next>
+                <p><b>Super!</b></p>
+                <p>Du hast das Gelernte der Lektion <b>'Browser & Suchmaschinen'</b> angewendet.</p>
+                <p><b>Sehr gut gemacht!</b><br>
+                    Auf zur nächsten Lektion!</p>
+            </Bubble>
+        </Character>
+    </main-layout>
 </template>
 
 
@@ -293,7 +304,7 @@
         },
         watch: {
             currentStep: function (newStep) {
-                if (newStep === 12) {
+                if (newStep === 13) {
                     this.$root.currentRoute = (vueConfig.publicPath || '') + "/lernsektionen";
                     window.history.pushState(null, "Lernsektionen", (vueConfig.publicPath || '') + "/lernsektionen");
                 }
@@ -316,11 +327,12 @@
                 this.characterPose = poseDict[newStep];
 
                 const bellaDict = {
-                    6: "lookUp",
-                    7: "up",
-                    8: "lookUp",
+                    6: "up",
+                    7: "lookUp",
+                    8: "up",
                     9: "lookUp",
                     10: "up",
+                    11: "lookUp",
                 };
 
                 if (!(newStep in bellaDict)) return;

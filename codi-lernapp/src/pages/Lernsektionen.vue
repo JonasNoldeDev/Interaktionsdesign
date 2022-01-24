@@ -16,7 +16,7 @@
               >Start</v-button
             >
           </div>
-          <h2 class="sektion-title">Internet Browser</h2>
+          <h2 class="sektion-title">Lektion 1: Internet Browser</h2>
         </li>
         <li class="sektion disabled">
           <div class="sektion-text">
@@ -26,16 +26,20 @@
               >Start</v-button
             >
           </div>
-          <h2 class="sektion-title">E-Mails</h2>
+          <h2 class="sektion-title">Lektion 2: E-Mails</h2>
         </li>
         <li class="sektion">
           <div class="sektion-text">
+            <img
+              src="./../assets/img/sections/SektionPDF.jpg"
+              alt=""
+            />
             <v-button
               :href="(vueConfig.publicPath || '') + '/lernsektionen/pdf'"
               >Start</v-button
             >
           </div>
-          <h2 class="sektion-title">PDF</h2>
+          <h2 class="sektion-title">Lektion 3: PDF</h2>
         </li>
       </ul>
     </nav>
@@ -93,6 +97,10 @@ li {
 .sektion.disabled {
   pointer-events: none;
   opacity: .25;
+
+  .sektion-text {
+    background-color: var(--color-blue);
+  }
 }
 
 .sektion-text {

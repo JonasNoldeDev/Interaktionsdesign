@@ -23,7 +23,8 @@ export default {
         height: 50%;
         background-color: #fff;
         border-radius: 2rem;
-        padding: 0 30px;
+        display: flex;
+        align-items: center;
         animation-name: expand-bounce;
         animation-duration: 0.3s;
         animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);

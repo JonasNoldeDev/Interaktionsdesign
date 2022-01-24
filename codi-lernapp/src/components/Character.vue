@@ -106,6 +106,11 @@ export default {
     left: auto;
     right: 3rem;
   }
+
+  &.center {
+    left: auto;
+    right: 20rem;
+  }
 }
 
 .character {

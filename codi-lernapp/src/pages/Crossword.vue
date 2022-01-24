@@ -50,7 +50,7 @@
 
         <Character id="bellaFin" class="bellaFin" :character="character"
                    v-if="currentStep === 11">
-            <Bubble size="small" type="speech-bubble-left"  style="right: 110%; margin-bottom: -60%;"
+            <Bubble size="small" type="speech-bubble-left" style="right: 110%; margin-bottom: -60%;"
                     v-on:next="pageStep++" next>
                 <p>Endlich bin ich wieder bei meinem Freund <b>Codi</b>.</p>
                 <p>Dank <b>deiner Hilfe!</b></p>
@@ -86,14 +86,12 @@
                 <p>Kannst <b>Du</b> ihr helfen?</p>
             </Bubble>
 
-            <Bubble size="small" :visible="currentStep === 6" v-on:next="currentStep++" v-on:prev="currentStep--" prev
-                    next>
+            <Bubble size="small" :visible="currentStep === 6"> <!--v-on:next="currentStep++" v-on:prev="currentStep--" prev next -->
                 <p>Hier kommt die erste Aufgabe für den Baumstamm mit der <b>Nummer 1</b>:</p>
                 <p><b>Safari</b>, <b>Google Chrome</b> und <b>Firefox</b> sind ________</p>
             </Bubble>
 
-            <Bubble size="small" :visible="currentStep === 7" v-on:next="currentStep++" v-on:prev="currentStep--" prev
-                    next>
+            <Bubble size="small" :visible="currentStep === 7"> <!--v-on:next="currentStep++" v-on:prev="currentStep--" prev next-->
                 <p>Für den <b>zweiten</b> Baumstamm suchen wir folgenden <b>Begriff</b>:</p>
                 <p>Das brauchen wir, um das <b>Internet</b> zu <b>durchsuchen</b>:</p>
                 <!--
@@ -105,16 +103,15 @@
                 -->
             </Bubble>
 
-            <Bubble size="small" :visible="currentStep === 8" v-on:next="currentStep++" v-on:prev="currentStep--" prev
-                    next>
+            <Bubble size="small" :visible="currentStep === 8"> <!--v-on:next="currentStep++" v-on:prev="currentStep--" prev next-->
                 <p>Nun zu Baumstamm <b>Nummer 3</b>:</p>
                 <p>Um eine <b>weitere Webseite</b> im Browser zu öffnen, drücken wir das <b>Plus-Zeichen</b>.</p>
                 <p>Dann öffnet sich ein <b>neuer</b> ______</p>
                 <p></p>
             </Bubble>
-            <Bubble size="small" :visible="currentStep === 9" v-on:prev="currentStep--" prev>
+            <Bubble size="small" :visible="currentStep === 9"> <!--v-on:prev="currentStep--" prev-->
                 <p>Ok, der letzte Baumstamm (<b>Nummer 4</b>) ist dran!</p>
-                <p>Was wird angezeigt, wenn wir eine Adresse in die Adresszeile eingeben?</p>
+                <p>In die <b>Adresszeile</b> des Browsers könen wir die <b>Adresse</b> einer _____________ eingeben.</p>
             </Bubble>
         </Character>
 
@@ -247,8 +244,8 @@
             <Bubble v-on:next="currentStep++" next>
                 <p><b>Super!</b></p>
                 <p>Du hast das Gelernte der Lektion <b>'Browser & Suchmaschinen'</b> angewendet.</p>
-                <p><b>Sehr gut gemacht!</b><br>
-                    Auf zur nächsten Lektion!</p>
+                <p><b>Sehr gut gemacht!</b></p>
+                <p>Bist du bereit für die <b>nächste</b> Lektion?</p>
             </Bubble>
         </Character>
     </main-layout>
@@ -368,18 +365,44 @@
                                 this.showCodi = true;
                                 this.currentStep = 7;
                             },
-                            2000);
+                            3000);
                         this.disabledA = true;
                         this.disabledAB = true;
                         this.browser = [];
-                        if(this.disabledB){
+                        if (this.disabledB && this.disabledC && this.disabledD) {
+                            document.getElementById('bellaWalk').className += " slideRight1"; // A
+                            setTimeout(() => {
+                                    document.getElementById('bellaWalk').className += " slideDown1"; // B
+                                },
+                                2000);
+                            setTimeout(() => {
+                                    document.getElementById('bellaWalk').className += " slideDown2"; // C
+                                },
+                                5500);
+                            setTimeout(() => {
+                                    document.getElementById('bellaWalk').className += " slideRight2"; // D
+                                },
+                                7500);
+
+                        } else if (this.disabledB && this.disabledC) {
                             document.getElementById('bellaWalk').className += " slideRight1";
                             setTimeout(() => {
-                                    document.getElementById('bellaWalk').className += " slideDown1";
+                                    document.getElementById('bellaWalk').className += " slideDown1"; // B
                                 },
-                                3000);
+                                2000);
+                            setTimeout(() => {
+                                    document.getElementById('bellaWalk').className += " slideDown2"; // C
+                                },
+                                5500);
+                        } else if (this.disabledB) {
+                            document.getElementById('bellaWalk').className += " slideRight1"; // A
+                            setTimeout(() => {
+                                    document.getElementById('bellaWalk').className += " slideDown1"; // B
+                                },
+                                2000);
+                        } else {
+                            document.getElementById('bellaWalk').className += " slideRight1"; // A
                         }
-
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -423,13 +446,29 @@
                                 this.showCodi = true;
                                 this.currentStep = 8;
                             },
-                            2000);
+                            3000);
                         this.disabledAB = true;
                         this.disabledB = true;
                         this.disabledBD = true;
                         this.such = [];
-                        if(this.disabledA) {
-                            document.getElementById('bellaWalk').className += " slideDown1";
+                        if (this.disabledA && this.disabledC && this.disabledD) {
+                            document.getElementById('bellaWalk').className += " slideDown1"; // B
+                            setTimeout(() => {
+                                    document.getElementById('bellaWalk').className += " slideDown2"; // C
+                                },
+                                3500);
+                            setTimeout(() => {
+                                    document.getElementById('bellaWalk').className += " slideRight2"; // D
+                                },
+                                5500);
+                        } else if (this.disabledA && this.disabledC) {
+                            document.getElementById('bellaWalk').className += " slideDown1"; // B
+                            setTimeout(() => {
+                                    document.getElementById('bellaWalk').className += " slideDown2"; // C
+                                },
+                                3500);
+                        } else if (this.disabledA ) {
+                            document.getElementById('bellaWalk').className += " slideDown1"; // B
                         }
                     } else {
                         this.showCodi = false;
@@ -472,11 +511,19 @@
                                 this.showCodi = true;
                                 this.currentStep = 9;
                             },
-                            2000);
+                            3000);
                         this.disabledC = true;
                         this.submitAll();
                         this.tab = [];
-                        document.getElementById('bellaWalk').className += " slideDown2";
+                        if (this.disabledA && this.disabledB && this.disabledD) {
+                            document.getElementById('bellaWalk').className += " slideDown2"; // C
+                            setTimeout(() => {
+                                    document.getElementById('bellaWalk').className += " slideRight2"; // D
+                                },
+                                2000);
+                        } else if (this.disabledA && this.disabledB) {
+                            document.getElementById('bellaWalk').className += " slideDown2";// C
+                        }
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -518,12 +565,14 @@
                                 //this.showCodi = true;
                                 //this.currentStep = 10;
                             },
-                            2000);
+                            3000);
                         this.disabledD = true;
                         this.disabledBD = true;
                         this.submitAll();
                         this.website = [];
-                        document.getElementById('bellaWalk').className += " slideRight2";
+                        if (this.disabledA && this.disabledB && this.disabledC) {
+                            document.getElementById('bellaWalk').className += " slideRight2"; // D
+                        }
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -552,8 +601,7 @@
                     setTimeout(() => {
                             this.currentStep = 11;
                         },
-                        5000);
-                    console.log('CurrentStep: ' + this.currentStep);
+                        4000);
                 }
             },
 
@@ -853,7 +901,7 @@
     }
 
     .slideUp {
-        left: 10%;
+        left: 8%;
         transform: rotate(180deg);
         animation-name: slideUp, rotateRight;
         animation-duration: 3s, 2s;
@@ -872,7 +920,7 @@
 
     @keyframes rotateRight {
         from {
-            left: 10%;
+            left: 8%;
             bottom: 65%;
         }
         to {
@@ -885,17 +933,17 @@
     }
 
     .slideRight1 {
-        left: 10%;
+        left: 8%;
         bottom: 77%;
         transform: rotate(270deg);
         animation-name: slideRight1;
-        animation-duration: 3s;
+        animation-duration: 2s;
         animation-fill-mode: forwards;
     }
 
     @keyframes slideRight1 {
         from {
-            left: 10%;
+            left: 8%;
         }
         to {
             left: 25%;
@@ -906,8 +954,8 @@
         left: 25%;
         bottom: 77%;
         animation-name: rotateDown1, slideDown1;
-        animation-duration: 1.5s, 3s;
-        animation-delay: 0s, 1s;
+        animation-duration: 1.5s, 2s;
+        animation-delay: 0s, 1.5s;
         animation-fill-mode: forwards, forwards;
     }
 
@@ -916,7 +964,7 @@
             left: 25%
         }
         to {
-            left: 36.5%;
+            left: 35%;
         }
         100% {
             transform: rotate(360deg);
@@ -933,11 +981,11 @@
     }
 
     .slideDown2 {
-        left: 36.5%;
+        left: 35%;
         bottom: 58%;
         transform: rotate(0);
         animation-name: slideDown2;
-        animation-duration: 3s;
+        animation-duration: 2s;
         animation-fill-mode: forwards;
     }
 
@@ -951,17 +999,17 @@
     }
 
     .slideRight2 {
-        left: 36.5%;
+        left: 35%;
         bottom: 10%;
         animation-name: rotateRight2, slideRight2;
-        animation-duration: 1.5s, 3s;
+        animation-duration: 1.5s, 2s;
         animation-delay: 0s, 1.5s;
         animation-fill-mode: forwards, forwards;
     }
 
     @keyframes rotateRight2 {
         from {
-            left: 36.5%;
+            left: 35%;
             bottom: 10%;
         }
         to {

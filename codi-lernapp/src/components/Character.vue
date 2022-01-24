@@ -57,17 +57,26 @@
     />
     <img
       v-show="character === 'bella' && pose === 'up'"
-      class="character bella pose-normal"
+      class="character bella pose-top"
       src="./../assets/img/characters/Bella_Draufsicht1.png"
       alt="Bella"
     />
     <img
       v-show="character === 'bella' && pose === 'lookUp'"
-      class="character bella pose-normal"
+      class="character bella pose-top"
       src="./../assets/img/characters/Bella_Draufsicht2.png"
       alt="Bella"
     />
-    <div class="height-spacer" aria-hidden="true"></div>
+    <div
+      class="height-spacer"
+      :class="{
+        'codi-front': character === 'codi',
+        'bella-front': character === 'bella' && pose === 'normal',
+        'bella-up':
+          character === 'bella' && (pose === 'up' || pose === 'lookUp'),
+      }"
+      aria-hidden="true"
+    ></div>
   </div>
 </template>
 
@@ -142,8 +151,16 @@ export default {
 .height-spacer {
   width: 100%;
 
-  .codi ~ & {
+  &.codi-front {
     height: 22rem;
+  }
+
+  &.bella-front {
+    height: 20rem;
+  }
+
+  &.bella-up {
+    height: 16rem;
   }
 }
 </style>

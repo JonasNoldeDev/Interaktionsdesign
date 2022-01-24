@@ -1,5 +1,10 @@
 <template>
-    <main-layout :visible="pageStep === 0" :hidden="pageStep !== 0">
+    <main-layout :visible="pageStep === 0" :hidden="pageStep !== 0"
+                 :overlay="true"
+                 :color="'blue'"
+                 :firstheader="'Lektion 1'"
+                 :secondheader="'Browser Spiel'"
+                 :picFile="'Codi-Richtig'">
         <Character position="right" :pose="characterPose" ref="character">
             <Bubble :visible="currentStep === 0" v-on:next="currentStep++" next>
                 <p>Oh <b>wow!</b></p>
@@ -206,7 +211,7 @@
                            :disabled="disabledB"
                            @input="submitB">
                 </div>
-                <div class="row_7a position5">
+                <div class="row_8 position5">
                     <input id="d1" class="size arrowRight" alt="Eingabefeld" type="text" maxlength="1" placeholder="4"
                            :disabled="disabledD"
                            @input="submitD">
@@ -226,6 +231,9 @@
                            :disabled="disabledD"
                            @input="submitD">
                     <input id="d7" class="size" alt="Eingabefeld" type="text" maxlength="1"
+                           :disabled="disabledD"
+                           @input="submitD">
+                    <input id="d8" class="size" alt="Eingabefeld" type="text" maxlength="1"
                            :disabled="disabledD"
                            @input="submitD">
                 </div>
@@ -304,7 +312,7 @@
         },
         watch: {
             currentStep: function (newStep) {
-                if (newStep === 13) {
+                if (newStep === 12) {
                     this.$root.currentRoute = (vueConfig.publicPath || '') + "/lernsektionen";
                     window.history.pushState(null, "Lernsektionen", (vueConfig.publicPath || '') + "/lernsektionen");
                 }
@@ -364,7 +372,14 @@
                         this.disabledA = true;
                         this.disabledAB = true;
                         this.browser = [];
-                        document.getElementById('bellaWalk').className += " slideRight1";
+                        if(this.disabledB){
+                            document.getElementById('bellaWalk').className += " slideRight1";
+                            setTimeout(() => {
+                                    document.getElementById('bellaWalk').className += " slideDown1";
+                                },
+                                3000);
+                        }
+
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -413,7 +428,9 @@
                         this.disabledB = true;
                         this.disabledBD = true;
                         this.such = [];
-                        document.getElementById('bellaWalk').className += " slideDown1";
+                        if(this.disabledA) {
+                            document.getElementById('bellaWalk').className += " slideDown1";
+                        }
                     } else {
                         this.showCodi = false;
                         this.showWrong = true;
@@ -479,10 +496,10 @@
             },
             submitD: function () {
                 let inputsD = [];
-                let website = ["w", "e", "b", "s", "i", "t", "e"];
+                let website = ["w", "e", "b", "s", "e", "i", "t", "e"];
                 const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b)
 
-                for (let i = 1; i <= 7; i++) {
+                for (let i = 1; i <= 8; i++) {
                     if (i === 2) {
                         let input = document.getElementById('b12').value.toLowerCase();
                         inputsD.push(input);
@@ -491,7 +508,7 @@
                         inputsD.push(input);
                     }
                 }
-                if (inputsD[0] && inputsD[1] && inputsD[2] && inputsD[3] && inputsD[4] && inputsD[5] && inputsD[6]) {
+                if (inputsD[0] && inputsD[1] && inputsD[2] && inputsD[3] && inputsD[4] && inputsD[5] && inputsD[6] && inputsD[7]) {
                     //this.clearAll = true;
                     if (equals(inputsD, website)) {
                         this.showCodi = false;
@@ -688,7 +705,7 @@
             background-image: url(../assets/img/Holz_mitSchatten_7.png);
             background-repeat: no-repeat;
             background-size: 49%;
-            padding: 1rem 0.5rem 1rem 1rem;
+            padding: 1rem 0.5rem 1.2rem 1rem;
         }
         @media screen and (orientation: portrait) {
             background-image: url(../assets/img/Holz_mitSchatten_7.png);
@@ -699,11 +716,11 @@
 
     }
 
-    .row_7a {
+    .row_8 {
         @media screen and (orientation: landscape) {
-            background-image: url(../assets/img/Holz_mitSchatten_7a.png);
+            background-image: url(../assets/img/Holz_mitSchatten_8.png);
             background-repeat: no-repeat;
-            background-size: 60%;
+            background-size: 63%;
             padding: 0.5rem 0.5rem 1rem 1rem;
         }
     }
@@ -725,7 +742,7 @@
 
     .position1 {
         @media screen and (orientation: landscape) {
-            margin-left: 15rem;
+            margin-left: 14rem;
         }
         @media screen and (orientation: portrait) {
             margin-left: 10rem;
@@ -734,7 +751,7 @@
 
     .position2 {
         @media screen and (orientation: landscape) {
-            margin-left: 30rem;
+            margin-left: 29rem;
             margin-top: -2.1rem;
         }
         @media screen and (orientation: portrait) {

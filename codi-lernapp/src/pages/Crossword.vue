@@ -86,12 +86,14 @@
                 <p>Kannst <b>Du</b> ihr helfen?</p>
             </Bubble>
 
-            <Bubble size="small" :visible="currentStep === 6"> <!--v-on:next="currentStep++" v-on:prev="currentStep--" prev next -->
+            <Bubble size="small" :visible="currentStep === 6" v-on:next="currentStep++" v-on:prev="currentStep--" prev
+                next>
                 <p>Hier kommt die erste Aufgabe für den Baumstamm mit der <b>Nummer 1</b>:</p>
                 <p><b>Safari</b>, <b>Google Chrome</b> und <b>Firefox</b> sind ________</p>
             </Bubble>
 
-            <Bubble size="small" :visible="currentStep === 7"> <!--v-on:next="currentStep++" v-on:prev="currentStep--" prev next-->
+            <Bubble size="small" :visible="currentStep === 7" v-on:next="currentStep++" v-on:prev="currentStep--" prev
+                    next>
                 <p>Für den <b>zweiten</b> Baumstamm suchen wir folgenden <b>Begriff</b>:</p>
                 <p>Das brauchen wir, um das <b>Internet</b> zu <b>durchsuchen</b>:</p>
                 <!--
@@ -103,13 +105,14 @@
                 -->
             </Bubble>
 
-            <Bubble size="small" :visible="currentStep === 8"> <!--v-on:next="currentStep++" v-on:prev="currentStep--" prev next-->
+            <Bubble size="small" :visible="currentStep === 8" v-on:next="currentStep++" v-on:prev="currentStep--" prev
+                    next>
                 <p>Nun zu Baumstamm <b>Nummer 3</b>:</p>
                 <p>Um eine <b>weitere Webseite</b> im Browser zu öffnen, drücken wir das <b>Plus-Zeichen</b>.</p>
                 <p>Dann öffnet sich ein <b>neuer</b> ______</p>
                 <p></p>
             </Bubble>
-            <Bubble size="small" :visible="currentStep === 9"> <!--v-on:prev="currentStep--" prev-->
+            <Bubble size="small" :visible="currentStep === 9" v-on:prev="currentStep--" prev>
                 <p>Ok, der letzte Baumstamm (<b>Nummer 4</b>) ist dran!</p>
                 <p>In die <b>Adresszeile</b> des Browsers könen wir die <b>Adresse</b> einer _____________ eingeben.</p>
             </Bubble>
@@ -266,6 +269,7 @@
     import Bubble from "../components/Bubble";
     import vueConfig from "../../vue.config";
 
+    let time = 0;
     export default {
         name: 'Crossword',
         components: {
@@ -378,12 +382,12 @@
                             setTimeout(() => {
                                     document.getElementById('bellaWalk').className += " slideDown2"; // C
                                 },
-                                5500);
+                                5000);
                             setTimeout(() => {
                                     document.getElementById('bellaWalk').className += " slideRight2"; // D
                                 },
-                                7500);
-
+                                7000);
+                            time = 10500;
                         } else if (this.disabledB && this.disabledC) {
                             document.getElementById('bellaWalk').className += " slideRight1";
                             setTimeout(() => {
@@ -393,7 +397,7 @@
                             setTimeout(() => {
                                     document.getElementById('bellaWalk').className += " slideDown2"; // C
                                 },
-                                5500);
+                                5000);
                         } else if (this.disabledB) {
                             document.getElementById('bellaWalk').className += " slideRight1"; // A
                             setTimeout(() => {
@@ -456,18 +460,19 @@
                             setTimeout(() => {
                                     document.getElementById('bellaWalk').className += " slideDown2"; // C
                                 },
-                                3500);
+                                3000);
                             setTimeout(() => {
                                     document.getElementById('bellaWalk').className += " slideRight2"; // D
                                 },
-                                5500);
+                                5000);
+                            time = 8500;
                         } else if (this.disabledA && this.disabledC) {
                             document.getElementById('bellaWalk').className += " slideDown1"; // B
                             setTimeout(() => {
                                     document.getElementById('bellaWalk').className += " slideDown2"; // C
                                 },
                                 3500);
-                        } else if (this.disabledA ) {
+                        } else if (this.disabledA) {
                             document.getElementById('bellaWalk').className += " slideDown1"; // B
                         }
                     } else {
@@ -521,6 +526,7 @@
                                     document.getElementById('bellaWalk').className += " slideRight2"; // D
                                 },
                                 2000);
+                            time = 5500;
                         } else if (this.disabledA && this.disabledB) {
                             document.getElementById('bellaWalk').className += " slideDown2";// C
                         }
@@ -532,7 +538,7 @@
                                 this.showCodi = true;
                             },
                             3000);
-                        //this.disabledC = false;
+                        this.disabledC = false;
                         //this.btnInfo = true;
                         this.tab = [];
                     }
@@ -572,6 +578,7 @@
                         this.website = [];
                         if (this.disabledA && this.disabledB && this.disabledC) {
                             document.getElementById('bellaWalk').className += " slideRight2"; // D
+                            time = 3500;
                         }
                     } else {
                         this.showCodi = false;
@@ -581,7 +588,7 @@
                                 this.showCodi = true;
                             },
                             3000);
-                        //this.disabledD = false;
+                        this.disabledD = false;
                         //this.btnInfo = true;
                         this.website = [];
                     }
@@ -594,14 +601,18 @@
             submitAll: function () {
                 if (this.disabledA && this.disabledAB && this.disabledB && this.disabledBD &&
                     this.disabledC && this.disabledD) {
-                    this.showFin = true;
-                    this.showCodi = false;
-                    this.showBubble = false;
-                    this.currentStep = 10;
+                    setTimeout(() => {
+                            this.showFin = true;
+                            this.showCodi = false;
+                            this.showBubble = false;
+                            this.currentStep = 10;
+                        },
+                        time - 3000);
+
                     setTimeout(() => {
                             this.currentStep = 11;
                         },
-                        4000);
+                        time);
                 }
             },
 
@@ -954,7 +965,7 @@
         left: 25%;
         bottom: 77%;
         animation-name: rotateDown1, slideDown1;
-        animation-duration: 1.5s, 2s;
+        animation-duration: 1.5s, 1.5s;
         animation-delay: 0s, 1.5s;
         animation-fill-mode: forwards, forwards;
     }

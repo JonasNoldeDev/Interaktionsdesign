@@ -8,7 +8,8 @@ let routes = {
     '/lernsektionen/crossword': 'Crossword',
     '/lernsektionen/lesson1/part1': 'lesson1/part1',
     '/optionen': 'Optionen',
-    '/explain': 'Explain'
+    '/explain': 'Explain',
+    '/lernsektionen/lesson2/part1': 'lesson2/part1',
 };
 
 if ('publicPath' in vueConfig && vueConfig.publicPath != '') {

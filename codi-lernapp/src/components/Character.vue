@@ -104,6 +104,11 @@ export default {
     left: auto;
     right: 3rem;
   }
+
+  &.center-right {
+    left: auto;
+    right: 18rem;
+  }
 }
 .character {
   display: block;

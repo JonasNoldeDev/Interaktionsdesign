@@ -24,7 +24,9 @@
         <li class="sektion">
           <div class="sektion-text">
             <v-button
-              :href="(vueConfig.publicPath || '') + '/'"
+              :href="
+                (vueConfig.publicPath || '') + '/lernsektionen/lesson2/part1'
+              "
               >Start</v-button
             >
           </div>
@@ -35,8 +37,7 @@
         </li>
         <li class="sektion">
           <div class="sektion-text">
-            <v-button
-              :href="(vueConfig.publicPath || '') + '/'"
+            <v-button :href="(vueConfig.publicPath || '') + '/'"
               >Start</v-button
             >
           </div>
@@ -47,8 +48,7 @@
         </li>
         <li class="sektion">
           <div class="sektion-text">
-            <v-button
-              :href="(vueConfig.publicPath || '') + '/'"
+            <v-button :href="(vueConfig.publicPath || '') + '/'"
               >Start</v-button
             >
           </div>

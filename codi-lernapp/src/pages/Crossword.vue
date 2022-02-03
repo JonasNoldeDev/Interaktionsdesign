@@ -44,7 +44,8 @@
         </Character>
 
         <Character id="bellaWalk" class="bellaWalk slideUp" :character="character"
-                   v-if="currentStep > 5 && currentStep < 11" :pose="bellaPose">
+                   v-if="currentStep > 5 && currentStep < 11 || currentStep === 71 || currentStep === 91 || currentStep === 92"
+                   :pose="bellaPose">
         </Character>
 
 
@@ -87,7 +88,7 @@
             </Bubble>
 
             <Bubble size="small" :visible="currentStep === 6" v-on:next="currentStep++" v-on:prev="currentStep--" prev
-                next>
+                    next>
                 <p>Hier kommt die erste Aufgabe für den Baumstamm mit der <b>Nummer 1</b>:</p>
                 <p><b>Safari</b>, <b>Google Chrome</b> und <b>Firefox</b> sind ________</p>
             </Bubble>
@@ -96,14 +97,19 @@
                     next>
                 <p>Für den <b>zweiten</b> Baumstamm suchen wir folgenden <b>Begriff</b>:</p>
                 <p>Das brauchen wir, um das <b>Internet</b> zu <b>durchsuchen</b>:</p>
-                <!--
-                <Bubble size="small" :visible="currentStep === 6" v-on:next="currentStep++" v-on:prev="currentStep--" prev
-                    next>
-                    <p>Tipp:</p>
-                    <p>Beispiele für den Begriff den wir suchen sind <b>Google</b> und <b>Bing</b>.</p>
-                </Bubble>
-                -->
+                <p>
+                    <button class="hint" @click="currentStep = 71">
+                        Tipp
+                    </button>
+                </p>
             </Bubble>
+
+            <Bubble size="small" :visible="currentStep === 71" v-on:next="currentStep = 8" v-on:prev="currentStep = 7"
+                    prev next>
+                <p>Tipp:</p>
+                <p>Beispiele für den Begriff den wir suchen sind <b>Google</b> und <b>Bing</b>.</p>
+            </Bubble>
+
 
             <Bubble size="small" :visible="currentStep === 8" v-on:next="currentStep++" v-on:prev="currentStep--" prev
                     next>
@@ -115,7 +121,28 @@
             <Bubble size="small" :visible="currentStep === 9" v-on:prev="currentStep--" prev>
                 <p>Ok, der letzte Baumstamm (<b>Nummer 4</b>) ist dran!</p>
                 <p>In die <b>Adresszeile</b> des Browsers könen wir die <b>Adresse</b> einer _____________ eingeben.</p>
+                <p>
+                    <button class="hint" @click="currentStep = 91">
+                        Tipp
+                    </button>
+                </p>
             </Bubble>
+            <Bubble size="small" :visible="currentStep === 91" v-on:prev="currentStep = 9" prev>
+                <p>Tipp:</p>
+                <p>Wir haben vorhin 'google.de' in die Adresszeile eingegeben, um auf die ___________ von Google zu
+                    kommen.</p>
+                <p>
+                    <button class="hint" @click="currentStep = 92">
+                        Noch ein Tipp
+                    </button>
+                </p>
+            </Bubble>
+
+            <Bubble size="small" :visible="currentStep === 92" v-on:prev="currentStep = 91" prev>
+                <p>Tipp:</p>
+                <p>Das Wort, das wir suchen, ist eine spezielle Seite.</p>
+            </Bubble>
+
         </Character>
 
         <Character class="codi codiAnim" v-if="showFin" :pose="characterPose" position="right" ref="character">
@@ -364,12 +391,19 @@
                     if (equals(inputsA, browser)) {
                         this.showCodi = false;
                         this.showBubble = true;
-                        setTimeout(() => {
-                                this.showBubble = false;
-                                this.showCodi = true;
-                                this.currentStep = 7;
-                            },
-                            3000);
+                        if (this.disabledB && this.disabledC && this.disabledD) {
+                            setTimeout(() => {
+                                    this.showBubble = false;
+                                    this.showCodi = false;
+                                },
+                                10500);
+                        } else {
+                            setTimeout(() => {
+                                    this.showBubble = false;
+                                    this.showCodi = true;
+                                },
+                                3000);
+                        }
                         this.disabledA = true;
                         this.disabledAB = true;
                         this.browser = [];
@@ -389,6 +423,7 @@
                                 7000);
                             time = 10500;
                         } else if (this.disabledB && this.disabledC) {
+                            this.step();
                             document.getElementById('bellaWalk').className += " slideRight1";
                             setTimeout(() => {
                                     document.getElementById('bellaWalk').className += " slideDown1"; // B
@@ -405,6 +440,7 @@
                                 },
                                 2000);
                         } else {
+                            this.step();
                             document.getElementById('bellaWalk').className += " slideRight1"; // A
                         }
                     } else {
@@ -445,12 +481,19 @@
                     if (equals(inputsB, such)) {
                         this.showCodi = false;
                         this.showBubble = true;
-                        setTimeout(() => {
-                                this.showBubble = false;
-                                this.showCodi = true;
-                                this.currentStep = 8;
-                            },
-                            3000);
+                        if (this.disabledA && this.disabledC && this.disabledD) {
+                            setTimeout(() => {
+                                    this.showBubble = false;
+                                    this.showCodi = false;
+                                },
+                                8500);
+                        } else {
+                            setTimeout(() => {
+                                    this.showBubble = false;
+                                    this.showCodi = true;
+                                },
+                                3000);
+                        }
                         this.disabledAB = true;
                         this.disabledB = true;
                         this.disabledBD = true;
@@ -467,12 +510,14 @@
                                 5000);
                             time = 8500;
                         } else if (this.disabledA && this.disabledC) {
+                            this.step();
                             document.getElementById('bellaWalk').className += " slideDown1"; // B
                             setTimeout(() => {
                                     document.getElementById('bellaWalk').className += " slideDown2"; // C
                                 },
                                 3500);
                         } else if (this.disabledA) {
+                            this.step();
                             document.getElementById('bellaWalk').className += " slideDown1"; // B
                         }
                     } else {
@@ -511,14 +556,20 @@
                     if (equals(inputsC, tab)) {
                         this.showCodi = false;
                         this.showBubble = true;
-                        setTimeout(() => {
-                                this.showBubble = false;
-                                this.showCodi = true;
-                                this.currentStep = 9;
-                            },
-                            3000);
+                        if (this.disabledA && this.disabledB && this.disabledD) {
+                            setTimeout(() => {
+                                    this.showBubble = false;
+                                    this.showCodi = false;
+                                },
+                                5500);
+                        } else {
+                            setTimeout(() => {
+                                    this.showBubble = false;
+                                    this.showCodi = true;
+                                },
+                                3000);
+                        }
                         this.disabledC = true;
-                        this.submitAll();
                         this.tab = [];
                         if (this.disabledA && this.disabledB && this.disabledD) {
                             document.getElementById('bellaWalk').className += " slideDown2"; // C
@@ -528,6 +579,7 @@
                                 2000);
                             time = 5500;
                         } else if (this.disabledA && this.disabledB) {
+                            this.step();
                             document.getElementById('bellaWalk').className += " slideDown2";// C
                         }
                     } else {
@@ -566,19 +618,27 @@
                     if (equals(inputsD, website)) {
                         this.showCodi = false;
                         this.showBubble = true;
-                        setTimeout(() => {
-                                this.showBubble = false;
-                                //this.showCodi = true;
-                                //this.currentStep = 10;
-                            },
-                            3000);
+                        if (this.disabledB && this.disabledC && this.disabledD) {
+                            setTimeout(() => {
+                                    this.showBubble = false;
+                                    this.showCodi = false;
+                                },
+                                3500);
+                        } else {
+                            setTimeout(() => {
+                                    this.showBubble = false;
+                                    this.showCodi = true;
+                                },
+                                3000);
+                        }
                         this.disabledD = true;
                         this.disabledBD = true;
-                        this.submitAll();
                         this.website = [];
                         if (this.disabledA && this.disabledB && this.disabledC) {
                             document.getElementById('bellaWalk').className += " slideRight2"; // D
                             time = 3500;
+                        } else {
+                            this.step();
                         }
                     } else {
                         this.showCodi = false;
@@ -613,6 +673,18 @@
                             this.currentStep = 11;
                         },
                         time);
+                }
+            },
+
+            step: function () {
+                if (!this.disabledA) {
+                    this.currentStep = 6;
+                } else if (this.disabledA && !this.disabledB) {
+                    this.currentStep = 7;
+                } else if (this.disabledA && this.disabledB && !this.disabledC) {
+                    this.currentStep = 8;
+                } else if (this.disabledA && this.disabledB && this.disabledC && !this.disabledD) {
+                    this.currentStep = 9;
                 }
             },
 
@@ -723,6 +795,18 @@
         background-image: url(../assets/img/arrow_down.png);
         background-size: contain;
         background-repeat: no-repeat;
+    }
+
+    .hint {
+        position: relative;
+        font: inherit;
+        font-weight: 500;
+        font-size: 1.25rem;
+        color: #fff;
+        border: 0;
+        background: var(--color-orange-dark) 0 0;
+        padding: .25em .75em;
+        border-radius: 5%;
     }
 
     .size {

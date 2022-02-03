@@ -8,7 +8,14 @@
       <div class="gmail">
         <div class="gmail-sidebar">
           <div class="logo">Cmail</div>
-          <button class="write">+ Schreiben</button>
+          <button
+            class="write"
+            :disabled="currentStep !== 13"
+            @click="currentStep = 14"
+            :class="{ 'is-animating': currentStep === 13 }"
+          >
+            + Schreiben
+          </button>
           <button class="active">
             <img
               src="./../../assets/img/simulator/mail/mail-tab-1.jpg"
@@ -40,7 +47,7 @@
             />
           </button>
         </div>
-        <div class="gmail-mails">
+        <div class="gmail-mails" v-if="currentStep < 11">
           <button
             class="unread"
             :disabled="currentStep < 9"
@@ -62,6 +69,79 @@
             <span>Bella</span>
             <span>Willkommen in der Mailwelt Codi</span>
           </button>
+        </div>
+        <div class="gmail-mail-full" v-else>
+          <div class="title">Yahey an meinen Urlaubspapagei</div>
+          <div class="contact">
+            <span aria-hidden="true"></span>
+            <span>Bella</span>
+            <span>&#60;bella.beifuß@web.de&#62;</span>
+            <span>
+              <img
+                src="./../../assets/img/simulator/mail/mail-full-1.png"
+                alt=""
+              />
+            </span>
+            <span
+              class="answer"
+              :class="{ 'is-animating': currentStep === 12 }"
+            >
+              <img
+                src="./../../assets/img/simulator/mail/mail-full-2.png"
+                alt=""
+              />
+            </span>
+            <span>
+              <img
+                src="./../../assets/img/simulator/mail/mail-full-3.png"
+                alt=""
+              />
+            </span>
+          </div>
+          <div class="body">
+            Hey Codi!<br />
+            Hoffentlich bist du gut im Urlaub angekommen. Gib mir doch bitte
+            Bescheid wenn du gelandet bist und ERZÄHL MIR ALLES.<br />
+            <br />
+            LG Bella
+          </div>
+        </div>
+      </div>
+      <div class="gmail-mail-write" v-if="currentStep >= 14 && currentStep < 19">
+        <div class="gmail-mail-write-content">
+          <div class="header">Neue Nachricht</div>
+          <div class="row" :class="{ 'is-animating': currentStep === 15 }">
+            <strong>An</strong>
+            <div v-if="currentStep > 15">bella.beifuß@web.de</div>
+          </div>
+          <div class="row" :class="{ 'is-animating': currentStep === 16 }">
+            <strong>Betreff</strong>
+            <div v-if="currentStep > 16">
+              Yahey zurück an meine Lieblingshündin
+            </div>
+          </div>
+          <div class="body" :class="{ 'is-animating': currentStep === 17 }">
+            <div v-if="currentStep > 17">
+              Hey Bella,<br />
+              ich bin gut angekommen. Es ist super schön hier, die Palmen sind
+              genau so grün wie das Gras bei dir daheim im Garten. Ich wünschte
+              du wärst auch hier und wir könnten zusammen im warmen Sand
+              spielen.<br />
+              <br />
+              Sonnige Grüße<br />
+              Codi
+            </div>
+          </div>
+          <div>
+            <button
+              class="send"
+              :class="{ 'is-animating': currentStep === 18 }"
+              :disabled="currentStep !== 18"
+              @click="currentStep++"
+            >
+              Senden
+            </button>
+          </div>
         </div>
       </div>
       <img
@@ -239,7 +319,117 @@
       >
         <p>Sie vermisst mich wohl schon, lass uns ihr antworten!</p>
       </Bubble>
-      <!-- TODO: step 11 und nächste, mail inhalt anzeigen, mail schreiben? -->
+      <Bubble
+        size="small"
+        :visible="currentStep === 12"
+        v-on:next="currentStep++"
+        v-on:prev="currentStep--"
+        prev
+        next
+      >
+        <p>
+          Um direkt auf Bellas E-Mail zu antworten, können wir entweder auf das
+          Antworten-Icon klicken, oder...
+        </p>
+      </Bubble>
+      <Bubble
+        size="small"
+        :visible="currentStep === 13"
+        v-on:prev="currentStep--"
+        prev
+      >
+        <p>
+          ...über den Button "Schreiben" E-Mails an jeden verschicken,
+          der eine E-Mail-Adresse hat. Zum Beispiel auch an Bella!<br />
+          Das wolen wir doch mal ausprobieren, klicken wir dafür mal auf
+          "Schreiben".
+        </p>
+      </Bubble>
+      <Bubble
+        size="small"
+        :visible="currentStep === 14"
+        v-on:next="currentStep++"
+        v-on:prev="currentStep--"
+        prev
+        next
+      >
+      <p>
+        Yey, sehr gut!
+      </p>
+        <p>
+          Die drei wichtigsten Textfelder, die wir ausfüllen müssen um eine neue
+          E-Mail zu schreiben, sind <b>Empfänger-Adresse</b>, <b>Betreff</b> und
+          unsere <b>Nachricht</b>.
+        </p>
+      </Bubble>
+      <Bubble
+        size="small"
+        :visible="currentStep === 15"
+        v-on:next="currentStep++"
+        v-on:prev="currentStep--"
+        prev
+        next
+      >
+        <p>
+          Damit die E-Mail ihren Weg zu Bella findet, tragen wir ihre
+          E-Mail-Adresse in das Feld für den "<b>Empfänger</b>" der E-Mail
+          ein.<br />
+          Bella's Adresse kann ich auswendig: <b>bella.beifuß@web.de</b>
+        </p>
+      </Bubble>
+      <Bubble
+        size="small"
+        :visible="currentStep === 16"
+        v-on:next="currentStep++"
+        v-on:prev="currentStep--"
+        prev
+        next
+      >
+        <p>
+          Der <b>Betreff</b> der E-Mail ist dafür da, kurz zu beschreiben um was
+          es in der E-Mail geht. In unserem Fall können wir so etwas wie "Yahey
+          zurück an meine Lieblingshündin" schreiben.
+        </p>
+      </Bubble>
+      <Bubble
+        size="small"
+        :visible="currentStep === 17"
+        v-on:next="currentStep++"
+        v-on:prev="currentStep--"
+        prev
+        next
+      >
+        <p>
+          In das große leere Textfeld schreiben wir unsere <b>Nachricht</b> an
+          Bella. Ich habe schon eine Idee, was wir ihr antworten können.
+        </p>
+      </Bubble>
+      <Bubble
+        size="small"
+        :visible="currentStep === 18"
+        v-on:prev="currentStep--"
+        prev
+      >
+        <p>
+          Sind alle Informationen eingetragen und auf Schreibfehler überprüft,
+          können wir die E-Mail abschicken. Das macht mir immer am meisten Spaß.
+          Du darfst das dieses Mal aber ausnahmsweise übernehmen, klicke doch
+          auf den Button "Senden".
+        </p>
+      </Bubble>
+      <Bubble
+        size="small"
+        :visible="currentStep === 19"
+        v-on:next="currentStep++"
+        v-on:prev="currentStep--"
+        prev
+        next
+      >
+        <p>
+          Super! Das wäre erledigt. Während Bella unsere E-Mail durchliest, können wir in der Zwischenzeit ein Quiz spielen.<br>
+          Kommt mal mit!
+        </p>
+      </Bubble>
     </Character>
   </main-layout>
 </template>
@@ -275,13 +465,13 @@ export default {
   },
   watch: {
     currentStep: function (newStep) {
-      if (newStep === 13) {
+      if (newStep === 20) {
         this.$root.currentRoute =
-          (vueConfig.publicPath || "") + "/lernsektionen/sektion1";
+          (vueConfig.publicPath || "") + "/lernsektionen/multiplechoice";
         window.history.pushState(
           null,
-          "Sektion1",
-          (vueConfig.publicPath || "") + "/lernsektionen/sektion1"
+          "MultipleChoice",
+          (vueConfig.publicPath || "") + "/lernsektionen/multiplechoice"
         );
       }
 
@@ -303,6 +493,13 @@ export default {
         10: "wrong",
         11: "right",
         12: "normal",
+        13: "normal",
+        14: "right",
+        15: "explaining",
+        16: "normal",
+        17: "explaining",
+        18: "normal",
+        19: "right",
       };
 
       if (!(newStep in poseDict)) return;
@@ -369,6 +566,17 @@ export default {
   }
   100% {
     transform: scale(1.25, 2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes shadow-short {
+  0% {
+    transform: scale(1, 1);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(2, 1.5);
     opacity: 0;
   }
 }
@@ -450,6 +658,47 @@ export default {
     width: auto;
     padding: 0.5rem 1rem;
     margin: 1rem;
+
+    &[disabled] {
+      color: inherit;
+    }
+
+    &::after {
+      content: "";
+      display: none;
+      position: absolute;
+      z-index: -2;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--color-orange);
+      backface-visibility: hidden;
+      pointer-events: none;
+      border-radius: 2rem;
+    }
+
+    &.is-animating {
+      z-index: 1;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+        border-radius: 2rem;
+      }
+
+      &::after {
+        display: block;
+        animation: shadow 1.5s ease-in-out infinite;
+      }
+    }
   }
 
   button {
@@ -537,6 +786,241 @@ export default {
       &::after {
         display: block;
         animation: shadow-long 1.5s 0.375s ease-in-out infinite;
+      }
+    }
+  }
+}
+.gmail-mail-full {
+  .title {
+    padding: 1rem 2rem 0.5rem;
+  }
+  .contact {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1.75rem;
+
+    span {
+      margin: 0 0.25rem;
+    }
+
+    span:first-child {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 100%;
+      background: #ddd;
+    }
+
+    span:nth-child(3) {
+      flex: 1;
+      color: #666;
+    }
+  }
+  .body {
+    font-size: 1.125rem;
+    padding: 2rem;
+    margin-top: 1rem;
+    border-top: 1px solid #efefef;
+  }
+  .answer {
+    &::after {
+      content: "";
+      display: none;
+      position: absolute;
+      z-index: -2;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--color-orange);
+      backface-visibility: hidden;
+      pointer-events: none;
+    }
+
+    &.is-animating {
+      z-index: 1;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+      }
+
+      &::after {
+        display: block;
+        animation: shadow 1.5s ease-in-out infinite;
+      }
+    }
+  }
+}
+.gmail-mail-write {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.gmail-mail-write-content {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.125rem;
+  margin: 2rem;
+  background: #fff;
+  border-radius: 1rem;
+  height: calc(100% - 4rem);
+
+  .header {
+    background: #444;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  .row {
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #efefef;
+
+    strong {
+      color: #666;
+      margin-right: 1rem;
+    }
+
+    &::after {
+      content: "";
+      display: none;
+      position: absolute;
+      z-index: -2;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--color-orange);
+      backface-visibility: hidden;
+      pointer-events: none;
+    }
+
+    &.is-animating {
+      z-index: 1;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+      }
+
+      &::after {
+        display: block;
+        animation: shadow-long 1.5s ease-in-out infinite;
+      }
+    }
+  }
+
+  .body {
+    flex: 1;
+    border-bottom: 1px solid #efefef;
+    padding: 1rem;
+
+    &::after {
+      content: "";
+      display: none;
+      position: absolute;
+      z-index: -2;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--color-orange);
+      backface-visibility: hidden;
+      pointer-events: none;
+    }
+
+    &.is-animating {
+      z-index: 1;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+      }
+
+      &::after {
+        display: block;
+        animation: shadow-short 1.5s ease-in-out infinite;
+      }
+    }
+  }
+
+  .send {
+    font: inherit;
+    font-weight: 500;
+    background: var(--color-orange);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    border: 0;
+
+    &[disabled] {
+      color: #fff;
+    }
+
+    &::after {
+      content: "";
+      display: none;
+      position: absolute;
+      z-index: -2;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--color-orange);
+      backface-visibility: hidden;
+      pointer-events: none;
+      border-radius: 0.5rem;
+    }
+
+    &.is-animating {
+      z-index: 1;
+      position: relative;
+      animation: pulse 1.5s ease-in-out infinite;
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--color-orange);
+        border-radius: 0.5rem;
+      }
+
+      &::after {
+        display: block;
+        animation: shadow 1.5s 0.375s ease-in-out infinite;
       }
     }
   }

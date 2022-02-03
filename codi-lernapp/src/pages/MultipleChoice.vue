@@ -1,5 +1,5 @@
 <template>
-    <main-layout :overlay="true" :color="'blue'" :firstheader="'Lektion2'" :secondheader="'E-Mail'" :picFile="'Codi-Normal'">
+    <main-layout :overlay="true" :color="'blue'" :firstheader="'Lektion 2'" :secondheader="'E-Mail Quiz'" :picFile="'Codi-Normal'">
         <div v-show="currentStep == 1" class="MultipleChoice">
             <div class="MC-item-container">
                 <div v-on:click="checkcorrect(true)" class="MC-item">

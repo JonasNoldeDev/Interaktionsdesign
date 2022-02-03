@@ -8,8 +8,9 @@ let routes = {
     '/lernsektionen/sektion1': 'Sektion1',
     '/lernsektionen/crossword': 'Crossword',
     '/lernsektionen/lesson1/part1': 'lesson1/part1',
+    '/lernsektionen/lesson2/part1': 'lesson2/part1',
     '/lernsektionen/multiplechoice': 'MultipleChoice',
-    '/lernsektionen/pdf': 'PDF'
+    '/lernsektionen/pdf': 'PDF',
 };
 
 if ('publicPath' in vueConfig && vueConfig.publicPath != '') {

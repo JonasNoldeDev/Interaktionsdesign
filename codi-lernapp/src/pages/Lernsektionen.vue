@@ -18,11 +18,14 @@
           </div>
           <h2 class="sektion-title">Lektion 1: Internet Browser</h2>
         </li>
-        <li class="sektion disabled">
+        <li class="sektion">
           <div class="sektion-text">
+            <img
+              src="./../assets/img/sections/SektionEMail.jpg"
+              alt=""
+            />
             <v-button
-              :href="(vueConfig.publicPath || '') + '/'"
-              tabindex="-1"
+              :href="(vueConfig.publicPath || '') + '/lernsektionen/lesson2/part1'"
               >Start</v-button
             >
           </div>

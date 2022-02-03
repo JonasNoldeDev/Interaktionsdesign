@@ -120,6 +120,11 @@ export default {
     left: auto;
     right: 20rem;
   }
+
+  &.center-right {
+    left: auto;
+    right: 18rem;
+  }
 }
 
 .character {

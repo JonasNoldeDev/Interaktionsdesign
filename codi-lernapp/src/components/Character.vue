@@ -96,6 +96,15 @@ export default {
       default: "normal",
     },
   },
+  watch: {
+    pose: function(){
+      if(this.pose == "right"){
+        var rightsound = new Audio(require("../assets/music/mixkit-toy-whistler-bird-sound-18.wav"));
+        rightsound.volume = 0.3;
+        rightsound.play();
+      }
+    }
+  }
 };
 </script>
 

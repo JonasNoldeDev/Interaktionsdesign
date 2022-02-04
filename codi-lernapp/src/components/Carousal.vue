@@ -5,10 +5,10 @@
     <!-- Navigation -->
     <div class="navigation">
       <div v-show="currentSlide > 1" class="toggle-page left">
-        <span @click="prevSlide">zurück</span>
+        <span v-on:click="playClick" @click="prevSlide">zurück</span>
       </div>
       <div class="toggle-page right">
-        <span @click="nextSlide(this)">weiter</span>
+        <span v-on:click="playClick" @click="nextSlide(this)">weiter</span>
       </div>
     </div>
 
@@ -73,6 +73,13 @@ export default {
 
     return { currentSlide, nextSlide, prevSlide, getSlideCount, GotoSlide };
   },
+  methods: {
+    playClick() {
+      var clickSound = new Audio(require("../assets/music/mixkit-select-click-1109.wav"));
+      clickSound.volume = 0.4;
+      clickSound.play();
+    }
+  }
 };
 </script>
 

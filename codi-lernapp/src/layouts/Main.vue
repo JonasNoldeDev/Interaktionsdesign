@@ -1,7 +1,7 @@
 <template>
   <div class="page-wrapper">
     <main class="main" :class="isSlider" role="main">
-      <v-button class="home-button" href="/">
+      <v-button v-on:click="playClick" class="home-button" href="/">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -24,7 +24,7 @@
         <i
           @click="stopMusic"
           v-show="playMusic"
-          class="fas fa-volume-up up orange"
+          class="fas fa-volume-up up"
         ></i>
         <i
           @click="startMusic"
@@ -69,6 +69,7 @@
 <script>
 import VButton from "../components/VButton.vue";
 
+
 export default {
   props: {
     color: {
@@ -92,6 +93,7 @@ export default {
       type: String,
     },
   },
+  
   computed: {
     playMusic() {
       return this.$store.state.playMusic;
@@ -107,7 +109,12 @@ export default {
     stopMusic() {
       this.$store.commit("stopMusic");
     },
-  },
+    playClick() {
+      var clickSound = new Audio(require("../assets/music/mixkit-select-click-1109.wav"));
+      clickSound.volume = 0.4;
+      clickSound.play();
+    }
+  }
 };
 </script>
 

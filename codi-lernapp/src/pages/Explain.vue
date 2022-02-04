@@ -58,7 +58,7 @@
       <img v-show="currentSlide === 4 || currentSlide === 6" class="codi codi-sing" src="./../assets/img/characters/codi/Codi_richtig.png" alt="Codi">
       
       <div class="skip">
-        <i v-on:click="jumpTo" class="fa-solid fa-forward-step"></i>
+        <i v-on:click="playClick" class="fa-solid fa-forward-step"></i>
       </div>
       <div v-show="currentSlide === 2" class="Pointer-weiter">
         <i class="icon fas fa-sort-down"></i>
@@ -91,6 +91,12 @@ export default {
     methods:{
       jumpTo: function () {
         window.location.href = '/lernsektionen/lesson1/part1'
+      },
+      playClick() {
+        var clickSound = new Audio(require("../assets/music/mixkit-select-click-1109.wav"));
+        clickSound.volume = 0.4;
+        clickSound.play();
+        this.jumpTo();
       }
     },
     components: {

@@ -10,7 +10,7 @@
               alt=""
             />
             <v-button
-              :href="
+              v-on:click="playClick" :href="
                 (vueConfig.publicPath || '') + '/lernsektionen/lesson1/part1'
               "
               >Start</v-button
@@ -25,7 +25,7 @@
               alt=""
             />
             <v-button
-              :href="(vueConfig.publicPath || '') + '/lernsektionen/lesson2/part1'"
+              v-on:click="playClick" :href="(vueConfig.publicPath || '') + '/lernsektionen/lesson2/part1'"
               >Start</v-button
             >
           </div>
@@ -38,7 +38,7 @@
               alt=""
             />
             <v-button
-              :href="(vueConfig.publicPath || '') + '/lernsektionen/pdf'"
+              v-on:click="playClick" :href="(vueConfig.publicPath || '') + '/lernsektionen/pdf'"
               >Start</v-button
             >
           </div>
@@ -62,6 +62,13 @@ export default {
   data: () => ({
     vueConfig: vueConfig,
   }),
+  methods: {
+    playClick() {
+      var clickSound = new Audio(require("../assets/music/mixkit-select-click-1109.wav"));
+      clickSound.volume = 0.4;
+      clickSound.play();
+    }
+  }
 };
 </script>
 

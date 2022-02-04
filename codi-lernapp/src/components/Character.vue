@@ -32,17 +32,12 @@
       alt="Codi"
     />
     <img
-      v-show="character === 'codi' && pose === 'moveLeft'"
-      class="character codi pose-moveLeft"
-      src="./../assets/img/characters/codi/Codi_richtig_bewegung1.png"
+      v-show="character === 'codi' && pose === 'move'"
+      class="character codi pose-move"
+      src="./../assets/img/characters/codi/Bewegung.gif"
       alt="Codi"
     />
-    <img
-      v-show="character === 'codi' && pose === 'moveRight'"
-      class="character codi pose-moveRight"
-      src="./../assets/img/characters/codi/Codi_richtig_bewegung2.png"
-      alt="Codi"
-    />
+
     <img
       v-show="character === 'codi' && pose === 'flying'"
       class="character codi pose-flying"

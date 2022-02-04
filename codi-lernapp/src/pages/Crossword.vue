@@ -273,7 +273,7 @@
         <Character position="right" :pose="characterPose" ref="character">
             <Bubble v-on:next="currentStep++" next>
                 <p><b>Super!</b></p>
-                <p>Du hast das Gelernte der Lektion <b>'Browser & Suchmaschinen'</b> angewendet.</p>
+                <p>Du hast das Gelernte der Lektion <b>'Internet Browser'</b> angewendet.</p>
                 <p><b>Sehr gut gemacht!</b></p>
                 <p>Bist du bereit für die <b>nächste</b> Lektion?</p>
             </Bubble>
@@ -325,7 +325,7 @@
                 character: "bella",
                 characterPose: "right",
                 bellaPose: "normal",
-                bubblePose: "right",
+                bubblePose: "move",
                 leftMove: "moveLeft",
                 wrongPose: "wrong",
                 pose: "normal",
@@ -581,6 +581,8 @@
                         } else if (this.disabledA && this.disabledB) {
                             this.step();
                             document.getElementById('bellaWalk').className += " slideDown2";// C
+                        } else {
+                            this.step();
                         }
                     } else {
                         this.showCodi = false;
@@ -618,12 +620,12 @@
                     if (equals(inputsD, website)) {
                         this.showCodi = false;
                         this.showBubble = true;
-                        if (this.disabledB && this.disabledC && this.disabledD) {
+                        if (this.disabledA && this.disabledB && this.disabledC) {
                             setTimeout(() => {
                                     this.showBubble = false;
                                     this.showCodi = false;
                                 },
-                                3500);
+                                1000);
                         } else {
                             setTimeout(() => {
                                     this.showBubble = false;
@@ -636,7 +638,7 @@
                         this.website = [];
                         if (this.disabledA && this.disabledB && this.disabledC) {
                             document.getElementById('bellaWalk').className += " slideRight2"; // D
-                            time = 3500;
+                            time = 4000;
                         } else {
                             this.step();
                         }

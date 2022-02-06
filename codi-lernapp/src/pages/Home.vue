@@ -5,10 +5,10 @@
     <nav>
       <ul>
         <li>
-          <v-button :href="(vueConfig.publicPath || '') + '/explain'">Einführung</v-button>
+          <v-button v-on:click="playClick" :href="(vueConfig.publicPath || '') + '/explain'">Start</v-button>
         </li>
         <li>
-          <v-button :href="(vueConfig.publicPath || '') + '/lernsektionen'">Lernsektionen</v-button>
+          <v-button v-on:click="playClick" :href="(vueConfig.publicPath || '') + '/lernsektionen'">Lernsektionen</v-button>
         </li>
       </ul>
     </nav>
@@ -27,7 +27,14 @@
     },
     data: () => ({
       vueConfig: vueConfig
-    })
+    }),
+    methods: {
+      playClick() {
+        var clickSound = new Audio(require("../assets/music/mixkit-select-click-1109.wav"));
+        clickSound.volume = 0.4;
+        clickSound.play();
+      }
+    }
   }
 </script>
 

@@ -5,7 +5,7 @@
     <nav>
       <ul>
         <li>
-          <v-button :href="(vueConfig.publicPath || '') + '/explain'">Start</v-button>
+          <v-button :href="(vueConfig.publicPath || '') + '/explain'">Einführung</v-button>
         </li>
         <li>
           <v-button :href="(vueConfig.publicPath || '') + '/lernsektionen'">Lernsektionen</v-button>

@@ -107,7 +107,7 @@
             <Bubble size="small" :visible="currentStep === 71" v-on:next="currentStep = 8" v-on:prev="currentStep = 7"
                     prev next>
                 <p>Tipp:</p>
-                <p>Beispiele für den Begriff den wir suchen sind <b>Google</b> und <b>Bing</b>.</p>
+                <p>Beispiele für den Begriff, den wir suchen sind <b>Google</b> und <b>Bing</b>.</p>
             </Bubble>
 
 
